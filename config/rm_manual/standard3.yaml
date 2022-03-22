@@ -48,16 +48,19 @@ rm_manual:
 
   controllers_list:
     state_controllers:
-      - controllers/robot_state_controller
       - controllers/joint_state_controller
+      - controllers/robot_state_controller
+      - controllers/imu_filter_controller
     main_controllers:
       - controllers/chassis_controller
+      - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
       - controllers/cover_controller
     calibration_controllers:
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
+      - controllers/gimbal_calibration_controller
 
   cover_calibration:
     - start_controller: controllers/cover_calibration_controller
