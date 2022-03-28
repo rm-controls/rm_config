@@ -71,3 +71,7 @@ rm_hw:
       accel_coeff: 0.0017944335
       temp_coeff: 0.125
       temp_offset: 23.0
+      filter: complementary
+      do_bias_estimation: false
+      do_adaptive_gain: true
+      gain_acc: 0.0003

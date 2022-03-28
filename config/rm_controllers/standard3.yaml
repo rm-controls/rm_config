@@ -28,12 +28,6 @@ controllers:
     threshold: 1e-2
     pid: { p: 0.6, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
-  imu_filter_controller:
-    type: imu_filter_controllers/ComplementaryController
-    name: "gimbal_imu"
-    do_bias_estimation: false
-    do_adaptive_gain: true
-    gain_acc: 0.0003
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController

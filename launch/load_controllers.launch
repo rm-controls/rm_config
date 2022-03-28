@@ -10,7 +10,6 @@
           args="load
           controllers/joint_state_controller
           controllers/robot_state_controller
-          controllers/imu_filter_controller
           controllers/gimbal_calibration_controller
           controllers/trigger_calibration_controller
           controllers/cover_calibration_controller
