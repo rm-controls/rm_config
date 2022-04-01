@@ -34,6 +34,7 @@ controllers:
     # ChassisBase
     publish_rate: 100
     enable_odom_tf: true
+    publish_odom_tf: false
     power:
       effort_coeff: 12.0
       vel_coeff: 0.0048
