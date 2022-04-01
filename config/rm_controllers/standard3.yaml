@@ -36,9 +36,9 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: false
     power:
-      effort_coeff: 12.0
-      vel_coeff: 0.0048
-      power_offset: 0
+      effort_coeff: 10.0
+      vel_coeff: 0.0060
+      power_offset: -8.41
     twist_angular: 0.5233
     timeout: 0.1
     pid_follow: { p: 20, i: 0, d: 0.6, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
