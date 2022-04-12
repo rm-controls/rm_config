@@ -50,7 +50,6 @@ rm_manual:
     state_controllers:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
-      - controllers/imu_filter_controller
     main_controllers:
       - controllers/chassis_controller
       - controllers/orientation_controller
