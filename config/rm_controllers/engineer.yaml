@@ -1,0 +1,67 @@
+controllers:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+  robot_state_controller:
+    type: robot_state_controller/RobotStateController
+    publish_rate: 100
+
+  joint1_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: joint1
+    actuators: [ joint1_motor_left ]
+    search_velocity: 1.0
+    threshold: 0.001
+    pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  joint2_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: joint2
+    actuators: [ joint2_motor_left ]
+    search_velocity: 1.0
+    threshold: 0.001
+    pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  joint3_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: joint3
+    actuators: [ joint3_motor_left ]
+    search_velocity: 1.0
+    threshold: 0.001
+    pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  joint4_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: joint4
+    actuators: [ joint4_motor ]
+    search_velocity: 1.0
+    threshold: 0.001
+    pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  joint5_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: joint5
+    actuators: [ joint5_motor ]
+    search_velocity: 1.0
+    threshold: 0.001
+    pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  joint6_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: joint6
+    actuators: [ joint6_motor ]
+    search_velocity: 1.0
+    threshold: 0.001
+    pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  joint7_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: joint7
+    actuators: [ joint7_motor ]
+    search_velocity: 1.0
+    threshold: 0.001
+    pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  chassis_controller:
+
+  gimbal_controller:
