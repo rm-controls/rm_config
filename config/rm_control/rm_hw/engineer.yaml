@@ -7,18 +7,18 @@ rm_hw:
   # Configurations of the actuators
   actuators:
     joint1_motor_left:
-      bus: can0
-      id: 0x202
+      bus: can1
+      id: 0x206
       type: rm_3508
       need_calibration: true
     joint1_motor_right:
-      bus: can0
-      id: 0x204
+      bus: can1
+      id: 0x205
       type: rm_3508
       need_calibration: true
     joint2_motor_left:
       bus: can1
-      id: 0x205
+      id: 0x204
       type: rm_3508
       need_calibration: true
     joint2_motor_right:
@@ -33,27 +33,27 @@ rm_hw:
       need_calibration: true
     joint3_motor_right:
       bus: can1
-      id: 0x204
+      id: 0x201
       type: rm_3508
       need_calibration: true
     joint4_motor:
-      bus: can1
+      bus: can0
       id: 0x201
       type: rm_3508
       need_calibration: true
     joint5_motor:
-      bus: can1
-      id: 0x206
+      bus: can0
+      id: 0x202
       type: rm_3508
       need_calibration: true
     joint6_motor:
-      bus: can1
-      id: 0x207
+      bus: can0
+      id: 0x203
       type: rm_3508
       need_calibration: true
     joint7_motor:
-      bus: can1
-      id: 0x208
+      bus: can0
+      id: 0x204
       type: rm_3508
       need_calibration: true
 
