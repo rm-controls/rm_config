@@ -10,15 +10,15 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint1
     actuators: [ joint1_motor_left ]
-    search_velocity: -0.6
+    search_velocity: 0.3
     threshold: 0.001
-    pid: { p: 150, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+    pid: { p: 500, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
 
   joint2_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint2
     actuators: [ joint2_motor_left ]
-    search_velocity: -0.6
+    search_velocity: 0.6
     threshold: 0.001
     pid: { p: 100, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
 
@@ -26,7 +26,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint3
     actuators: [ joint3_motor_left ]
-    search_velocity: -1.0
+    search_velocity: 1.0
     threshold: 0.001
     pid: { p: 100, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
 
@@ -60,6 +60,14 @@ controllers:
     actuators: [ joint7_motor ]
     search_velocity: 1.0
     threshold: 0.001
+    pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+
+  card_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: card_joint
+    actuators: [ card_joint_motor ]
+    search_velocity: 4
+    threshold: 0.1
     pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
 
   chassis_controller:
