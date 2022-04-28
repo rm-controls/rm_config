@@ -21,19 +21,19 @@
         <param name="raising_filter_value" value="0"/>
     </node>
 
-<!--    <node pkg="nodelet" type="nodelet" name="debayer"-->
-<!--          args="load image_proc/debayer vision_nodelet"-->
-<!--          output="screen">-->
-<!--        <remap from="image_raw" to="$(arg camera_name)/image_raw"/>-->
-<!--        <remap from="image_mono" to="$(arg camera_name)/image_mono"/>-->
-<!--        <remap from="image_color" to="$(arg camera_name)/image_color"/>-->
-<!--    </node>-->
+    <node pkg="nodelet" type="nodelet" name="debayer"
+          args="load image_proc/debayer vision_nodelet"
+          output="screen">
+        <remap from="image_raw" to="$(arg camera_name)/image_raw"/>
+        <remap from="image_mono" to="$(arg camera_name)/image_mono"/>
+        <remap from="image_color" to="$(arg camera_name)/image_color"/>
+    </node>
 
-<!--    <node pkg="nodelet" type="nodelet" name="rectify"-->
-<!--          args="load image_proc/rectify vision_nodelet"-->
-<!--          output="screen">-->
-<!--        <remap from="image_mono" to="$(arg camera_name)/image_mono"/>-->
-<!--        <remap from="camera_info" to="$(arg camera_name)/camera_info"/>-->
-<!--        <remap from="image_rect" to="$(arg camera_name)/image_rect"/>-->
-<!--    </node>-->
+    <node pkg="nodelet" type="nodelet" name="rectify"
+          args="load image_proc/rectify vision_nodelet"
+          output="screen">
+        <remap from="image_mono" to="$(arg camera_name)/image_mono"/>
+        <remap from="camera_info" to="$(arg camera_name)/camera_info"/>
+        <remap from="image_rect" to="$(arg camera_name)/image_rect"/>
+    </node>
 </launch>
