@@ -58,7 +58,7 @@ rm_manual:
     calibration_controllers:
       - controllers/trigger_calibration_controller
 
-  trigger_calibration:
+  shooter_calibration:
     - start_controller: controllers/trigger_calibration_controller
       stop_controller: controllers/shooter_controller
       service_name: /controllers/trigger_calibration_controller/is_calibrated

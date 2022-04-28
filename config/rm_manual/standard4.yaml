@@ -59,11 +59,11 @@ rm_manual:
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
 
-  cover_calibration:
+  gimbal_calibration:
     - start_controller: controllers/cover_calibration_controller
       stop_controller: controllers/cover_controller
       service_name: /controllers/cover_calibration_controller/is_calibrated
-  trigger_calibration:
+  shooter_calibration:
     - start_controller: controllers/trigger_calibration_controller
       stop_controller: controllers/shooter_controller
       service_name: /controllers/trigger_calibration_controller/is_calibrated
