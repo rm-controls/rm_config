@@ -1,58 +1,58 @@
 rm_hw:
   bus:
-    - can2
-    - can3
+    - can0
+    - can1
   loop_frequency: 1000
   cycle_time_error_threshold: 0.001
   # Configurations of the actuators
   actuators:
     joint1_motor_left:
-      bus: can3
+      bus: can0
       id: 0x206
       type: rm_3508
       need_calibration: true
     joint1_motor_right:
-      bus: can3
+      bus: can0
       id: 0x205
       type: rm_3508
       need_calibration: true
     joint2_motor_left:
-      bus: can3
+      bus: can0
       id: 0x204
       type: rm_3508
       need_calibration: true
     joint2_motor_right:
-      bus: can3
+      bus: can0
       id: 0x202
       type: rm_3508
       need_calibration: true
     joint3_motor_left:
-      bus: can3
+      bus: can0
       id: 0x203
       type: rm_3508
       need_calibration: true
     joint3_motor_right:
-      bus: can3
+      bus: can0
       id: 0x201
       type: rm_3508
       need_calibration: true
     joint4_motor:
-      bus: can2
+      bus: can1
       id: 0x201
       type: rm_3508
       need_calibration: true
     joint5_motor:
-      bus: can2
+      bus: can1
       id: 0x202
       type: rm_3508
       need_calibration: true
     joint6_motor:
-      bus: can2
+      bus: can1
       id: 0x203
       type: rm_3508
       need_calibration: true
     joint7_motor:
-      bus: can2
+      bus: can1
       id: 0x204
       type: rm_3508
       need_calibration: true
