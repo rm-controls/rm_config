@@ -6,13 +6,6 @@ controllers:
     type: robot_state_controller/RobotStateController
     publish_rate: 100
 
-  gimbal_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: pitch_joint
-    actuators: [ pitch_joint_motor ]
-    search_velocity: 6.28
-    threshold: 1e-2
-    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   trigger_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: trigger_joint
@@ -20,45 +13,6 @@ controllers:
     search_velocity: 3.1415
     threshold: 0.2
     pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
-  cover_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: cover_joint
-    actuators: [ cover_joint_motor ]
-    search_velocity: 6.28
-    threshold: 1e-2
-    pid: { p: 0.6, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
-
-
-  chassis_controller:
-    type: rm_chassis_controllers/OmniController
-    # ChassisBase
-    publish_rate: 100
-    enable_odom_tf: true
-    publish_odom_tf: false
-    power:
-      effort_coeff: 12.0
-      vel_coeff: 0.0048
-      power_offset: 0
-    twist_angular: 0.5233
-    timeout: 0.1
-    pid_follow: { p: 20, i: 0, d: 0.6, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
-
-    # OmniController
-    chassis_radius: 0.208
-    wheel_radius: 0.07625
-    left_front:
-      joint: "left_front_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    right_front:
-      joint: "right_front_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    left_back:
-      joint: "left_back_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    right_back:
-      joint: "right_back_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -71,10 +25,10 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 10, i: 0, d: 0.4, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      pid: { p: 8.0, i: 0, d: 0.2, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
     pitch:
       joint: "pitch_joint"
-      pid: { p: 10.0, i: 0, d: 0.25, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 8.0, i: 0, d: 0.2, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     bullet_solver:
       resistance_coff_qd_10: 0.45
       resistance_coff_qd_15: 1.0
@@ -105,7 +59,7 @@ controllers:
     block_speed: 0.1
     block_duration: 0.05
     block_overtime: 0.5
-    anti_block_angle: 0.6
+    anti_block_angle: 0.2
     anti_block_threshold: 0.1
     qd_15: 420.0
     qd_18: 480.0
