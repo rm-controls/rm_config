@@ -28,12 +28,12 @@ controllers:
           joint: left_pivot_joint
           <<: &pivot_setting
             offset: 0.
-            pid: { p: 5, i: 50, d: 0, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+            pid: { p: 10, i: 0, d: 0.4, i_clamp_max: 0.0, i_clamp_min: -0.4, antiwindup: true }
         wheel:
           joint: left_wheel_joint
           <<: &wheel_setting
             radius: 0.055
-            pid: { p: 0.4, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+            pid: { p: 0.4, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true }
       right:
         position: [ 0., -0.164 ]
         pivot:
@@ -56,5 +56,5 @@ controllers:
     l_b: 0.1638
     g: 9.81
 
-    q: [ 8.6, 0.01, 0.0002 ]
+    q: [ 8.6, 0., 0.0005 ]
     r: [ 0.04 ]
