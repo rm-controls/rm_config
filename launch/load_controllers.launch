@@ -10,13 +10,8 @@
           args="load
           controllers/joint_state_controller
           controllers/robot_state_controller
-          controllers/gimbal_calibration_controller
-          controllers/trigger_calibration_controller
-          controllers/cover_calibration_controller
           controllers/chassis_controller
-          controllers/orientation_controller
-          controllers/gimbal_controller
-          controllers/shooter_controller
+          controllers/reaction_wheel_controller
           "/>
 
     <node if="$(arg ekf)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"
