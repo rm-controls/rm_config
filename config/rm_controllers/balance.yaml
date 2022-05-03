@@ -49,9 +49,9 @@ controllers:
     joint_name: "reaction_wheel_joint"
 
     m_b: 6.9
-    m_w: 2.4
+    m_w: 0.534
     i_b: 2.61e-1
-    i_w: 2.4e-2
+    i_w: 1.369e-2
     l: 0.22
     l_b: 0.1638
     g: 9.81
