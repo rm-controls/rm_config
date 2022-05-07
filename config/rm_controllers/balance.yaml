@@ -28,12 +28,12 @@ controllers:
           joint: left_pivot_joint
           <<: &pivot_setting
             offset: 0.
-            pid: { p: 5, i: 50, d: 0, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+            pid: { p: 10, i: 0, d: 0.4, i_clamp_max: 0.0, i_clamp_min: -0.4, antiwindup: true }
         wheel:
           joint: left_wheel_joint
           <<: &wheel_setting
             radius: 0.055
-            pid: { p: 0.4, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+            pid: { p: 0.4, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true }
       right:
         position: [ 0., -0.164 ]
         pivot:
@@ -48,25 +48,14 @@ controllers:
     imu_name: "base_imu"
     joint_name: "reaction_wheel_joint"
 
-#    m_total: 7.754
-#    l: 0.16
-#    g: -9.81
-#    dt: 0.001
-#
-#    inertia_total: 3.016e-1
-#    inertia_wheel: 1.369e-2
-#
-#    q: [ 1, 1, 1 ]
-#    r: [ 1 ]
+    m_b: 6.9
+    m_w: 2.4
+    i_b: 2.61e-1
+    i_w: 2.4e-2
+    l: 0.22
+    l_b: 0.1638
+    g: 9.81
 
-    m_total: 13.489909
-    l: 0.18
-    g: -9.81
-    dt: 0.001
-
-    inertia_total: 1.955277
-    inertia_wheel: 1.795e-3
-
-    q: [ 1.5 , 10 , 0.01 ]
-    r: [ 50 ]
-
+    q: [ 8.6, 0., 0.0005 ]
+    r: [ 0.04 ]
+    alpha: 0.001
