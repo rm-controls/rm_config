@@ -24,9 +24,9 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: cover_joint
     actuators: [ cover_joint_motor ]
-    search_velocity: 6.28
+    search_velocity: 2
     threshold: 1e-2
-    pid: { p: 0.6, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
 
   chassis_controller:
@@ -41,7 +41,7 @@ controllers:
       power_offset: -8.41
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 20, i: 0, d: 0.6, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 20, i: 0, d: 0.7, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
@@ -49,16 +49,16 @@ controllers:
     wheel_radius: 0.07625
     left_front:
       joint: "left_front_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 1, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     right_front:
       joint: "right_front_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 1, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     left_back:
       joint: "left_back_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 1, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     right_back:
       joint: "right_back_wheel_joint"
-      pid: { p: 0.8, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 1, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -111,6 +111,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
-    qd_15: 420.0
-    qd_18: 480.0
-    qd_30: 740.0
+    qd_15: 506.0
+    qd_18: 562.0
+    qd_30: 805.0
