@@ -12,7 +12,8 @@ controllers:
     actuators: [ trigger_joint_motor ]
     search_velocity: 3.1415
     threshold: 0.001
-    pid: { p: 15, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    pid: { p: 7, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
 
   chassis_controller:
     type: rm_chassis_controllers/MecanumController
@@ -20,17 +21,18 @@ controllers:
     publish_rate: 100
     enable_odom_tf: true
     power:
-      effort_coeff: 12.0
-      vel_coeff: 0.0048
-      power_offset: -3
+      effort_coeff: 9.0
+      vel_coeff: 0.00855
+      power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 8, i: 0, d: 4.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 25, i: 0, d: 16.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # MecanumController
-    wheel_base: 0.47
-    wheel_track: 0.505
+    wheel_base: 0.39
+    wheel_track: 0.39
+
     wheel_radius: 0.07625
 
     left_front:
@@ -85,7 +87,7 @@ controllers:
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
     trigger:
       joint: "trigger_joint"
-      pid: { p: 50.0, i: 0.0, d: 3.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 25.0, i: 0.0, d: 5.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
     push_per_rotation: 8
     push_qd_threshold: 0.90
     block_effort: 6.5
@@ -96,3 +98,4 @@ controllers:
     anti_block_threshold: 0.1
     qd_10: 390.0
     qd_16: 570.0
+
