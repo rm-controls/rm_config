@@ -1,7 +1,7 @@
 <launch>
     <arg name="enable_imu_trigger" default="true"/>
 
-    <include file="$(find galaxy_camera)/launch/MER-139.launch">
+    <include file="$(find rm_config)/launch/vision/camera.launch">
         <arg name="enable_imu_trigger" value="$(arg enable_imu_trigger)"/>
     </include>
 

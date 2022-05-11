@@ -14,6 +14,7 @@ controllers:
     threshold: 0.001
     pid: { p: 7, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
+
   chassis_controller:
     type: rm_chassis_controllers/MecanumController
     # ChassisBase
@@ -31,6 +32,7 @@ controllers:
     # MecanumController
     wheel_base: 0.39
     wheel_track: 0.39
+
     wheel_radius: 0.07625
 
     left_front:
@@ -96,3 +98,4 @@ controllers:
     anti_block_threshold: 0.1
     qd_10: 390.0
     qd_16: 570.0
+

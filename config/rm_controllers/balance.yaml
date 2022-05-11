@@ -1,0 +1,61 @@
+controllers:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+  robot_state_controller:
+    type: robot_state_controller/RobotStateController
+    publish_rate: 100
+
+  chassis_controller:
+    type: rm_chassis_controllers/SwerveController
+    # ChassisBase
+    publish_rate: 100
+    enable_odom_tf: true
+    publish_odom_tf: false
+    power:
+      effort_coeff: 10.0
+      vel_coeff: 0.0060
+      power_offset: -8.41
+    twist_angular: 0.5233
+    timeout: 0.1
+    pid_follow: { p: 20, i: 0, d: 0.6, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
+    # SwerveController
+    modules:
+      left:
+        position: [ 0., 0.164 ]
+        pivot:
+          joint: left_pivot_joint
+          <<: &pivot_setting
+            offset: 0.
+            pid: { p: 10, i: 0, d: 0.4, i_clamp_max: 0.0, i_clamp_min: -0.4, antiwindup: true }
+        wheel:
+          joint: left_wheel_joint
+          <<: &wheel_setting
+            radius: 0.055
+            pid: { p: 0.4, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true }
+      right:
+        position: [ 0., -0.164 ]
+        pivot:
+          joint: right_pivot_joint
+          <<: *pivot_setting
+        wheel:
+          joint: right_wheel_joint
+          <<: *wheel_setting
+
+  reaction_wheel_controller:
+    type: rm_chassis_controllers/ReactionWheelController
+    imu_name: "base_imu"
+    joint_name: "reaction_wheel_joint"
+
+    m_b: 6.9
+    m_w: 2.4
+    i_b: 2.61e-1
+    i_w: 2.4e-2
+    l: 0.22
+    l_b: 0.1638
+    g: 9.81
+
+    q: [ 8.6, 0., 0.0005 ]
+    r: [ 0.04 ]
+    alpha: 0.001
