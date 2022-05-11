@@ -41,7 +41,7 @@ controllers:
       power_offset: -8.41
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 20, i: 0, d: 0.7, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 10, i: 0, d: 0.7, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
@@ -111,6 +111,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
-    qd_15: 506.0
+    qd_15: 495.0
     qd_18: 562.0
     qd_30: 805.0

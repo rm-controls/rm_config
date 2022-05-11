@@ -5,7 +5,7 @@ rm_manual:
     topic: "/controllers/chassis_controller/command"
     accel_x: 10.0
     accel_y: 10.0
-    accel_z: 20.0
+    accel_z: 99.0
     safety_power: 50.0
     capacitor_threshold: 0.1
     charge_power: 20
@@ -36,7 +36,7 @@ rm_manual:
       expect_shoot_frequency_2: 15
       expect_shoot_frequency_3: 20
       burst_shoot_frequency: 20
-      safe_shoot_frequency: 5
+      safe_shoot_frequency: 20
       heat_coeff: 8.0
       type: "ID1_17MM"
   cover:
