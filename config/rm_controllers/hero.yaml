@@ -20,6 +20,7 @@ controllers:
     # ChassisBase
     publish_rate: 100
     enable_odom_tf: true
+    publish_odom_tf: false
     power:
       effort_coeff: 9.0
       vel_coeff: 0.00855
@@ -87,7 +88,7 @@ controllers:
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
     trigger:
       joint: "trigger_joint"
-      pid: { p: 25.0, i: 0.0, d: 5.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 100.0, i: 0.0, d: 5.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
     push_per_rotation: 8
     push_qd_threshold: 0.90
     block_effort: 6.5
@@ -96,6 +97,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
-    qd_10: 390.0
-    qd_16: 570.0
+    qd_10: 370.0
+    qd_16: 610.0
 
