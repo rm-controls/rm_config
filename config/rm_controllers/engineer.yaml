@@ -17,7 +17,7 @@ controllers:
   joint1_mime_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint1_mime
-    actuators: [ mime_joint1_motor ]
+    actuators: [ joint1_mime_motor ]
     search_velocity: -0.3
     threshold: 0.001
     pid: { p: 500, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
@@ -33,7 +33,7 @@ controllers:
   joint2_mime_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint2_mime
-    actuators: [ mime_joint2_motor ]
+    actuators: [ joint2_mime_motor ]
     search_velocity: 0.6
     threshold: 0.001
     pid: { p: 100, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
@@ -49,7 +49,7 @@ controllers:
   joint3_mime_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint3_mime
-    actuators: [ mime_joint3_motor ]
+    actuators: [ joint3_mime_motor ]
     search_velocity: 1.0
     threshold: 0.001
     pid: { p: 100, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
@@ -98,25 +98,27 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: drag_joint
     actuators: [ drag_joint_motor ]
-    search_velocity: 4
+    search_velocity: -2
     threshold: 0.1
     pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
 
   joint1_mime_controller:
-    type: joint_mime_controller/Controller
+    type: joint_mime_controller/JointMimeController
     joint_mime: "joint1"
     joint: "joint1_mime"
-    joint1: { p: 5000.0, i: 0, d: 400, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid: { p: 5000.0, i: 0, d: 400, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+
   joint2_mime_controller:
-    type: joint_mime_controller/Controller
+    type: joint_mime_controller/JointMimeController
     joint_mime: "joint2"
     joint: "joint2_mime"
-    joint2: { p: 3000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid: { p: 3000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+
   joint3_mime_controller:
-    type: joint_mime_controller/Controller
+    type: joint_mime_controller/JointMimeController
     joint_mime: "joint3"
     joint: "joint3_mime"
-    joint3: { p: 3000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid: { p: 3000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
   chassis_controller:
     # ChassisBase
