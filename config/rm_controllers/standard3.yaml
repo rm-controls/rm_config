@@ -24,7 +24,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: cover_joint
     actuators: [ cover_joint_motor ]
-    search_velocity: 2
+    search_velocity: -2
     threshold: 1e-2
     pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
@@ -114,3 +114,8 @@ controllers:
     qd_15: 495.0
     qd_18: 562.0
     qd_30: 805.0
+
+  cover_controller:
+    type: effort_controllers/JointPositionController
+    joint: "cover_joint"
+    pid: { p: 15.0, i: 0.0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }

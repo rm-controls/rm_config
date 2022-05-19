@@ -41,8 +41,8 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: -2.0
-    off_pos: 0.0
+    on_pos: 1.863
+    off_pos: 0.15
   detection_switch:
     fail_limit: 10
     service_name: "/detection_nodelet/status_switch"
@@ -112,9 +112,3 @@ rm_manual:
         config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
       - name: "armor3"
         config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
-
-controllers:
-  cover_controller:
-    type: effort_controllers/JointPositionController
-    joint: "cover_joint"
-    pid: { p: 15.0, i: 0.0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
