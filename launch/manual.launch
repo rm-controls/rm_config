@@ -5,7 +5,6 @@
 
     <rosparam file="$(find rm_config)/config/rm_controllers/$(arg robot_type).yaml" command="load"/>
     <rosparam file="$(find rm_config)/config/rm_manual/$(arg robot_type).yaml" command="load"/>
-    <rosparam if="$(arg ekf)" param="controllers/chassis_controller/enable_odom_tf">false</rosparam>
 
     <node name="rm_manual" pkg="rm_manual" type="rm_manual" respawn="false"/>
 
