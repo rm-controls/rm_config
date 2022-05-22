@@ -3,9 +3,12 @@ rm_manual:
   supply_frame: "supply_frame"
   chassis:
     topic: "/controllers/chassis_controller/command"
-    accel_x: 10.0
-    accel_y: 10.0
-    accel_z: 40
+    accel_x:
+      - [ 50.0,10.0 ]
+    accel_y:
+      - [ 50.0,10.0 ]
+    accel_z:
+      - [ 50.0,40.0 ]
     safety_power: 50.0
     capacitor_threshold: 0.1
     charge_power: 20
@@ -13,9 +16,16 @@ rm_manual:
     burst_power: 200
   vel:
     topic: "/cmd_vel"
-    max_linear_x: 4.0
-    max_linear_y: 4.0
-    max_angular_z: 17
+    power_limit_topic: "/controllers/chassis_controller/command"
+    max_linear_x:
+      - [ 50.0, 4.0 ]
+      - [ 200.0, 8.0 ]
+    max_linear_y:
+      - [ 50.0,4.0 ]
+      - [ 200.0,8.0 ]
+    max_angular_z:
+      - [ 50.0,8.0 ]
+      - [ 200.0,17.0 ]
     gyro_move_reduction: 0.3
   gimbal:
     topic: "/controllers/gimbal_controller/command"
