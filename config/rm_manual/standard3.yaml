@@ -4,10 +4,10 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 50.0,3.0 ]
+      - [ 50.0,2.5 ]
       - [ 200.0,6.0 ]
     accel_y:
-      - [ 50.0,3.0 ]
+      - [ 50.0,2.5 ]
       - [ 200.0,6.0 ]
     accel_z:
       - [ 50.0,10.0 ]
@@ -32,7 +32,8 @@ rm_manual:
       - [ 50.0,10.3 ]
       - [ 80.0,14.9 ]
       - [ 200.0,16.2 ]
-    gyro_move_reduction: 0.3
+    gyro_move_reduction: 0.20
+    gyro_rotate_reduction: 0.7
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
