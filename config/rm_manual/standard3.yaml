@@ -4,15 +4,15 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 50.0,2.5 ]
+      - [ 50.0,1.0 ]
       - [ 200.0,6.0 ]
     accel_y:
-      - [ 50.0,2.5 ]
+      - [ 50.0,1.0 ]
       - [ 200.0,6.0 ]
     accel_z:
-      - [ 50.0,10.0 ]
+      - [ 50.0,6.0 ]
       - [ 200.0,15.0 ]
-    safety_power: 50.0
+    safety_power: 200.0
     capacitor_threshold: 0.1
     charge_power: 20
     extra_power: 30
@@ -29,7 +29,7 @@ rm_manual:
       - [ 80.0,4.37 ]
       - [ 200.0,4.76 ]
     max_angular_z:
-      - [ 50.0,10.3 ]
+      - [ 50.0,10.1 ]
       - [ 80.0,14.9 ]
       - [ 200.0,16.2 ]
     gyro_move_reduction: 0.20
