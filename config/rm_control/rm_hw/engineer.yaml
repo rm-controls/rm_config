@@ -2,107 +2,122 @@ rm_hw:
   bus:
     - can0
     - can1
+    - can2
+    - can3
+
   loop_frequency: 1000
   cycle_time_error_threshold: 0.001
   # Configurations of the actuators
   actuators:
-    mime_joint1_motor:
-      bus: can0
-      id: 0x205
-      type: rm_3508
-      need_calibration: true
-    joint1_motor:
-      bus: can0
+    mimic_joint1_motor:
+      bus: can3
       id: 0x206
       type: rm_3508
       need_calibration: true
-    mime_joint2_motor:
-      bus: can0
+    joint1_motor:
+      bus: can3
+      id: 0x205
+      type: rm_3508
+      need_calibration: true
+    mimic_joint2_motor:
+      bus: can3
       id: 0x202
       type: rm_3508
       need_calibration: true
     joint2_motor:
-      bus: can0
-      id: 0x204
-      type: rm_3508
-      need_calibration: true
-    mime_joint3_motor:
-      bus: can0
+      bus: can3
       id: 0x201
       type: rm_3508
       need_calibration: true
+    mimic_joint3_motor:
+      bus: can3
+      id: 0x204
+      type: rm_3508
+      need_calibration: true
     joint3_motor:
-      bus: can0
+      bus: can3
       id: 0x203
       type: rm_3508
       need_calibration: true
     joint4_motor:
-      bus: can1
+      bus: can2
       id: 0x201
       type: rm_3508
       need_calibration: true
     joint5_motor:
-      bus: can1
+      bus: can2
       id: 0x202
       type: rm_3508
       need_calibration: true
     joint6_motor:
-      bus: can1
-      id: 0x203
-      type: rm_3508
-      need_calibration: true
-    joint7_motor:
-      bus: can1
-      id: 0x204
-      type: rm_3508
-      need_calibration: true
-    card_motor:
-      bus: can1
-      id: 0x204
-      type: rm_3508
-      need_calibration: true
-    drag_motor:
-      bus: can1
+      bus: can2
       id: 0x205
       type: rm_3508
       need_calibration: true
-    right_front_wheel_motor:
-      bus: can0
-      id: 0x201
+    joint7_motor:
+      bus: can2
+      id: 0x206
       type: rm_3508
-      lp_cutoff_frequency: 150
-    left_front_wheel_motor:
+      need_calibration: true
+    card_joint_motor:
+      bus: can0
+      id: 0x206
+      type: rm_3508
+      need_calibration: true
+    drag_joint_motor:
+      bus: can0
+      id: 0x205
+      type: rm_2006
+      need_calibration: true
+    pitch_joint_motor:
+      bus: can2
+      id: 0x204
+      type: rm_3508
+      lp_cutoff_frequency: 100
+      need_calibration: true
+    yaw_joint_motor:
+      bus: can2
+      id: 0x203
+      type: rm_3508
+      lp_cutoff_frequency: 100
+      need_calibration: true
+    right_front_wheel_motor:
       bus: can0
       id: 0x202
       type: rm_3508
       lp_cutoff_frequency: 150
-    left_back_wheel_motor:
+    left_front_wheel_motor:
       bus: can0
-      id: 0x203
+      id: 0x201
       type: rm_3508
       lp_cutoff_frequency: 150
-    right_back_wheel_motor:
+    left_back_wheel_motor:
       bus: can0
       id: 0x204
       type: rm_3508
       lp_cutoff_frequency: 150
+    right_back_wheel_motor:
+      bus: can0
+      id: 0x203
+      type: rm_3508
+      lp_cutoff_frequency: 150
     right_front_pivot_motor:
-      bus: can1
-      id: 0x205
-      type: rm_6020
-      lp_cutoff_frequency: 100
-    left_front_pivot_motor:
       bus: can1
       id: 0x206
       type: rm_6020
       lp_cutoff_frequency: 100
+    left_front_pivot_motor:
+      bus: can1
+      id: 0x205
+      type: rm_6020
+      lp_cutoff_frequency: 100
     left_back_pivot_motor:
       bus: can1
-      id: 0x207
+      id: 0x208
       type: rm_6020
       lp_cutoff_frequency: 100
     right_back_pivot_motor:
       bus: can1
-      id: 0x208
+      id: 0x207
       type: rm_6020
       lp_cutoff_frequency: 100
