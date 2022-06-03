@@ -1,0 +1,60 @@
+controllers:
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+  robot_state_controller:
+    type: robot_state_controller/RobotStateController
+    publish_rate: 100
+  left_pitch_controller:
+    type: effort_controllers/JointVelocityController
+    joint: "left_pitch_joint"
+    pid: { p: 65, i: 0, d: 0, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+  yaw_controller:
+    type: effort_controllers/JointPositionController
+    joint: "yaw_joint"
+    pid: { p: 2000, i: 0, d: 0, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+  left_firction_controller:
+    type: effort_controllers/JointVelocityController
+    joint: "left_friction_wheel_joint"
+    pid: { p: 0.001, i: 0.0, d: 0, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+  right_firction_controller:
+    type: effort_controllers/JointVelocityController
+    joint: "right_friction_wheel_joint"
+    pid: { p: 0.001, i: 0.0, d: 0, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+  mimic_joint1_controller:
+    type: mimic_joint_controller/MimicJointController
+    target_joint_name: "left_pitch_joint"
+    joint: "right_pitch_joint"
+    pid: { p: 100000, i: 0, d: 0.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+  trigger_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: "trigger_joint"
+    actuators: [ trigger_joint_motor ]
+    search_velocity: 6.28
+    threshold: 0.001
+    pid: { p: 1.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  trigger_controller:
+    type: effort_controllers/JointVelocityController
+    joint: "trigger_joint"
+    pid: { p: 5.0, i: 0, d: 0.2, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+  left_pitch_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: left_pitch_joint
+    actuators: [ left_pitch_joint_motor ]
+    search_velocity: -3.1415
+    threshold: 0.001
+    pid: { p: 60, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  right_pitch_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: right_pitch_joint
+    actuators: [ right_pitch_joint_motor ]
+    search_velocity: -3.1415
+    threshold: 0.001
+    pid: { p: 60, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  yaw_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: yaw_joint
+    actuators: [ yaw_joint_motor ]
+    search_velocity: 3.1415
+    threshold: 0.001
+    pid: { p: 10.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }

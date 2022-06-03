@@ -1,0 +1,56 @@
+rm_manual:
+  robot_type: "dart"
+  left_pitch:
+    topic: "/controllers/left_pitch_controller/command"
+    position_outpost: 0.
+    position_base: 0.
+    step: 0.001
+    joint: "left_pitch_joint"
+  right_pitch:
+    topic: "/controllers/right_pitch_controller/command"
+    position_outpost: 0.
+    position_base: 0.
+    step: 0.001
+    joint: "right_pitch_joint"
+  yaw:
+    topic: "/controllers/yaw_controller/command"
+    position_outpost: 0
+    position_base: 0
+    step: 0.005
+    joint: "yaw_joint"
+  friction_left:
+    topic: "/controllers/left_firction_controller/command"
+    qd_: 500
+  friction_right:
+    topic: "/controllers/right_firction_controller/command"
+    qd_: 500
+  trigger:
+    topic: "/controllers/trigger_controller/command"
+  controllers_list:
+    state_controllers:
+      - controllers/robot_state_controller
+      - controllers/joint_state_controller
+    main_controllers:
+      - controllers/left_pitch_controller
+      - controllers/yaw_controller
+      - controllers/left_firction_controller
+      - controllers/right_firction_controller
+      - controllers/trigger_controller
+      - controllers/mimic_joint1_controller
+    calibration_controllers:
+      - controllers/left_pitch_calibration_controller
+      - controllers/right_pitch_calibration_controller
+      - controllers/yaw_calibration_controller
+      - controllers/trigger_calibration_controller
+  trigger_calibration:
+    - start_controller: controllers/trigger_calibration_controller
+      stop_controller: controllers/trigger_controller
+      service_name: /controllers/trigger_calibration_controller/is_calibrated
+  left_pitch_calibration:
+    - start_controller: controllers/left_pitch_calibration_controller
+      stop_controller: controllers/left_pitch_controller
+      service_name: /controllers/left_pitch_calibration_controller/is_calibrated
+  right_pitch_calibration:
+    - start_controller: controllers/right_pitch_calibration_controller
+      stop_controller: controllers/mimic_joint1_controller
+      service_name: /controllers/right_pitch_calibration_controller/is_calibrated
