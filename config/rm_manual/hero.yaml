@@ -2,23 +2,40 @@ rm_manual:
   robot_type: "hero"
   chassis:
     topic: "/controllers/chassis_controller/command"
-    accel_x: 7
-    accel_y: 10.0
-    accel_z: 20
-    safety_power: 50.0
+    accel_x:
+      - [ 50.0,1.0 ]
+      - [ 200.0,6.0 ]
+    accel_y:
+      - [ 50.0,1.0 ]
+      - [ 200.0,6.0 ]
+    accel_z:
+      - [ 50.0,6.0 ]
+      - [ 200.0,15.0 ]
+    safety_power: 200.0
     capacitor_threshold: 0.1
     charge_power: 20
     extra_power: 30
     burst_power: 200
   vel:
     topic: "/cmd_vel"
-    max_linear_x: 4.0
-    max_linear_y: 4.0
-    max_angular_z: 10.0
-    gyro_move_reduction: 1.0
+    power_limit_topic: "/controllers/chassis_controller/command"
+    max_linear_x:
+      - [ 50.0,3.14 ]
+      - [ 80.0,4.37 ]
+      - [ 200.0, 4.76 ]
+    max_linear_y:
+      - [ 50.0,3.14 ]
+      - [ 80.0,4.37 ]
+      - [ 200.0,4.76 ]
+    max_angular_z:
+      - [ 50.0,10.1 ]
+      - [ 80.0,14.9 ]
+      - [ 200.0,16.2 ]
+    gyro_move_reduction: 0.20
+    gyro_rotate_reduction: 0.7
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 16
+    max_yaw_vel: 10
     max_pitch_vel: 8.37
     track_timeout: 0.5
     eject_sensitivity: 0.38
@@ -39,10 +56,6 @@ rm_manual:
       safe_shoot_frequency: 1
       heat_coeff: 3.0
       type: "ID1_42MM"
-  cover:
-    topic: "/controllers/cover_controller/command"
-    on_pos: -2.0
-    off_pos: 0.0
   detection_switch:
     fail_limit: 10
     service_name: "/detection_nodelet/status_switch"
@@ -53,9 +66,9 @@ rm_manual:
       - controllers/joint_state_controller
     main_controllers:
       - controllers/chassis_controller
+      - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
-      - controllers/orientation_controller
     calibration_controllers:
       - controllers/trigger_calibration_controller
 
