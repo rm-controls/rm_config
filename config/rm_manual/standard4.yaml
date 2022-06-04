@@ -18,6 +18,7 @@ rm_manual:
     burst_power: 200
   vel:
     topic: "/cmd_vel"
+    power_limit_topic: "/controllers/chassis_controller/command"
     max_linear_x:
       - [ 50.0,3.14 ]
       - [ 80.0,4.37 ]
@@ -31,6 +32,7 @@ rm_manual:
       - [ 80.0,14.9 ]
       - [ 200.0,16.2 ]
     gyro_move_reduction: 0.3
+    gyro_rotate_reduction: 0.7
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
@@ -55,8 +57,8 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: -2.0
-    off_pos: 0.0
+    on_pos: 2.0
+    off_pos: 0.05
   detection_switch:
     fail_limit: 10
     service_name: "/detection_nodelet/status_switch"
