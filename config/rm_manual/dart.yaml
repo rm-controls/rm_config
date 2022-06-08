@@ -6,12 +6,6 @@ rm_manual:
     position_base: 0.
     step: 0.001
     joint: "left_pitch_joint"
-  right_pitch:
-    topic: "/controllers/right_pitch_controller/command"
-    position_outpost: 0.
-    position_base: 0.
-    step: 0.001
-    joint: "right_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
     position_outpost: 0
