@@ -96,11 +96,11 @@ controllers:
       pid: { p: 100.0, i: 0.0, d: 5.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
     push_per_rotation: 6
     push_qd_threshold: 0.90
-    block_effort: 17.5
+    block_effort: 17.8
     block_speed: 0.1
     block_duration: 0.05
     block_overtime: 0.5
     anti_block_angle: 0.6
     anti_block_threshold: 0.1
     qd_10: 370.0
-    qd_16: 590.0
+    qd_16: 630.0
