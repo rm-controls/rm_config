@@ -14,10 +14,10 @@ rm_manual:
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_firction_controller/command"
-    qd_: 500
+    qd_: 420
   friction_right:
     topic: "/controllers/right_firction_controller/command"
-    qd_: 500
+    qd_: 420
   trigger:
     topic: "/controllers/trigger_controller/command"
   controllers_list:
@@ -37,14 +37,19 @@ rm_manual:
       - controllers/yaw_calibration_controller
       - controllers/trigger_calibration_controller
   trigger_calibration:
-    - start_controller: controllers/trigger_calibration_controller
-      stop_controller: controllers/trigger_controller
-      service_name: /controllers/trigger_calibration_controller/is_calibrated
-  left_pitch_calibration:
-    - start_controller: controllers/left_pitch_calibration_controller
-      stop_controller: controllers/left_pitch_controller
-      service_name: /controllers/left_pitch_calibration_controller/is_calibrated
-  right_pitch_calibration:
-    - start_controller: controllers/right_pitch_calibration_controller
-      stop_controller: controllers/mimic_joint1_controller
-      service_name: /controllers/right_pitch_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/trigger_calibration_controller
+      stop_controllers:
+        - controllers/trigger_controller
+      services_name:
+        - /controllers/trigger_calibration_controller/is_calibrated
+  gimbal_calibration:
+    - start_controllers:
+        - controllers/left_pitch_calibration_controller
+        - controllers/right_pitch_calibration_controller
+      stop_controllers:
+        - controllers/left_pitch_controller
+        - controllers/mimic_joint1_controller
+      services_name:
+        - /controllers/left_pitch_calibration_controller/is_calibrated
+        - /controllers/right_pitch_calibration_controller/is_calibrated
