@@ -19,11 +19,11 @@ controllers:
     gains:
       joint1: { p: 80000.0, i: 0, d: 800, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
       joint2: { p: 50000.0, i: 0, d: 600, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      joint3: { p: 80000.0, i: 0, d: 1000, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      joint4: { p: 8000.0, i: 0, d: 400, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      joint5: { p: 600.0, i: 0, d: 37, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      joint6: { p: 20.0, i: 0, d: 3, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-      joint7: { p: 130.0, i: 0, d: 0.8, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint3: { p: 6000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint4: { p: 8000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint5: { p: 300.0, i: 0, d: 3, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint6: { p: 100.0, i: 0, d: 3, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint7: { p: 50.0, i: 0, d: 0.6, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
   card_controller:
     type: effort_controllers/JointPositionController
@@ -43,7 +43,7 @@ controllers:
     type: mimic_joint_controller/MimicJointController
     target_joint: "joint2"
     joint: "mimic_joint2"
-    pid: { p: 50000.0, i: 0, d: 600, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid: { p: 80000.0, i: 0, d: 600, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
   mimic_joint3_controller:
     type: mimic_joint_controller/MimicJointController
@@ -128,9 +128,7 @@ controllers:
 
   gpio_controller:
     type: gpio_controller/Controller
-    gpios:
-      gripper1:
-        name: "gripper"
+    gpios: [ "gripper" ]
 
   joint1_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
@@ -184,7 +182,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint4
     actuator: [ joint4_motor ]
-    search_velocity: -0.7
+    search_velocity: -1
     threshold: 0.001
     pid: { p: 80.0, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
     center: true
@@ -199,7 +197,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint5
     actuator: [ joint5_motor ]
-    search_velocity: -1.0
+    search_velocity: -5.0
     threshold: 0.001
     pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
 
@@ -207,7 +205,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint6
     actuator: [ joint6_motor ]
-    search_velocity: -1.0
+    search_velocity: -3.0
     threshold: 0.01
     pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
     return:
@@ -221,7 +219,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint7
     actuator: [ joint7_motor ]
-    search_velocity: -1.0
+    search_velocity: -6.28
     threshold: 0.01
     pid: { p: 1.5, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
 
