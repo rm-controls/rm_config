@@ -14,10 +14,10 @@ rm_manual:
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_firction_controller/command"
-    qd_: 420
+    qd_: 440
   friction_right:
     topic: "/controllers/right_firction_controller/command"
-    qd_: 420
+    qd_: 440
   trigger:
     topic: "/controllers/trigger_controller/command"
   controllers_list:
