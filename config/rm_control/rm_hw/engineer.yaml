@@ -139,6 +139,6 @@ rm_hw:
       gain_acc: 0.0003  aqqqqq
   gpios:
     gripper:
-      pin: 145
+      pin: 657
       direction: out
 
