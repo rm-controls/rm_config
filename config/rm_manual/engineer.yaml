@@ -30,6 +30,8 @@ rm_manual:
       - [ 50.0,10.1 ]
       - [ 80.0,14.9 ]
       - [ 200.0,16.2 ]
+    gyro_move_reduction: 0.20
+    gyro_rotate_reduction: 0.7
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
@@ -81,7 +83,7 @@ rm_manual:
       - controllers/drag_calibration_controller
       - controllers/pitch_calibration_controller
       - controllers/yaw_calibration_controller
-      -
+
   power_on_calibration:
     - start_controllers:
         - controllers/yaw_calibration_controller
