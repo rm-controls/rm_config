@@ -3,14 +3,11 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 50.0,1.0 ]
-      - [ 200.0,6.0 ]
+      - [ 50.0,99.0 ]
     accel_y:
-      - [ 50.0,1.0 ]
-      - [ 200.0,6.0 ]
+      - [ 50.0,99.0 ]
     accel_z:
-      - [ 50.0,6.0 ]
-      - [ 200.0,15.0 ]
+      - [ 50.0,99.0 ]
     safety_power: 50
     capacitor_threshold: 0.1
     charge_power: 20
@@ -46,7 +43,7 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_limit: 0.05
+    gimbal_error_limit: 0.15
     heat_limit:
       expect_shoot_frequency_1: 20
       expect_shoot_frequency_2: 20
@@ -61,7 +58,7 @@ rm_manual:
     off_pos: 0.05
   detection_switch:
     fail_limit: 10
-    service_name: "/detection_nodelet/status_switch"
+    service_name: "/Processor/status_switch"
 
   controllers_list:
     state_controllers:

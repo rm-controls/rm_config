@@ -1,0 +1,11 @@
+<launch>
+    <node pkg="nodelet" type="nodelet" name="Processor"
+          args="load rm_digtialimg_proc/Processor vision_nodelet">
+        <rosparam file="$(find rm_digtialimg_proc)/config/weibull_coefficient.yaml" command="load"/>
+        <rosparam file="$(find rm_digtialimg_proc)/config/make_dataset.yaml" command="load"/>
+    </node>
+
+    <node pkg="rm_pose_solver" type="pose_solver_node" name="pose_solver_node" output="screen">
+        <rosparam file="$(find rm_pose_solver)/config/pose_solver_config.yaml" command="load"/>
+    </node>
+</launch>
