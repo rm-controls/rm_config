@@ -45,10 +45,8 @@ rm_manual:
     topic: "/controllers/shooter_controller/command"
     gimbal_error_limit: 0.15
     heat_limit:
-      expect_shoot_frequency_1: 20
-      expect_shoot_frequency_2: 20
-      expect_shoot_frequency_3: 20
-      burst_shoot_frequency: 20
+      low_shoot_frequency: 20
+      high_shoot_frequency: 20
       safe_shoot_frequency: 20
       heat_coeff: 8.0
       type: "ID1_17MM"

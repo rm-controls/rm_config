@@ -49,10 +49,9 @@ rm_manual:
     topic: "/controllers/shooter_controller/command"
     gimbal_error_limit: 0.05
     heat_limit:
-      expect_shoot_frequency_1: 1
-      expect_shoot_frequency_2: 2
-      expect_shoot_frequency_3: 3
-      burst_shoot_frequency: 5
+      low_shoot_frequency: 1
+      high_shoot_frequency: 3
+      burst_shoot_frequency: 6
       safe_shoot_frequency: 1
       heat_coeff: 3.0
       type: "ID1_42MM"
@@ -83,11 +82,13 @@ rm_manual:
   ui:
     trigger_change:
       - name: "chassis"
-        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "chassis: " }
+        config: { start_position: [ 400, 850 ], size: 15, width: 2, title: "chassis: " }
+      - name: "gimbal"
+        config: { start_position: [ 400, 800 ], size: 15, width: 2, title: "gimbal:  " }
+      - name: "shooter"
+        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter:" }
       - name: "target"
-        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target:  " }
-      - name: "exposure"
-        config: { start_position: [ 400, 650 ], size: 15, width: 2, title: "exposure:" }
+        config: {start_position: [ 400, 700 ], size: 15, width: 2, title: "target:" }
     time_change:
       - name: "capacitor"
         config: { start_position: [ 900, 100 ], size: 15, width: 2, delay: 0.5 }
