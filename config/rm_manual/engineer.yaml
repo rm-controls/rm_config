@@ -45,13 +45,13 @@ rm_manual:
       timeout: 0.05
   drag:
     topic: "/controllers/drag_controller/command"
-    on_pos: 0.07
-    off_pos: -1.45
+    on_pos: 0.1
+    off_pos: -1.5
   card:
     topic: "/controllers/card_controller/command"
     long_pos: 0.4
     short_pos: 0.15
-    off_pos: 0.0012
+    off_pos: 0.001
 
   controllers_list:
     state_controllers:
@@ -61,7 +61,7 @@ rm_manual:
       - controllers/chassis_controller
       - controllers/gimbal_controller
       - controllers/card_controller
-      - controllers/drag_controller
+      #      - controllers/drag_controller
       - controllers/arm_trajectory_controller
       - controllers/mimic_joint1_controller
       - controllers/mimic_joint2_controller
@@ -173,14 +173,12 @@ rm_manual:
         config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "step:  ", color: "white" }
       - name: "queue"
         config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "queue: ", color: "yellow" }
-      - name: "jog"
-        config: { start_position: [ 1300, 750 ], size: 15, width: 2, title: "jog:  ", color: "white" }
-      - name: "stone"
-        config: { start_position: [ 1300, 700 ], size: 15, width: 2, title: "stone:", color: "yellow" }
-      - name: "card"
-        config: { start_position: [ 1300, 650 ], size: 15, width: 2, title: "card: ", color: "green" }
-      - name: "sentry"
-        config: { start_position: [ 1550, 750 ], size: 15, width: 2, title: "sentry:", color: "white" }
+      - name: "long_card"
+        config: { start_position: [ 1300, 750 ], size: 15, width: 2, title: "long card: ", color: "green" }
+      - name: "short_card"
+        config: { start_position: [ 1300, 700 ], size: 15, width: 2, title: "short card: ", color: "green" }
+      - name: "drag"
+        config: { start_position: [ 1300, 650 ], size: 15, width: 2, title: "drag: ", color: "green" }
     fixed:
       - name: "stone_left"
         config: { type: "line", width: 2, color: "cyan",
