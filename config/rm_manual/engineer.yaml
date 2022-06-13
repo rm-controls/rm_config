@@ -105,6 +105,17 @@ rm_manual:
 
   arm_calibration:
     - start_controllers:
+        - controllers/joint1_calibration_controller
+        - controllers/mimic_joint1_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+        - controllers/mimic_joint1_controller
+        - controllers/mimic_joint2_controller
+        - controllers/mimic_joint3_controller
+      services_name:
+        - /controllers/joint1_calibration_controller/is_calibrated
+        - /controllers/mimic_joint1_calibration_controller/is_calibrated
+    - start_controllers:
         - controllers/joint4_calibration_controller
         - controllers/joint5_calibration_controller
       stop_controllers:
@@ -124,17 +135,6 @@ rm_manual:
         - controllers/mimic_joint3_controller
       services_name:
         - /controllers/joint6_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/joint1_calibration_controller
-        - controllers/mimic_joint1_calibration_controller
-      stop_controllers:
-        - controllers/arm_trajectory_controller
-        - controllers/mimic_joint1_controller
-        - controllers/mimic_joint2_controller
-        - controllers/mimic_joint3_controller
-      services_name:
-        - /controllers/joint1_calibration_controller/is_calibrated
-        - /controllers/mimic_joint1_calibration_controller/is_calibrated
     - start_controllers:
         - controllers/joint7_calibration_controller
       stop_controllers:
@@ -180,12 +180,12 @@ rm_manual:
       - name: "drag"
         config: { start_position: [ 1300, 650 ], size: 15, width: 2, title: "drag: ", color: "green" }
     fixed:
-      - name: "stone_left"
+      - name: "grasp_big_stone1"
         config: { type: "line", width: 2, color: "cyan",
-                  start_position: [ 780, 401 ], end_position: [ 858, 571 ] }
-      - name: "stone_right"
+                  start_position: [ 647, 557 ], end_position: [ 950, 530 ] }
+      - name: "grasp_big_stone2"
         config: { type: "line", width: 2, color: "cyan",
-                  start_position: [ 1140, 386 ], end_position: [ 1124, 509 ] }
+                  start_position: [ 950, 530 ], end_position: [ 991, 619 ] }
     time_change:
       - name: "effort"
         config: { start_position: [ 1500, 550 ], size: 15, width: 2, delay: 0.8 }
