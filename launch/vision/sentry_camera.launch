@@ -13,16 +13,16 @@
     <node pkg="nodelet" type="nodelet" name="lower_debayer"
           args="load image_proc/debayer lower_vision_nodelet"
           output="screen">
-        <remap from="image_raw" to="/galaxy_camera/$(arg camera_name)/image_raw"/>
-        <remap from="image_mono" to="/galaxy_camera/$(arg camera_name)/image_mono"/>
-        <remap from="image_color" to="/galaxy_camera/$(arg camera_name)/image_color"/>
+        <remap from="image_raw" to="/galaxy_camera/lower_camera/image_raw"/>
+        <remap from="image_mono" to="/galaxy_camera/lower_camera/image_mono"/>
+        <remap from="image_color" to="/galaxy_camera/lower_camera/image_color"/>
     </node>
     <node pkg="nodelet" type="nodelet" name="lower_rectify"
           args="load image_proc/rectify lower_vision_nodelet"
           output="screen">
-        <remap from="image_mono" to="/galaxy_camera/$(arg camera_name)/image_mono"/>
-        <remap from="camera_info" to="/galaxy_camera/$(arg camera_name)/camera_info"/>
-        <remap from="image_rect" to="/galaxy_camera/$(arg camera_name)/image_rect"/>
+        <remap from="image_mono" to="/galaxy_camera/lower_camera/image_mono"/>
+        <remap from="camera_info" to="/galaxy_camera/lower_camera/camera_info"/>
+        <remap from="image_rect" to="/galaxy_camera/lower_camera/image_rect"/>
     </node>
 
     <node pkg="nodelet" type="nodelet" name="upper_vision_nodelet" args="manager"
@@ -36,16 +36,16 @@
     <node pkg="nodelet" type="nodelet" name="upper_debayer"
           args="load image_proc/debayer upper_vision_nodelet"
           output="screen">
-        <remap from="image_raw" to="/galaxy_camera/$(arg camera_name)/image_raw"/>
-        <remap from="image_mono" to="/galaxy_camera/$(arg camera_name)/image_mono"/>
-        <remap from="image_color" to="/galaxy_camera/$(arg camera_name)/image_color"/>
+        <remap from="image_raw" to="/galaxy_camera/upper_camera/image_raw"/>
+        <remap from="image_mono" to="/galaxy_camera/upper_camera/image_mono"/>
+        <remap from="image_color" to="/galaxy_camera/upper_camera/image_color"/>
     </node>
     <node pkg="nodelet" type="nodelet" name="upper_rectify"
           args="load image_proc/rectify upper_vision_nodelet"
           output="screen">
-        <remap from="image_mono" to="/galaxy_camera/$(arg camera_name)/image_mono"/>
-        <remap from="camera_info" to="/galaxy_camera/$(arg camera_name)/camera_info"/>
-        <remap from="image_rect" to="/galaxy_camera/$(arg camera_name)/image_rect"/>
+        <remap from="image_mono" to="/galaxy_camera/upper_camera/image_mono"/>
+        <remap from="camera_info" to="/galaxy_camera/upper_camera/camera_info"/>
+        <remap from="image_rect" to="/galaxy_camera/upper_camera/image_rect"/>
     </node>
 
 </launch>
