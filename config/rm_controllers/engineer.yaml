@@ -109,7 +109,7 @@ controllers:
       pid: { p: 1, i: 0, d: 0.05, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     pitch:
       joint: "pitch_joint"
-      pid: { p: 0.5, i: 0, d: 0.008, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 0.2, i: 0, d: 0.003, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     feedforward:
       gravity: 0.0
       enable_gravity_compensation: false
