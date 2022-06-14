@@ -12,7 +12,7 @@ rm_manual:
     capacitor_threshold: 0.1
     charge_power: 20
     extra_power: 30
-    burst_power: 200
+    burst_power: 380
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
@@ -28,6 +28,7 @@ rm_manual:
       - [ 50.0,10.1 ]
       - [ 80.0,14.9 ]
       - [ 200.0,16.2 ]
+      - [ 380.0, 24.0 ]
     gyro_move_reduction: 0.3
     gyro_rotate_reduction: 0.7
   gimbal:

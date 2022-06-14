@@ -28,6 +28,7 @@ rm_manual:
       - [ 50.0,10.1 ]
       - [ 80.0,14.9 ]
       - [ 200.0,16.2 ]
+      - [ 380.0,24.0 ]
     gyro_move_reduction: 0.3
     gyro_rotate_reduction: 0.7
   gimbal:
