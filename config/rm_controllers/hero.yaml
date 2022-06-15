@@ -31,8 +31,8 @@ controllers:
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # MecanumController
-    wheel_base: 0.395
-    wheel_track: 0.400
+    wheel_base: 0.400
+    wheel_track: 0.370
 
     wheel_radius: 0.07625
 
@@ -93,14 +93,14 @@ controllers:
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
     trigger:
       joint: "trigger_joint"
-      pid: { p: 200.0, i: 0.0, d: 7.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+      pid: { p: 100.0, i: 0.0, d: 2.25, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
     push_per_rotation: 6
     push_qd_threshold: 0.90
-    block_effort: 17.8
+    block_effort: 14
     block_speed: 0.1
     block_duration: 0.05
     block_overtime: 0.5
     anti_block_angle: 0.6
     anti_block_threshold: 0.1
     qd_10: 370.0
-    qd_16: 630.0
+    qd_16: 565.0
