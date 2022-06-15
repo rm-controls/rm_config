@@ -1,4 +1,7 @@
 <launch>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type [standard, hero, engineer]"/>
+    <rosparam file="$(find rm_config)/config/rm_track/$(arg robot_type).yaml" command="load"/>
+
     <node pkg="nodelet" type="nodelet" name="lower_processor"
           args="load rm_digtialimg_proc/Processor lower_vision_nodelet">
         <rosparam file="$(find rm_digtialimg_proc)/config/weibull_coefficient.yaml" command="load"/>
@@ -34,4 +37,6 @@
         <remap from="/galaxy_camera/camera_info" to="/galaxy_camera/upper_camera/camera_info"/>
         <remap from="/detection" to="/detection"/>
     </node>
+
+    <node name="rm_track" pkg="rm_track" type="rm_track" respawn="false"/>
 </launch>

@@ -7,5 +7,5 @@ standalone_camera:
   camera_frame_id: camera_optical_frame
   camera_sn: KE0220040170
   exposure_auto: false
-  exposure_value: 2000.
+  exposure_value: 3000.
   enable_imu_trigger: true

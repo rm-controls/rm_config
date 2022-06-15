@@ -13,8 +13,8 @@
           args="load apriltag_ros/ContinuousDetector vision_nodelet"
           output="screen">
         <!-- Remap topics from those used in code to those on the ROS network -->
-        <remap from="image_rect" to="$(arg camera_name)/$(arg image_topic)"/>
-        <remap from="camera_info" to="$(arg camera_name)/camera_info"/>
+        <remap from="image_rect" to="/galaxy_camera/$(arg camera_name)/$(arg image_topic)"/>
+        <remap from="camera_info" to="/galaxy_camera/$(arg camera_name)/camera_info"/>
 
         <param name="publish_tag_detections_image" type="bool" value="true"/>      <!-- default: false -->
         <param name="publish_tf" type="bool" value="true"/>

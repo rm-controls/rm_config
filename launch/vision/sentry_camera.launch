@@ -9,6 +9,7 @@
     <node pkg="nodelet" type="nodelet" name="lower_camera"
           args="load galaxy_camera/GalaxyCameraNodelet lower_vision_nodelet"
           output="screen">
+        <remap from="trigger_time" to="rm_hw/lower_gimbal_imu/trigger_time"/>
     </node>
     <node pkg="nodelet" type="nodelet" name="lower_debayer"
           args="load image_proc/debayer lower_vision_nodelet"
@@ -32,6 +33,7 @@
     <node pkg="nodelet" type="nodelet" name="upper_camera"
           args="load galaxy_camera/GalaxyCameraNodelet upper_vision_nodelet"
           output="screen">
+        <remap from="trigger_time" to="rm_hw/upper_gimbal_imu/trigger_time"/>
     </node>
     <node pkg="nodelet" type="nodelet" name="upper_debayer"
           args="load image_proc/debayer upper_vision_nodelet"
