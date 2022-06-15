@@ -12,23 +12,22 @@ rm_manual:
     capacitor_threshold: 0.1
     charge_power: 20
     extra_power: 30
-    burst_power: 380
+    burst_power: 240
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
     max_linear_x:
       - [ 50.0,3.14 ]
       - [ 80.0,4.37 ]
-      - [ 200.0, 4.76 ]
+      - [ 240.0, 4.76 ]
     max_linear_y:
       - [ 50.0,3.14 ]
       - [ 80.0,4.37 ]
-      - [ 200.0,4.76 ]
+      - [ 240.0,4.76 ]
     max_angular_z:
       - [ 50.0,10.1 ]
       - [ 80.0,14.9 ]
-      - [ 200.0,16.2 ]
-      - [ 380.0, 24.0 ]
+      - [ 240.0,18.2 ]
     gyro_move_reduction: 0.3
     gyro_rotate_reduction: 0.7
   gimbal:
@@ -95,11 +94,13 @@ rm_manual:
   ui:
     trigger_change:
       - name: "chassis"
-        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "chassis: " }
+        config: { start_position: [ 400, 850 ], size: 15, width: 2, title: "chassis: " }
+      - name: "gimbal"
+        config: { start_position: [ 400, 800 ], size: 15, width: 2, title: "gimbal:  " }
+      - name: "shooter"
+        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter:" }
       - name: "target"
-        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target:  " }
-      - name: "exposure"
-        config: { start_position: [ 400, 650 ], size: 15, width: 2, title: "exposure:" }
+        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target:" }
     time_change:
       - name: "capacitor"
         config: { start_position: [ 900, 100 ], size: 15, width: 2, delay: 0.5 }
