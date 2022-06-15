@@ -4,9 +4,10 @@ lower_camera:
   pixel_format: bgr8
   camera_info_url: ''
   camera_name: lower_camera
+  imu_name: lower_gimbal_imu
   camera_frame_id: lower_camera_optical_frame
   camera_sn: KE0220040170
-  enable_imu_trigger: false
+  enable_imu_trigger: true
   raising_filter_value: 0
 upper_camera:
   image_width: 1280
@@ -14,7 +15,8 @@ upper_camera:
   pixel_format: bgr8
   camera_info_url: ''
   camera_name: upper_camera
+  imu_name: upper_gimbal_imu
   camera_frame_id: upper_camera_optical_frame
   camera_sn: KE0220030076
-  enable_imu_trigger: false
+  enable_imu_trigger: true
   raising_filter_value: 0

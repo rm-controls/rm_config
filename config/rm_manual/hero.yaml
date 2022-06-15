@@ -54,7 +54,7 @@ rm_manual:
       type: "ID1_42MM"
   detection_switch:
     fail_limit: 10
-    service_name: "/detection_nodelet/status_switch"
+    service_name: "/Processor/status_switch"
 
   controllers_list:
     state_controllers:
