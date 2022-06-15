@@ -20,6 +20,7 @@ rm_manual:
     qd_: 440
   trigger:
     topic: "/controllers/trigger_controller/command"
+    trigger_vel: -0.4
   controllers_list:
     state_controllers:
       - controllers/robot_state_controller
