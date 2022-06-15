@@ -62,6 +62,7 @@ controllers:
     yaw:
       joint: "yaw_joint"
       pid: { p: 10, i: 0, d: 1.1, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      k_chassis_vel: 0.09
     pitch:
       joint: "pitch_joint"
       pid: { p: 10.0, i: 0, d: 0.25, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
