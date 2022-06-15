@@ -103,4 +103,4 @@ controllers:
     anti_block_angle: 0.6
     anti_block_threshold: 0.1
     qd_10: 370.0
-    qd_16: 630.0
+    qd_16: 565.0
