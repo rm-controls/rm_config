@@ -32,7 +32,7 @@ controllers:
   drag_controller:
     type: effort_controllers/JointPositionController
     joint: drag_joint
-    pid: { p: 180.0, i: 0.0, d: 4.5 }
+    pid: { p: 12.0, i: 0.0, d: 3 }
   mimic_joint1_controller:
     type: mimic_joint_controller/MimicJointController
     target_joint: "joint1"
@@ -106,10 +106,10 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 1, i: 0, d: 0.05, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 0.3, i: 0, d: 0.02, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     pitch:
       joint: "pitch_joint"
-      pid: { p: 0.2, i: 0, d: 0.003, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 0.05, i: 0, d: 0.001, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     feedforward:
       gravity: 0.0
       enable_gravity_compensation: false
@@ -182,7 +182,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: joint4
     actuator: [ joint4_motor ]
-    search_velocity: -1
+    search_velocity: 1
     threshold: 0.001
     pid: { p: 80.0, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
     center: true
@@ -208,12 +208,6 @@ controllers:
     search_velocity: -3.0
     threshold: 0.01
     pid: { p: 10, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
-    return:
-      joint: joint6
-      actuators: [ joint6_motor ]
-      target_position: -0.003
-      threshold: 0.1
-      pid: { p: 380.0, i: 0, d: 8, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
   joint7_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
@@ -245,7 +239,7 @@ controllers:
     actuator: [ pitch_joint_motor ]
     search_velocity: 6.28
     threshold: 1e-2
-    pid: { p: 0.005, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    pid: { p: 0.012, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   yaw_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController

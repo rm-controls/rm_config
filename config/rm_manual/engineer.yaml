@@ -3,15 +3,12 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 50.0,1.0 ]
       - [ 200.0,6.0 ]
     accel_y:
-      - [ 50.0,1.0 ]
       - [ 200.0,6.0 ]
     accel_z:
-      - [ 50.0,6.0 ]
       - [ 200.0,15.0 ]
-    safety_power: 999
+    safety_power: 400
     capacitor_threshold: 0.1
     charge_power: 0
     extra_power: 5000
@@ -42,15 +39,15 @@ rm_manual:
       k_vel: 1.0
       k_hp: 1.0
       k_freq: 1.0
-      timeout: 0.05
+      timeout: 0.0
   drag:
     topic: "/controllers/drag_controller/command"
-    on_pos: 0.1
-    off_pos: -1.5
+    on_pos: 1.64
+    off_pos: 0.05
   card:
     topic: "/controllers/card_controller/command"
-    long_pos: 0.4
-    short_pos: 0.15
+    long_pos: 0.529
+    short_pos: 0.472
     off_pos: 0.001
 
   controllers_list:
@@ -61,7 +58,7 @@ rm_manual:
       - controllers/chassis_controller
       - controllers/gimbal_controller
       - controllers/card_controller
-      #      - controllers/drag_controller
+      - controllers/drag_controller
       - controllers/arm_trajectory_controller
       - controllers/mimic_joint1_controller
       - controllers/mimic_joint2_controller
@@ -180,23 +177,16 @@ rm_manual:
       - name: "drag"
         config: { start_position: [ 1300, 650 ], size: 15, width: 2, title: "drag: ", color: "green" }
     fixed:
-      - name: "grasp_big_stone1"
-        config: { type: "line", width: 2, color: "cyan",
-                  start_position: [ 647, 557 ], end_position: [ 950, 530 ] }
-      - name: "grasp_big_stone2"
-        config: { type: "line", width: 2, color: "cyan",
-                  start_position: [ 950, 530 ], end_position: [ 991, 619 ] }
+      - name: "island_lf_line"
+        config: { type: "line", width: 2, color: "white",
+                  start_position: [ 395, 4862 ], end_position: [ 455, 201 ] }
+      - name: "island_rt_line"
+        config: { type: "line", width: 2, color: "white",
+                  start_position: [ 738, 186 ], end_position: [ 740, 491 ] }
     time_change:
-      - name: "effort"
-        config: { start_position: [ 1500, 550 ], size: 15, width: 2, delay: 0.8 }
-      - name: "temperature"
-        config: { start_position: [ 1500, 500 ], size: 15, width: 2, delay: 0.8, title: "temp:   " }
       - name: "progress"
         config: { start_position: [ 400, 650 ], size: 15, width: 2, delay: 0.3, color: "green", title: "progress:" }
     flash:
       - name: "calibration"
         config: { start_position: [ 850, 700 ], size: 15, width: 2,
                   color: "yellow", content: "please calibrate!!", delay: 0.8 }
-      - name: "card_warning"
-        config: { start_position: [ 850, 750 ], size: 15, width: 2,
-                  color: "green", content: "card stuck!!", delay: 0.8 }
