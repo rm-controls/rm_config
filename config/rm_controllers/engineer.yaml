@@ -17,8 +17,8 @@ controllers:
       - joint6
       - joint7
     gains:
-      joint1: { p: 80000.0, i: 0, d: 800, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
-      joint2: { p: 50000.0, i: 0, d: 600, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      joint1: { p: 10000.0, i: 120, d: 1200, i_clamp_max: 150, i_clamp_min: -150, antiwindup: true, publish_state: true }
+      joint2: { p: 8000.0, i: 0, d: 500, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint3: { p: 6000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint4: { p: 8000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
       joint5: { p: 300.0, i: 0, d: 3, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
@@ -37,19 +37,19 @@ controllers:
     type: mimic_joint_controller/MimicJointController
     target_joint: "joint1"
     joint: "mimic_joint1"
-    pid: { p: 80000.0, i: 0, d: 800, i_clamp_max: 0.18, i_clamp_min: -0.18, antiwindup: true, publish_state: true }
+    pid: { p: 12000.0, i: 50, d: 1000.0, i_clamp_max: 150, i_clamp_min: -150, antiwindup: true, publish_state: true }
 
   mimic_joint2_controller:
     type: mimic_joint_controller/MimicJointController
     target_joint: "joint2"
     joint: "mimic_joint2"
-    pid: { p: 80000.0, i: 0, d: 600, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid: { p: 8000.0, i: 0, d: 500, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
   mimic_joint3_controller:
     type: mimic_joint_controller/MimicJointController
     target_joint: "joint3"
     joint: "mimic_joint3"
-    pid: { p: 80000.0, i: 0, d: 1000, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid: { p: 6000.0, i: 0, d: 300, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
   chassis_controller:
     # ChassisBase
