@@ -141,4 +141,3 @@ rm_hw:
     gripper:
       pin: 657
       direction: out
-
