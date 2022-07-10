@@ -1,0 +1,197 @@
+controllers:
+  robot_state_controller:
+    type: robot_state_controller/RobotStateController
+    publish_rate: 100
+  joint_state_controller:
+    type: joint_state_controller/JointStateController
+    publish_rate: 100
+  chassis_controller:
+    type: rm_chassis_controllers/SentryController
+    publish_rate: 100
+    enable_odom_tf: true
+    wheel_radius: 0.06
+    wheel:
+      joint: "drive_wheel_joint"
+      pid: { p: 0.3, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    catapult:
+      joint: "catapult_joint"
+      pid: { p: 50, i: 0, d: 1.5, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      catapult_angle: 1.57
+      velocity_coefficient: 0.5
+      lock_duration: 0.4
+    twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
+    power:
+      effort_coeff: 6.52
+      vel_coeff: 0.0044
+      power_offset: -3
+    timeout: 0.1
+  upper_orientation_controller:
+    type: rm_orientation_controller/Controller
+    publish_rate: 100
+    name: "upper_gimbal_imu"
+    frame_source: "odom"
+    frame_target: "base_link"
+  lower_orientation_controller:
+    type: rm_orientation_controller/Controller
+    publish_rate: 100
+    name: "lower_gimbal_imu"
+    frame_source: "odom"
+    frame_target: "base_link"
+  tf_radar_controller:
+    type: tf_radar_controller/Controller
+    publish_rate: 50
+  lower_gimbal_controller:
+    type: rm_gimbal_controllers/Controller
+    time_compensation: 0.004
+    publish_rate: 100
+    chassis_angular_data_num: 20
+    detection_topic: "/lower_detection"
+    camera_topic: "/lower_camera/camera_info"
+    detection_frame: "lower_detection"
+    yaw:
+      joint: "lower_yaw_joint"
+      pid: { p: 10, i: 0, d: 0.45, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+    pitch:
+      joint: "lower_pitch_joint"
+      pid: { p: 20.0, i: 0, d: 0.4, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+    imu_name: "lower_gimbal_imu"
+    feedforward:
+      gravity: 0.0
+      enable_gravity_compensation: false
+      mass_origin: [ 0.0,0.0,0.0 ]
+    bullet_solver:
+      resistance_coff_qd_10: 0.45
+      resistance_coff_qd_15: 0.4
+      resistance_coff_qd_16: 0.7
+      resistance_coff_qd_18: 0.55
+      resistance_coff_qd_30: 3.0
+      g: 9.81
+      delay: 0.2
+      dt: 0.001
+      timeout: 0.001
+      publish_rate: 50
+  upper_gimbal_controller:
+    type: rm_gimbal_controllers/Controller
+    time_compensation: 0.004
+    publish_rate: 100
+    chassis_angular_data_num: 20
+    detection_topic: "/upper_detection"
+    camera_topic: "/upper_camera/camera_info"
+    detection_frame: "upper_detection"
+    yaw:
+      joint: "upper_yaw_joint"
+      pid: { p: 10.0, i: 0, d: 0.4, i_clamp_max: 0.0, i_clamp_min: -0.0, antiwindup: true, publish_state: true }
+    pitch:
+      joint: "upper_pitch_joint"
+      pid: { p: 20, i: 0, d: 0.45, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
+    imu_name: "upper_gimbal_imu"
+    feedforward:
+      gravity: 0.0
+      enable_gravity_compensation: false
+      mass_origin: [ 0.0,0.0,0.0 ]
+    bullet_solver:
+      resistance_coff_qd_10: 0.45
+      resistance_coff_qd_15: 0.4
+      resistance_coff_qd_16: 0.7
+      resistance_coff_qd_18: 0.55
+      resistance_coff_qd_30: 3.0
+      g: 9.81
+      delay: 0.2
+      dt: 0.001
+      timeout: 0.001
+      publish_rate: 50
+  lower_shooter_controller:
+    type: rm_shooter_controllers/Controller
+    publish_rate: 50
+    friction_left:
+      joint: "lower_left_friction_wheel_joint"
+      pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+    friction_right:
+      joint: "lower_right_friction_wheel_joint"
+      pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+    trigger:
+      joint: "lower_trigger_joint"
+      pid: { p: 50.0, i: 0.0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    push_per_rotation: 8
+    push_qd_threshold: 0.90
+    block_effort: 2.0
+    block_speed: 0.1
+    block_duration: 0.05
+    block_overtime: 0.5
+    anti_block_angle: 0.2
+    anti_block_threshold: 0.1
+    qd_15: 420.0
+    qd_18: 480.0
+    qd_30: 740.0
+  upper_shooter_controller:
+    type: rm_shooter_controllers/Controller
+    publish_rate: 50
+    friction_left:
+      joint: "upper_left_friction_wheel_joint"
+      pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+    friction_right:
+      joint: "upper_right_friction_wheel_joint"
+      pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+    trigger:
+      joint: "upper_trigger_joint"
+      pid: { p: 50.0, i: 0.0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    push_per_rotation: 9
+    push_qd_threshold: 0.90
+    block_effort: 2.0
+    block_speed: 0.1
+    block_duration: 0.05
+    block_overtime: 0.5
+    anti_block_angle: 0.2
+    anti_block_threshold: 0.1
+    qd_15: 420.0
+    qd_18: 480.0
+    qd_30: 740.0
+  lower_pitch_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: lower_pitch_joint
+    actuators: [ lower_pitch_joint_motor ]
+    search_velocity: 3.14
+    threshold: 1e-2
+    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  upper_pitch_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: upper_pitch_joint
+    actuators: [ upper_pitch_joint_motor ]
+    search_velocity: 3.14
+    threshold: 1e-2
+    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  lower_yaw_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: lower_yaw_joint
+    actuators: [ lower_yaw_joint_motor ]
+    search_velocity: 6.28
+    threshold: 1e-2
+    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  upper_yaw_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: upper_yaw_joint
+    actuators: [ upper_yaw_joint_motor ]
+    search_velocity: 6.28
+    threshold: 0.01
+    pid: { p: 0.25, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  lower_trigger_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: lower_trigger_joint
+    actuators: [ lower_trigger_joint_motor ]
+    search_velocity: 3.1415
+    threshold: 0.2
+    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  upper_trigger_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: upper_trigger_joint
+    actuators: [ upper_trigger_joint_motor ]
+    search_velocity: 3.1415
+    threshold: 0.2
+    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  catapult_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: catapult_joint
+    actuators: [ catapult_motor ]
+    search_velocity: 1.2
+    threshold: 0.2
+    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }

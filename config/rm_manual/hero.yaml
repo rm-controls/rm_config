@@ -3,34 +3,31 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 50.0,1.0 ]
-      - [ 200.0,6.0 ]
+      - [ 50.0,99.0 ]
     accel_y:
-      - [ 50.0,1.0 ]
-      - [ 200.0,6.0 ]
+      - [ 50.0,99.0 ]
     accel_z:
-      - [ 50.0,6.0 ]
-      - [ 200.0,15.0 ]
+      - [ 50.0,99.0 ]
     safety_power: 60
     capacitor_threshold: 0.1
     charge_power: 20
     extra_power: 30
-    burst_power: 380
+    burst_power: 300
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
     max_linear_x:
-      - [ 50.0,3.14 ]
-      - [ 80.0,4.37 ]
-      - [ 200.0, 4.76 ]
+      - [ 50.0,2.14 ]
+      - [ 80.0,3.5 ]
+      - [ 300.0,4.0 ]
     max_linear_y:
-      - [ 50.0,3.14 ]
-      - [ 80.0,4.37 ]
-      - [ 200.0,4.76 ]
+      - [ 50.0,2.14 ]
+      - [ 80.0,3.5 ]
+      - [ 300.0,4.0 ]
     max_angular_z:
-      - [ 50.0,10.1 ]
-      - [ 80.0,14.9 ]
-      - [ 200.0,16.2 ]
+      - [ 50.0,4.0 ]
+      - [ 80.0,6.0 ]
+      - [ 300.0,12.0 ]
     gyro_move_reduction: 0.20
     gyro_rotate_reduction: 0.7
   gimbal:
@@ -47,18 +44,24 @@ rm_manual:
       timeout: 0.1
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_limit: 0.05
+    gimbal_error_tolerance: 0.15
+    target_acceleration_tolerance: 1.0
+    accleration_moving_average_num: 10
+    speed_10m_per_speed: 10.0
+    speed_15m_per_speed: 14.0
+    speed_16m_per_speed: 16.0
+    speed_18m_per_speed: 18.0
+    speed_30m_per_speed: 30.0
     heat_limit:
-      expect_shoot_frequency_1: 1
-      expect_shoot_frequency_2: 2
-      expect_shoot_frequency_3: 3
-      burst_shoot_frequency: 5
+      low_shoot_frequency: 1
+      high_shoot_frequency: 3
+      burst_shoot_frequency: 6
       safe_shoot_frequency: 1
       heat_coeff: 3.0
       type: "ID1_42MM"
   detection_switch:
     fail_limit: 10
-    service_name: "/detection_nodelet/status_switch"
+    service_name: "/Processor/status_switch"
 
   controllers_list:
     state_controllers:
@@ -83,11 +86,13 @@ rm_manual:
   ui:
     trigger_change:
       - name: "chassis"
-        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "chassis: " }
+        config: { start_position: [ 400, 850 ], size: 15, width: 2, title: "chassis: " }
+      - name: "gimbal"
+        config: { start_position: [ 400, 800 ], size: 15, width: 2, title: "gimbal:  " }
+      - name: "shooter"
+        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter:" }
       - name: "target"
-        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target:  " }
-      - name: "exposure"
-        config: { start_position: [ 400, 650 ], size: 15, width: 2, title: "exposure:" }
+        config: {start_position: [ 400, 700 ], size: 15, width: 2, title: "target:" }
     time_change:
       - name: "capacitor"
         config: { start_position: [ 900, 100 ], size: 15, width: 2, delay: 0.5 }
