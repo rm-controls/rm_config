@@ -1,9 +1,0 @@
-<launch>
-    <arg name="enable_imu_trigger" default="true"/>
-
-    <include file="$(find rm_config)/launch/vision/camera.launch">
-        <arg name="enable_imu_trigger" value="$(arg enable_imu_trigger)"/>
-    </include>
-
-    <include file="$(find rm_config)/launch/rm_hw.launch"/>
-</launch>
