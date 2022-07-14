@@ -3,7 +3,7 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 200.0,6.0 ]
+      - [ 200.0,3.0 ]
     accel_y:
       - [ 200.0,6.0 ]
     accel_z:
@@ -13,6 +13,7 @@ rm_manual:
     charge_power: 0
     extra_power: 5000
     burst_power: 999
+    speed_change_scale_: 0.1
   vel:
     topic: "/cmd_vel"
     max_linear_x:
