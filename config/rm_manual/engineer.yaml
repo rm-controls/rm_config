@@ -30,6 +30,14 @@ rm_manual:
       - [ 200.0,16.2 ]
     gyro_move_reduction: 0.20
     gyro_rotate_reduction: 0.7
+  servo:
+    topic: "/servo_server/delta_twist_cmds"
+    max_linear_x: 0.4
+    max_linear_y: 0.4
+    max_linear_z: 0.4
+    max_angular_x: 2.
+    max_angular_y: 2.
+    max_angular_z: 2.
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
@@ -57,7 +65,6 @@ rm_manual:
       - controllers/joint_state_controller
     main_controllers:
       - controllers/chassis_controller
-      - controllers/gimbal_controller
       - controllers/card_controller
       - controllers/drag_controller
       - controllers/arm_trajectory_controller
@@ -79,27 +86,8 @@ rm_manual:
       - controllers/joint7_calibration_controller
       - controllers/card_calibration_controller
       - controllers/drag_calibration_controller
-      - controllers/pitch_calibration_controller
-      - controllers/yaw_calibration_controller
 
   power_on_calibration:
-    - start_controllers:
-        - controllers/yaw_calibration_controller
-        - controllers/pitch_calibration_controller
-      stop_controllers:
-        - controllers/gimbal_controller
-      services_name:
-        - /controllers/yaw_calibration_controller/is_calibrated
-        - /controllers/pitch_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/card_calibration_controller
-        - controllers/drag_calibration_controller
-      stop_controllers:
-        - controllers/card_controller
-        - controllers/drag_controller
-      services_name:
-        - /controllers/card_calibration_controller/is_calibrated
-        - /controllers/drag_calibration_controller/is_calibrated
 
   arm_calibration:
     - start_controllers:
