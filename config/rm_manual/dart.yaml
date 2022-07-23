@@ -8,19 +8,22 @@ rm_manual:
     joint: "left_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
-    position_outpost: 0
-    position_base: 0
+    position_outpost: 0.
+    position_base: 0.
     step: 0.005
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_firction_controller/command"
     qd_: 440
+    joint: "left_friction_wheel_joint"
   friction_right:
     topic: "/controllers/right_firction_controller/command"
     qd_: 440
+    joint: "right_friction_wheel_joint"
   trigger:
     topic: "/controllers/trigger_controller/command"
     trigger_vel: -0.4
+    joint: "trigger_joint"
   controllers_list:
     state_controllers:
       - controllers/robot_state_controller
