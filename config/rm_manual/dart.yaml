@@ -20,7 +20,7 @@ rm_manual:
     joint: "right_friction_wheel_joint"
   trigger:
     topic: "/controllers/trigger_controller/command"
-    trigger_vel: -0.4
+    forward_vel: -0.4
     joint: "trigger_joint"
   controllers_list:
     state_controllers:
