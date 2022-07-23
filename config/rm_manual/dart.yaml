@@ -11,11 +11,11 @@ rm_manual:
     position_base: 0.
     joint: "yaw_joint"
   friction_left:
-    topic: "/controllers/left_firction_controller/command"
+    topic: "/controllers/left_friction_controller/command"
     qd_: 440
     joint: "left_friction_wheel_joint"
   friction_right:
-    topic: "/controllers/right_firction_controller/command"
+    topic: "/controllers/right_friction_controller/command"
     qd_: 440
     joint: "right_friction_wheel_joint"
   trigger:
@@ -29,8 +29,8 @@ rm_manual:
     main_controllers:
       - controllers/left_pitch_controller
       - controllers/yaw_controller
-      - controllers/left_firction_controller
-      - controllers/right_firction_controller
+      - controllers/left_friction_controller
+      - controllers/right_friction_controller
       - controllers/trigger_controller
       - controllers/mimic_joint1_controller
     calibration_controllers:
