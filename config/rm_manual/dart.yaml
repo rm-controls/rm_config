@@ -12,16 +12,16 @@ rm_manual:
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_friction_controller/command"
-    qd_: 440
     joint: "left_friction_wheel_joint"
+    qd_: 440
   friction_right:
     topic: "/controllers/right_friction_controller/command"
-    qd_: 440
     joint: "right_friction_wheel_joint"
+    qd_: 440
   trigger:
     topic: "/controllers/trigger_controller/command"
-    forward_vel: -0.4
     joint: "trigger_joint"
+    upward_vel: -0.01
   controllers_list:
     state_controllers:
       - controllers/robot_state_controller
