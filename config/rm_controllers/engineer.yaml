@@ -37,7 +37,7 @@ controllers:
     type: mimic_joint_controller/MimicJointController
     target_joint_name: "joint1"
     joint: "mimic_joint1"
-    pid: { p: 12000.0, i: 50, d: 1000.0, i_clamp_max: 150, i_clamp_min: -150, antiwindup: true, publish_state: true }
+    pid: { p: 14000.0, i: 50, d: 1000.0, i_clamp_max: 150, i_clamp_min: -150, antiwindup: true, publish_state: true }
 
   mimic_joint2_controller:
     type: mimic_joint_controller/MimicJointController
@@ -110,10 +110,10 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 0., i: 0, d: 0.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 0.12, i: 0, d: 0.02, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     pitch:
       joint: "pitch_joint"
-      pid: { p: 0., i: 0, d: 0.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 0.1, i: 0, d: 0.005, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     feedforward:
       gravity: 0.0
       enable_gravity_compensation: false
@@ -242,13 +242,13 @@ controllers:
     joint: pitch_joint
     actuator: [ pitch_joint_motor ]
     search_velocity: 6.28
-    threshold: 1e-2
-    pid: { p: 0.012, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    threshold: 0.05
+    pid: { p: 0.009, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   yaw_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: yaw_joint
     actuator: [ yaw_joint_motor ]
     search_velocity: 6.28
-    threshold: 1e-2
-    pid: { p: 0.006, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    threshold: 0.05
+    pid: { p: 0.05, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
