@@ -35,9 +35,10 @@ rm_manual:
     max_linear_x: 0.4
     max_linear_y: 0.4
     max_linear_z: 0.4
-    max_angular_x: 2.
-    max_angular_y: 2.
-    max_angular_z: 2.
+    max_angular_x: 0.7
+    max_angular_y: 0.7
+    max_angular_z: 0.7
+
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
