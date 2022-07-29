@@ -2,41 +2,63 @@ rm_manual:
   robot_type: "engineer"
   chassis:
     topic: "/controllers/chassis_controller/command"
-    accel_x: 3.0
-    accel_y: 3.0
-    accel_z: 20.0
-    safety_power: 50.0
+    accel_x:
+      - [ 200.0,6.0 ]
+    accel_y:
+      - [ 200.0,6.0 ]
+    accel_z:
+      - [ 200.0,15.0 ]
+    safety_power: 400
     capacitor_threshold: 0.1
     charge_power: 0
     extra_power: 5000
-    burst_power: 500
+    burst_power: 999
+    speed_change_scale_: 0.1
   vel:
     topic: "/cmd_vel"
-    max_linear_x: 2.0
-    max_linear_y: 2.0
-    max_angular_z: 20.0
+    max_linear_x:
+      - [ 50.0,3.14 ]
+      - [ 80.0,4.37 ]
+      - [ 200.0, 4.76 ]
+    max_linear_y:
+      - [ 50.0,3.14 ]
+      - [ 80.0,4.37 ]
+      - [ 200.0,4.76 ]
+    max_angular_z:
+      - [ 50.0,10.1 ]
+      - [ 80.0,14.9 ]
+      - [ 200.0,16.2 ]
+    gyro_move_reduction: 0.20
+    gyro_rotate_reduction: 0.7
+  servo:
+    topic: "/servo_server/delta_twist_cmds"
+    max_linear_x: 0.4
+    max_linear_y: 0.4
+    max_linear_z: 0.4
+    max_angular_x: 0.7
+    max_angular_y: 0.7
+    max_angular_z: 0.7
+
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
     max_pitch_vel: 8.37
+    track_timeout: 0.5
     target_cost_function:
       k_pos: 1.0
       k_vel: 1.0
       k_hp: 1.0
       k_freq: 1.0
-      timeout: 0.05
-  mast:
-    topic: "/controllers/mast_controller/command"
-    on_pos: 0.
-    off_pos: 0.
+      timeout: 0.0
+  drag:
+    topic: "/controllers/drag_controller/command"
+    on_pos: 1.64
+    off_pos: 0.05
   card:
     topic: "/controllers/card_controller/command"
-    on_pos: 0.28
-    off_pos: 0.0
-  stone_platform:
-    topic: "/controllers/stone_platform_controller/command"
-    on_pos: 0.19
-    off_pos: 0.0
+    long_pos: 0.529
+    short_pos: 0.472
+    off_pos: 0.001
 
   controllers_list:
     state_controllers:
@@ -45,93 +67,142 @@ rm_manual:
     main_controllers:
       - controllers/chassis_controller
       - controllers/gimbal_controller
-      - controllers/arm_trajectory_controller
-      - controllers/mast_controller
       - controllers/card_controller
-      - controllers/hand_controller
-      - controllers/stone_platform_controller
+      - controllers/drag_controller
+      - controllers/arm_trajectory_controller
+      - controllers/mimic_joint1_controller
+      - controllers/mimic_joint2_controller
+      - controllers/mimic_joint3_controller
+      - controllers/gpio_controller
+
     calibration_controllers:
-      - controllers/mast_calibration_controller
-      - controllers/joint5_calibration_controller
-      - controllers/joint4_calibration_controller
-      - controllers/joint3_calibration_controller
-      - controllers/joint2_calibration_controller
+      - controllers/mimic_joint3_calibration_controller
+      - controllers/mimic_joint2_calibration_controller
+      - controllers/mimic_joint1_calibration_controller
       - controllers/joint1_calibration_controller
-      - controllers/hand_calibration_controller
+      - controllers/joint2_calibration_controller
+      - controllers/joint3_calibration_controller
+      - controllers/joint4_calibration_controller
+      - controllers/joint5_calibration_controller
+      - controllers/joint6_calibration_controller
+      - controllers/joint7_calibration_controller
       - controllers/card_calibration_controller
-      - controllers/stone_platform_calibration_controller
-      - controllers/yaw_calibration_controller
+      - controllers/drag_calibration_controller
       - controllers/pitch_calibration_controller
+      - controllers/yaw_calibration_controller
 
   power_on_calibration:
-    - start_controller: controllers/yaw_calibration_controller
-      stop_controller: controllers/gimbal_controller
-      service_name: /controllers/yaw_calibration_controller/is_calibrated
-    - start_controller: controllers/pitch_calibration_controller
-      stop_controller: controllers/gimbal_controller
-      service_name: /controllers/pitch_calibration_controller/is_calibrated
-    - start_controller: controllers/card_calibration_controller
-      stop_controller: controllers/card_controller
-      service_name: /controllers/card_calibration_controller/is_calibrated
-    - start_controller: controllers/stone_platform_calibration_controller
-      stop_controller: controllers/stone_platform_controller
-      service_name: /controllers/stone_platform_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/yaw_calibration_controller
+        - controllers/pitch_calibration_controller
+      stop_controllers:
+        - controllers/gimbal_controller
+      services_name:
+        - /controllers/yaw_calibration_controller/is_calibrated
+        - /controllers/pitch_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/card_calibration_controller
+        - controllers/drag_calibration_controller
+      stop_controllers:
+        - controllers/card_controller
+        - controllers/drag_controller
+      services_name:
+        - /controllers/card_calibration_controller/is_calibrated
+        - /controllers/drag_calibration_controller/is_calibrated
 
-  mast_calibration:
-    - start_controller: controllers/mast_calibration_controller
-      stop_controller: controllers/mast_controller
-      service_name: /controllers/mast_calibration_controller/is_calibrated
   arm_calibration:
-    - start_controller: controllers/joint1_calibration_controller
-      stop_controller: controllers/arm_trajectory_controller
-      service_name: /controllers/joint1_calibration_controller/is_calibrated
-    - start_controller: controllers/joint2_calibration_controller
-      stop_controller: controllers/arm_trajectory_controller
-      service_name: /controllers/joint2_calibration_controller/is_calibrated
-    - start_controller: controllers/joint3_calibration_controller
-      stop_controller: controllers/arm_trajectory_controller
-      service_name: /controllers/joint3_calibration_controller/is_calibrated
-    - start_controller: controllers/joint4_calibration_controller
-      stop_controller: controllers/arm_trajectory_controller
-      service_name: /controllers/joint4_calibration_controller/is_calibrated
-    - start_controller: controllers/joint5_calibration_controller
-      stop_controller: controllers/arm_trajectory_controller
-      service_name: /controllers/joint5_calibration_controller/is_calibrated
-    - start_controller: controllers/hand_calibration_controller
-      stop_controller: controllers/hand_controller
-      service_name: /controllers/hand_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/joint1_calibration_controller
+        - controllers/mimic_joint1_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+        - controllers/mimic_joint1_controller
+        - controllers/mimic_joint2_controller
+        - controllers/mimic_joint3_controller
+      services_name:
+        - /controllers/joint1_calibration_controller/is_calibrated
+        - /controllers/mimic_joint1_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/joint4_calibration_controller
+        - controllers/joint5_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+        - controllers/mimic_joint1_controller
+        - controllers/mimic_joint2_controller
+        - controllers/mimic_joint3_controller
+      services_name:
+        - /controllers/joint4_calibration_controller/is_calibrated
+        - /controllers/joint5_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/joint6_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+        - controllers/mimic_joint1_controller
+        - controllers/mimic_joint2_controller
+        - controllers/mimic_joint3_controller
+      services_name:
+        - /controllers/joint6_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/joint7_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+        - controllers/mimic_joint1_controller
+        - controllers/mimic_joint2_controller
+        - controllers/mimic_joint3_controller
+      services_name:
+        - /controllers/joint7_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/joint3_calibration_controller
+        - controllers/mimic_joint3_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+        - controllers/mimic_joint1_controller
+        - controllers/mimic_joint2_controller
+        - controllers/mimic_joint3_controller
+      services_name:
+        - /controllers/joint3_calibration_controller/is_calibrated
+        - /controllers/mimic_joint3_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/joint2_calibration_controller
+        - controllers/mimic_joint2_calibration_controller
+      stop_controllers:
+        - controllers/arm_trajectory_controller
+        - controllers/mimic_joint1_controller
+        - controllers/mimic_joint2_controller
+        - controllers/mimic_joint3_controller
+      services_name:
+        - /controllers/joint2_calibration_controller/is_calibrated
+        - /controllers/mimic_joint2_calibration_controller/is_calibrated
+
   ui:
     trigger_change:
       - name: "step"
         config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "step:  ", color: "white" }
       - name: "queue"
         config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "queue: ", color: "yellow" }
-      - name: "jog"
-        config: { start_position: [ 1300, 750 ], size: 15, width: 2, title: "jog:  ", color: "white" }
-      - name: "stone"
-        config: { start_position: [ 1300, 700 ], size: 15, width: 2, title: "stone:", color: "yellow" }
-      - name: "card"
-        config: { start_position: [ 1300, 650 ], size: 15, width: 2, title: "card: ", color: "green" }
-      - name: "sentry"
-        config: { start_position: [ 1550, 750 ], size: 15, width: 2, title: "sentry:", color: "white" }
+      - name: "long_card"
+        config: { start_position: [ 1300, 750 ], size: 15, width: 2, title: "long card: ", color: "green" }
+      - name: "short_card"
+        config: { start_position: [ 1300, 700 ], size: 15, width: 2, title: "short card: ", color: "green" }
+      - name: "drag"
+        config: { start_position: [ 1300, 650 ], size: 15, width: 2, title: "drag: ", color: "green" }
     fixed:
-      - name: "stone_left"
-        config: { type: "line", width: 2, color: "cyan",
-                  start_position: [ 780, 401 ], end_position: [ 858, 571 ] }
-      - name: "stone_right"
-        config: { type: "line", width: 2, color: "cyan",
-                  start_position: [ 1140, 386 ], end_position: [ 1124, 509 ] }
+      - name: "island_lf_line"
+        config: { type: "line", width: 2, color: "white",
+                  start_position: [ 395, 4862 ], end_position: [ 455, 201 ] }
+      - name: "island_rt_line"
+        config: { type: "line", width: 2, color: "white",
+                  start_position: [ 738, 186 ], end_position: [ 740, 491 ] }
+      - name: "ground_lf_line"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 1206, 921 ], end_position: [ 1125, 476 ] }
+      - name: "ground_rt_line"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 1510, 390 ], end_position: [ 1788, 810 ] }
     time_change:
-      - name: "effort"
-        config: { start_position: [ 1500, 550 ], size: 15, width: 2, delay: 0.8 }
-      - name: "temperature"
-        config: { start_position: [ 1500, 500 ], size: 15, width: 2, delay: 0.8, title: "temp:   " }
       - name: "progress"
         config: { start_position: [ 400, 650 ], size: 15, width: 2, delay: 0.3, color: "green", title: "progress:" }
     flash:
       - name: "calibration"
         config: { start_position: [ 850, 700 ], size: 15, width: 2,
                   color: "yellow", content: "please calibrate!!", delay: 0.8 }
-      - name: "card_warning"
-        config: { start_position: [ 850, 750 ], size: 15, width: 2,
-                  color: "green", content: "card stuck!!", delay: 0.8 }
