@@ -61,12 +61,12 @@ rm_hw:
       need_calibration: true
     card_joint_motor:
       bus: can0
-      id: 0x206
+      id: 0x205
       type: rm_3508
       need_calibration: true
     drag_joint_motor:
       bus: can0
-      id: 0x205
+      id: 0x206
       type: rm_2006
       need_calibration: true
     pitch_joint_motor:
