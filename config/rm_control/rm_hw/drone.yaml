@@ -3,6 +3,7 @@ rm_hw:
     - can0
   loop_frequency: 1000
   cycle_time_error_threshold: 0.001
+  thread_priority: 95
   # Configurations of the actuators
   actuators:
     yaw_joint_motor:
