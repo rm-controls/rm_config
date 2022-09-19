@@ -10,17 +10,18 @@
           args="load
           controllers/joint_state_controller
           controllers/robot_state_controller
+          controllers/gimbal_calibration_controller
           controllers/trigger_calibration_controller
-          controllers/chassis_controller
           controllers/orientation_controller
           controllers/gimbal_controller
           controllers/shooter_controller
           "/>
-
+    <!--
     <node if="$(arg ekf)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"
           clear_params="true">
         <rosparam command="load" file="$(find rm_chassis_controllers)/config/localization.yaml"/>
     </node>
+    -->
     <node if="$(arg odom_tf)" pkg="tf2_ros" type="static_transform_publisher" name="odom_tf_publisher"
           args="0 0 0 0 0 0 1 map odom"/>
 </launch>
