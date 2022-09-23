@@ -40,11 +40,11 @@ rm_manual:
       k_vel: 1.0
       k_hp: 1.0
       k_freq: 1.0
-      timeout: 0.05
+      timeout: 0.1
   shooter:
     topic: "/controllers/shooter_controller/command"
     gimbal_error_tolerance: 0.15
-    target_acceleration_tolerance: 999.0
+    target_acceleration_tolerance: 20.0
     accleration_moving_average_num: 10
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 13.5
