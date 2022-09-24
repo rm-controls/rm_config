@@ -13,6 +13,8 @@ rm_manual:
     charge_power: 20
     extra_power: 30
     burst_power: 300
+    buffer_threshold: 10
+    power_gain: 0.85
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
@@ -92,7 +94,7 @@ rm_manual:
       - name: "shooter"
         config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter:" }
       - name: "target"
-        config: {start_position: [ 400, 700 ], size: 15, width: 2, title: "target:" }
+        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target:" }
     time_change:
       - name: "capacitor"
         config: { start_position: [ 900, 100 ], size: 15, width: 2, delay: 0.5 }
