@@ -13,6 +13,8 @@ rm_manual:
     charge_power: 20
     extra_power: 30
     burst_power: 300
+    buffer_threshold: 10
+    power_gain: 0.85
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
