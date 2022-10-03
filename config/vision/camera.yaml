@@ -1,12 +1,12 @@
-standalone_camera:
+camera:
   image_width: 1280
   image_height: 1024
   pixel_format: bgr8
   camera_info_url: ''
-  camera_name: standalone_camera
+  camera_name: camera
   camera_frame_id: camera_optical_frame
   camera_sn: KE0220040170
   frame_rate: 1000
   exposure_auto: false
-  exposure_value: 2500
+  exposure_value: 4000
   enable_imu_trigger: true
