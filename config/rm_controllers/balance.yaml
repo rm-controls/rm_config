@@ -7,55 +7,44 @@ controllers:
     publish_rate: 100
 
   chassis_controller:
-    type: rm_chassis_controllers/SwerveController
-    # ChassisBase
+    type: rm_chassis_controllers/BalanceController
     publish_rate: 100
     enable_odom_tf: true
-    publish_odom_tf: false
     power:
-      effort_coeff: 10.0
-      vel_coeff: 0.0060
-      power_offset: -8.41
+      effort_coeff: 12.0
+      vel_coeff: 0.0048
+      power_offset: 0
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 20, i: 0, d: 0.6, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 8, i: 0, d: 4.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_block_error: { p: 0, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
-    # SwerveController
-    modules:
-      left:
-        position: [ 0., 0.164 ]
-        pivot:
-          joint: left_pivot_joint
-          <<: &pivot_setting
-            offset: 0.
-            pid: { p: 10, i: 0, d: 0.4, i_clamp_max: 0.0, i_clamp_min: -0.4, antiwindup: true }
-        wheel:
-          joint: left_wheel_joint
-          <<: &wheel_setting
-            radius: 0.055
-            pid: { p: 0.4, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true }
-      right:
-        position: [ 0., -0.164 ]
-        pivot:
-          joint: right_pivot_joint
-          <<: *pivot_setting
-        wheel:
-          joint: right_wheel_joint
-          <<: *wheel_setting
 
-  reaction_wheel_controller:
-    type: rm_chassis_controllers/ReactionWheelController
     imu_name: "base_imu"
-    joint_name: "reaction_wheel_joint"
+    joint: "reaction_wheel_joint"
 
-    m_b: 6.9
-    m_w: 2.4
-    i_b: 2.61e-1
-    i_w: 2.4e-2
-    l: 0.22
-    l_b: 0.1638
+    m_b: 1.854
+    m_c: 5.2
+    m_p: 10.098
+    l_p: 0.039
+    l_b: 0.1389
     g: 9.81
+    wheel_radius: 0.125
 
-    q: [ 8.6, 0., 0.0005 ]
-    r: [ 0.04 ]
-    alpha: 0.001
+    q: [ 0.5, 0.5, 40, 51, 4, 0.2, 0.1, 1 ]
+    r: [ 0.01, 0.01, 0.0001 ]
+
+  left_momentum_block_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: left_momentum_block_joint
+    actuator: [ left_momentum_block_joint_motor ]
+    search_velocity: 0.1
+    threshold: 0.001
+    pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+  right_momentum_block_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: right_momentum_block_joint
+    actuator: [ right_momentum_block_joint_motor ]
+    search_velocity: 0.1
+    threshold: 0.001
+    pid: { p: 1, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
