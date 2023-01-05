@@ -1,22 +1,23 @@
 rm_hw:
   bus:
     - can0
+    - can1
   loop_frequency: 1000
   cycle_time_error_threshold: 0.001
   # Configurations of the actuators
   actuators:
     yaw_joint_motor:
-      bus: can0
+      bus: can1
       id: 0x207
       type: rm_6020
       lp_cutoff_frequency: 30
     left_pitch_joint_motor:
-      bus: can0
+      bus: can1
       id: 0x206
       type: rm_6020
       lp_cutoff_frequency: 30
     right_pitch_joint_motor:
-      bus: can0
+      bus: can1
       id: 0x205
       type: rm_6020
       lp_cutoff_frequency: 30
@@ -35,4 +36,3 @@ rm_hw:
       id: 0x203
       type: rm_2006
       lp_cutoff_frequency: 150
-
