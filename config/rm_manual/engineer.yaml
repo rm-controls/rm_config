@@ -13,7 +13,9 @@ rm_manual:
     charge_power: 0
     extra_power: 5000
     burst_power: 999
-    speed_change_scale_: 0.1
+    buffer_threshold: 10
+    power_gain: 0.85
+    speed_change_scale_: 0.01
   vel:
     topic: "/cmd_vel"
     max_linear_x:
@@ -35,10 +37,9 @@ rm_manual:
     max_linear_x: 0.4
     max_linear_y: 0.4
     max_linear_z: 0.4
-    max_angular_x: 0.7
-    max_angular_y: 0.7
-    max_angular_z: 0.7
-
+    max_angular_x: 1.3
+    max_angular_y: 1.3
+    max_angular_z: 3
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
@@ -52,13 +53,21 @@ rm_manual:
       timeout: 0.0
   drag:
     topic: "/controllers/drag_controller/command"
-    on_pos: 1.64
-    off_pos: 0.05
-  card:
-    topic: "/controllers/card_controller/command"
-    long_pos: 0.529
-    short_pos: 0.472
-    off_pos: 0.001
+    first_pos: 0.
+    second_pos: -0.7
+    third_pos: -1.67
+  reversal:
+    translate: [ 1,-1,1,-1 ]
+    roll: [ -0.7,0.7,1.2,1.2 ]
+    pitch: [ 1,1,-0.5,0.5 ]
+    translate_max_speed: 4
+    reversal_max_speed: 3
+    pid_roll:
+      pid: { p: 1., i: 0., d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid_pitch:
+      pid: { p: 1, i: 0., d: 0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    pid_translation:
+      pid: { p: 1, i: 0., d: 0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
 
   controllers_list:
     state_controllers:
@@ -66,18 +75,17 @@ rm_manual:
       - controllers/joint_state_controller
     main_controllers:
       - controllers/chassis_controller
-      - controllers/gimbal_controller
-      - controllers/card_controller
-      - controllers/drag_controller
       - controllers/arm_trajectory_controller
       - controllers/mimic_joint1_controller
-      - controllers/mimic_joint2_controller
-      - controllers/mimic_joint3_controller
       - controllers/gpio_controller
+      - controllers/gimbal_controller
+      - controllers/drag_controller
+      - controllers/pitch_front_controller
+      - controllers/pitch_behind_controller
+      - controllers/roll_left_controller
+      - controllers/roll_right_controller
 
     calibration_controllers:
-      - controllers/mimic_joint3_calibration_controller
-      - controllers/mimic_joint2_calibration_controller
       - controllers/mimic_joint1_calibration_controller
       - controllers/joint1_calibration_controller
       - controllers/joint2_calibration_controller
@@ -85,124 +93,35 @@ rm_manual:
       - controllers/joint4_calibration_controller
       - controllers/joint5_calibration_controller
       - controllers/joint6_calibration_controller
-      - controllers/joint7_calibration_controller
-      - controllers/card_calibration_controller
-      - controllers/drag_calibration_controller
-      - controllers/pitch_calibration_controller
       - controllers/yaw_calibration_controller
-
-  power_on_calibration:
-    - start_controllers:
-        - controllers/yaw_calibration_controller
-        - controllers/pitch_calibration_controller
-      stop_controllers:
-        - controllers/gimbal_controller
-      services_name:
-        - /controllers/yaw_calibration_controller/is_calibrated
-        - /controllers/pitch_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/card_calibration_controller
-        - controllers/drag_calibration_controller
-      stop_controllers:
-        - controllers/card_controller
-        - controllers/drag_controller
-      services_name:
-        - /controllers/card_calibration_controller/is_calibrated
-        - /controllers/drag_calibration_controller/is_calibrated
+      - controllers/pitch_calibration_controller
+      - controllers/drag_calibration_controller
 
   arm_calibration:
     - start_controllers:
         - controllers/joint1_calibration_controller
         - controllers/mimic_joint1_calibration_controller
+        - controllers/joint2_calibration_controller
+        - controllers/joint6_calibration_controller
+        - controllers/joint3_calibration_controller
+        - controllers/joint4_calibration_controller
+        - controllers/joint5_calibration_controller
+        - controllers/yaw_calibration_controller
+        - controllers/pitch_calibration_controller
+        - controllers/drag_calibration_controller
       stop_controllers:
         - controllers/arm_trajectory_controller
         - controllers/mimic_joint1_controller
-        - controllers/mimic_joint2_controller
-        - controllers/mimic_joint3_controller
+        - controllers/gimbal_controller
+        - controllers/drag_controller
       services_name:
         - /controllers/joint1_calibration_controller/is_calibrated
         - /controllers/mimic_joint1_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/joint4_calibration_controller
-        - controllers/joint5_calibration_controller
-      stop_controllers:
-        - controllers/arm_trajectory_controller
-        - controllers/mimic_joint1_controller
-        - controllers/mimic_joint2_controller
-        - controllers/mimic_joint3_controller
-      services_name:
+        - /controllers/joint2_calibration_controller/is_calibrated
+        - /controllers/joint6_calibration_controller/is_calibrated
+        - /controllers/joint3_calibration_controller/is_calibrated
         - /controllers/joint4_calibration_controller/is_calibrated
         - /controllers/joint5_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/joint6_calibration_controller
-      stop_controllers:
-        - controllers/arm_trajectory_controller
-        - controllers/mimic_joint1_controller
-        - controllers/mimic_joint2_controller
-        - controllers/mimic_joint3_controller
-      services_name:
-        - /controllers/joint6_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/joint7_calibration_controller
-      stop_controllers:
-        - controllers/arm_trajectory_controller
-        - controllers/mimic_joint1_controller
-        - controllers/mimic_joint2_controller
-        - controllers/mimic_joint3_controller
-      services_name:
-        - /controllers/joint7_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/joint3_calibration_controller
-        - controllers/mimic_joint3_calibration_controller
-      stop_controllers:
-        - controllers/arm_trajectory_controller
-        - controllers/mimic_joint1_controller
-        - controllers/mimic_joint2_controller
-        - controllers/mimic_joint3_controller
-      services_name:
-        - /controllers/joint3_calibration_controller/is_calibrated
-        - /controllers/mimic_joint3_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/joint2_calibration_controller
-        - controllers/mimic_joint2_calibration_controller
-      stop_controllers:
-        - controllers/arm_trajectory_controller
-        - controllers/mimic_joint1_controller
-        - controllers/mimic_joint2_controller
-        - controllers/mimic_joint3_controller
-      services_name:
-        - /controllers/joint2_calibration_controller/is_calibrated
-        - /controllers/mimic_joint2_calibration_controller/is_calibrated
-
-  ui:
-    trigger_change:
-      - name: "step"
-        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "step:  ", color: "white" }
-      - name: "queue"
-        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "queue: ", color: "yellow" }
-      - name: "long_card"
-        config: { start_position: [ 1300, 750 ], size: 15, width: 2, title: "long card: ", color: "green" }
-      - name: "short_card"
-        config: { start_position: [ 1300, 700 ], size: 15, width: 2, title: "short card: ", color: "green" }
-      - name: "drag"
-        config: { start_position: [ 1300, 650 ], size: 15, width: 2, title: "drag: ", color: "green" }
-    fixed:
-      - name: "island_lf_line"
-        config: { type: "line", width: 2, color: "white",
-                  start_position: [ 395, 4862 ], end_position: [ 455, 201 ] }
-      - name: "island_rt_line"
-        config: { type: "line", width: 2, color: "white",
-                  start_position: [ 738, 186 ], end_position: [ 740, 491 ] }
-      - name: "ground_lf_line"
-        config: { type: "line", width: 2, color: "yellow",
-                  start_position: [ 1206, 921 ], end_position: [ 1125, 476 ] }
-      - name: "ground_rt_line"
-        config: { type: "line", width: 2, color: "yellow",
-                  start_position: [ 1510, 390 ], end_position: [ 1788, 810 ] }
-    time_change:
-      - name: "progress"
-        config: { start_position: [ 400, 650 ], size: 15, width: 2, delay: 0.3, color: "green", title: "progress:" }
-    flash:
-      - name: "calibration"
-        config: { start_position: [ 850, 700 ], size: 15, width: 2,
-                  color: "yellow", content: "please calibrate!!", delay: 0.8 }
+        - /controllers/yaw_calibration_controller/is_calibrated
+        - /controllers/pitch_calibration_controller/is_calibrated
+        - /controllers/drag_calibration_controller/is_calibrated

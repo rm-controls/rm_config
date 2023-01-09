@@ -11,117 +11,127 @@ rm_hw:
   # Configurations of the actuators
   actuators:
     mimic_joint1_motor:
-      bus: can3
-      id: 0x206
+      bus: can1
+      id: 0x201
       type: rm_3508
       need_calibration: true
     joint1_motor:
-      bus: can3
-      id: 0x205
+      bus: can1
+      id: 0x204
       type: rm_3508
       need_calibration: true
     mimic_joint2_motor:
-      bus: can3
+      bus: can1
       id: 0x202
       type: rm_3508
       need_calibration: true
     joint2_motor:
-      bus: can3
-      id: 0x201
-      type: rm_3508
-      need_calibration: true
-    mimic_joint3_motor:
-      bus: can3
-      id: 0x204
+      bus: can1
+      id: 0x203
       type: rm_3508
       need_calibration: true
     joint3_motor:
-      bus: can3
+      bus: can2
       id: 0x203
       type: rm_3508
       need_calibration: true
     joint4_motor:
       bus: can2
-      id: 0x201
+      id: 0x204
       type: rm_3508
       need_calibration: true
     joint5_motor:
       bus: can2
-      id: 0x202
+      id: 0x205
       type: rm_3508
       need_calibration: true
     joint6_motor:
       bus: can2
-      id: 0x205
+      id: 0x206
       type: rm_3508
       need_calibration: true
-    joint7_motor:
+
+    yaw_joint_motor:
       bus: can2
-      id: 0x206
+      id: 0x202
       type: rm_3508
-      need_calibration: true
-    card_joint_motor:
-      bus: can0
-      id: 0x205
-      type: rm_3508
-      need_calibration: true
-    drag_joint_motor:
-      bus: can0
-      id: 0x206
-      type: rm_2006
       need_calibration: true
     pitch_joint_motor:
       bus: can2
-      id: 0x204
+      id: 0x201
       type: rm_3508
-      lp_cutoff_frequency: 20
       need_calibration: true
-    yaw_joint_motor:
-      bus: can2
-      id: 0x203
-      type: rm_3508
-      lp_cutoff_frequency: 20
-      need_calibration: true
-    right_front_wheel_motor:
+
+    drag_joint_motor:
       bus: can0
       id: 0x202
       type: rm_3508
-      lp_cutoff_frequency: 150
+      need_calibration: true
+
     left_front_wheel_motor:
-      bus: can0
+      bus: can3
       id: 0x201
       type: rm_3508
       lp_cutoff_frequency: 150
     left_back_wheel_motor:
-      bus: can0
-      id: 0x204
+      bus: can3
+      id: 0x202
       type: rm_3508
       lp_cutoff_frequency: 150
     right_back_wheel_motor:
-      bus: can0
+      bus: can3
       id: 0x203
       type: rm_3508
       lp_cutoff_frequency: 150
-    right_front_pivot_motor:
-      bus: can1
-      id: 0x206
-      type: rm_6020
-      lp_cutoff_frequency: 100
+    right_front_wheel_motor:
+      bus: can3
+      id: 0x204
+      type: rm_3508
+      lp_cutoff_frequency: 150
     left_front_pivot_motor:
-      bus: can1
+      bus: can0
       id: 0x205
       type: rm_6020
       lp_cutoff_frequency: 100
     left_back_pivot_motor:
-      bus: can1
-      id: 0x208
+      bus: can0
+      id: 0x206
       type: rm_6020
       lp_cutoff_frequency: 100
     right_back_pivot_motor:
-      bus: can1
+      bus: can0
       id: 0x207
       type: rm_6020
       lp_cutoff_frequency: 100
+    right_front_pivot_motor:
+      bus: can0
+      id: 0x208
+      type: rm_6020
+      lp_cutoff_frequency: 100
+    pitch_front_joint_motor:
+      bus: can1
+      id: 0x205
+      type: rm_2006
+      lp_cutoff_frequency: 20
+      need_calibration: false
+    pitch_behind_joint_motor:
+      bus: can1
+      id: 0x206
+      type: rm_2006
+      lp_cutoff_frequency: 20
+      need_calibration: false
+    roll_left_joint_motor:
+      bus: can3
+      id: 0x206
+      type: rm_2006
+      lp_cutoff_frequency: 20
+      need_calibration: false
+    roll_right_joint_motor:
+      bus: can3
+      id: 0x205
+      type: rm_2006
+      lp_cutoff_frequency: 20
+      need_calibration: false
   imus:
     gimbal_imu:
       frame_id: gimbal_imu
@@ -137,7 +147,7 @@ rm_hw:
       filter: complementary
       do_bias_estimation: false
       do_adaptive_gain: true
-      gain_acc: 0.0003  aqqqqq
+      gain_acc: 0.0003
   gpios:
     gripper:
       pin: 657
