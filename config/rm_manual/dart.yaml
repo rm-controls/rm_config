@@ -1,0 +1,57 @@
+rm_manual:
+  robot_type: "dart"
+  left_pitch:
+    topic: "/controllers/left_pitch_controller/command"
+    position_outpost: 0.
+    position_base: 0.
+    joint: "left_pitch_joint"
+  yaw:
+    topic: "/controllers/yaw_controller/command"
+    position_outpost: 0.
+    position_base: 0.
+    joint: "yaw_joint"
+  friction_left:
+    topic: "/controllers/left_friction_controller/command"
+    joint: "left_friction_wheel_joint"
+    qd_: 440
+  friction_right:
+    topic: "/controllers/right_friction_controller/command"
+    joint: "right_friction_wheel_joint"
+    qd_: 440
+  trigger:
+    topic: "/controllers/trigger_controller/command"
+    joint: "trigger_joint"
+    upward_vel: -0.01
+  controllers_list:
+    state_controllers:
+      - controllers/robot_state_controller
+      - controllers/joint_state_controller
+    main_controllers:
+      - controllers/left_pitch_controller
+      - controllers/yaw_controller
+      - controllers/left_friction_controller
+      - controllers/right_friction_controller
+      - controllers/trigger_controller
+      - controllers/mimic_joint1_controller
+    calibration_controllers:
+      - controllers/left_pitch_calibration_controller
+      - controllers/right_pitch_calibration_controller
+      - controllers/yaw_calibration_controller
+      - controllers/trigger_calibration_controller
+  trigger_calibration:
+    - start_controllers:
+        - controllers/trigger_calibration_controller
+      stop_controllers:
+        - controllers/trigger_controller
+      services_name:
+        - /controllers/trigger_calibration_controller/is_calibrated
+  gimbal_calibration:
+    - start_controllers:
+        - controllers/left_pitch_calibration_controller
+        - controllers/right_pitch_calibration_controller
+      stop_controllers:
+        - controllers/left_pitch_controller
+        - controllers/mimic_joint1_controller
+      services_name:
+        - /controllers/left_pitch_calibration_controller/is_calibrated
+        - /controllers/right_pitch_calibration_controller/is_calibrated
