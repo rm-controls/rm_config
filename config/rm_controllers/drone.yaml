@@ -71,4 +71,4 @@ controllers:
     anti_block_threshold: 0.1
     qd_15: 420.0
     qd_18: 480.0
-    qd_30: 740.0
+    qd_30: 750.0

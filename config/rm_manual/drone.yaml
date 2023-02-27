@@ -53,7 +53,7 @@ rm_manual:
     speed_18m_per_speed: 15.72
     speed_30m_per_speed: 24.2
     heat_limit:
-      low_shoot_frequency: 10
+      low_shoot_frequency: 20
       high_shoot_frequency: 20
       burst_shoot_frequency: 20
       safe_shoot_frequency: 20
