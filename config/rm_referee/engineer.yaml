@@ -1,0 +1,68 @@
+rm_referee:
+  robot_type: engineer
+  ui:
+    trigger_change:
+      - name: "engineer"
+        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "step:" }
+    time_change:
+      - name: "temperature"
+        config: { start_position: [ 400, 650 ], size: 15, width: 2, delay: 0.5 }
+    fixed:
+      - name: "ground_stone1"
+        config: { type: "line", width: 2, color: "orange",
+                  start_position: [ 930, 410 ], end_position: [ 1130, 410 ] }
+      - name: "ground_stone2"
+        config: { type: "line", width: 2, color: "orange",
+                  start_position: [ 930, 410 ], end_position: [ 900, 350 ] }
+      - name: "ground_stone3"
+        config: { type: "line", width: 2, color: "orange",
+                  start_position: [ 1130, 410 ], end_position: [ 1160, 350 ] }
+      - name: "ground_stone4"
+        config: { type: "line", width: 2, color: "orange",
+                  start_position: [ 900, 350 ], end_position: [ 1160, 350 ] }
+      - name: "lf_sky1"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 875, 415 ], end_position: [ 1055, 415 ] }
+      - name: "lf_sky2"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 865, 565 ], end_position: [ 1045, 565 ] }
+      - name: "lf_sky3"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 875, 415 ], end_position: [ 865, 565 ] }
+      - name: "lf_sky4"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 1055, 415 ], end_position: [ 1045, 565 ] }
+      - name: "big_island1"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 970, 410 ], end_position: [ 1090, 410 ] }
+      - name: "big_island2"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 970, 410 ], end_position: [ 940, 350 ] }
+      - name: "big_island3"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 1090, 410 ], end_position: [ 1120, 350 ] }
+      - name: "big_island4"
+        config: { type: "line", width: 2, color: "yellow",
+                  start_position: [ 940, 350 ], end_position: [ 1120, 350 ] }
+
+
+    flash:
+      - name: "spin"
+        config: { start_position: [ 850, 750 ], size: 20, width: 2,
+                  color: "yellow", content: "please spin!!", delay: 1.0 }
+      - name: "cover"
+        config: { start_position: [ 830, 700 ], size: 25, width: 2,
+                  color: "green", content: "cover open!!", delay: 0.8 }
+      - name: "ore"
+        config: { start_position: [ 960, 720 ], size: 15, width: 2,
+                  color: "yellow", content: "Ore will released after 10s", delay: 0.4 }
+      - name: "armor0"
+        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+      - name: "armor1"
+        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+      - name: "armor2"
+        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+      - name: "armor3"
+        config: { type: "circle", width: 3, radius: 50, color: "yellow", delay: 0.75 }
+      - name: "aux"
+        config: { type: "line", width: 2, color: "cyan", delay: 0.1 }

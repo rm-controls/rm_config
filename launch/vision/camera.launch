@@ -1,6 +1,6 @@
 <launch>
     <arg name="enable_imu_trigger" default="false"/>
-    <arg name="camera_name" default="standalone_camera"/>
+    <arg name="camera_name" default="camera"/>
     <arg name="camera_frame" default="camera_optical_frame"/>
 
     <rosparam file="$(find rm_config)/config/vision/camera.yaml" command="load"/>
@@ -10,7 +10,7 @@
         <param name="num_worker_threads" value="8"/>
     </node>
 
-    <node pkg="nodelet" type="nodelet" name="standalone_camera"
+    <node pkg="nodelet" type="nodelet" name="camera"
           args="load galaxy_camera/GalaxyCameraNodelet vision_nodelet"
           output="screen">
         <param name="camera_frame_id" value="$(arg camera_frame)"/>

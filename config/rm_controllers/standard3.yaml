@@ -44,20 +44,26 @@ controllers:
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
-    chassis_radius: 0.208
-    wheel_radius: 0.07625
-    left_front:
-      joint: "left_front_wheel_joint"
-      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    right_front:
-      joint: "right_front_wheel_joint"
-      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    left_back:
-      joint: "left_back_wheel_joint"
-      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    right_back:
-      joint: "right_back_wheel_joint"
-      pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    wheels:
+      left_front:
+        pose: [ 0.147, 0.147, 2.356 ]
+        joint: left_front_wheel_joint
+        <<: &wheel_setting
+          roller_angle: 0.
+          radius: 0.07625
+          pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+      right_front:
+        pose: [ 0.147, -0.147, 0.785 ]
+        joint: right_front_wheel_joint
+        <<: *wheel_setting
+      left_back:
+        pose: [ -0.147, 0.147, -2.356 ]
+        joint: left_back_wheel_joint
+        <<: *wheel_setting
+      right_back:
+        pose: [ -0.147, -0.147, -0.785 ]
+        joint: right_back_wheel_joint
+        <<: *wheel_setting
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -71,7 +77,7 @@ controllers:
     yaw:
       joint: "yaw_joint"
       pid: { p: 7.5, i: 0, d: 0.3, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
-      k_chassis_vel: 0.05
+      k_chassis_vel: 0.02
     pitch:
       joint: "pitch_joint"
       pid: { p: 22.0, i: 0, d: 0.75, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
@@ -83,9 +89,9 @@ controllers:
     bullet_solver:
       resistance_coff_qd_10: 0.45
       resistance_coff_qd_15: 1.0
-      resistance_coff_qd_16: 0.7
+      resistance_coff_qd_16: 1.5
       resistance_coff_qd_18: 0.55
-      resistance_coff_qd_30: 3.0
+      resistance_coff_qd_30: 5.0
       g: 9.81
       delay: 0.15
       dt: 0.001
@@ -112,6 +118,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
-    qd_15: 495.0
-    qd_18: 545.0
+    qd_15: 460.0
+    qd_18: 500.0
     qd_30: 730.0
