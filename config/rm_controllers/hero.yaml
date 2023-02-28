@@ -109,5 +109,7 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.5
     anti_block_threshold: 0.1
+    forward_push_threshold: 0.05
+    exit_push_threshold: 0.1
     qd_10: 370.0
     qd_16: 580.0
