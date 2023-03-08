@@ -1,7 +1,9 @@
 rm_track:
   max_match_distance: 0.1
-  max_storage_time: 2.0
+  max_target_holding_time: 0.1
+  max_storage_time: 1
   max_lost_time: 0.1
+  num_data: 30
   filters:
     - type: height_filter
       basic_range: [ -0.6, 999.0 ]

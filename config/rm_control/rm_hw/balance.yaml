@@ -36,13 +36,13 @@ rm_hw:
       lp_cutoff_frequency: 50
     trigger_joint_motor:
       bus: can1
-      id: 0x201
+      id: 0x202
       type: rm_2006
       lp_cutoff_frequency: 100
       need_calibration: true
     cover_joint_motor:
       bus: can1
-      id: 0x202
+      id: 0x201
       type: rm_2006
       lp_cutoff_frequency: 100
       need_calibration: true
