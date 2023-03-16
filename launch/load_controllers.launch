@@ -21,6 +21,7 @@
           controllers/shooter_controller
           "/>
 
+
     <node if="$(arg ekf)" pkg="robot_localization" type="ekf_localization_node" name="ekf_localization"
           clear_params="true">
         <rosparam command="load" file="$(find rm_chassis_controllers)/config/localization.yaml"/>
