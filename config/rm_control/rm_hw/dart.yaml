@@ -37,3 +37,20 @@ rm_hw:
       id: 0x203
       type: rm_2006
       lp_cutoff_frequency: 150
+
+  gpios:
+    calibration_left:
+      pin: 656
+      direction: in
+    calibration_right:
+      pin: 657
+      direction: in
+    photoelectric_gate_2:
+      pin: 660
+      direction: in
+    photoelectric_gate_3:
+      pin: 661
+      direction: in
+    photoelectric_gate_4:
+      pin: 662
+      direction: in
