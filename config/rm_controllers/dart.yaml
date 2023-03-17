@@ -38,19 +38,27 @@ controllers:
     joint: "trigger_joint"
     pid: { p: 1000000, i: 0, d: 0.0, i_clamp_max: 0.4, i_clamp_min: -0.4, antiwindup: true, publish_state: true }
   left_pitch_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
+    type: rm_calibration_controllers/GpioCalibrationController
     joint: left_pitch_joint
     actuators: [ left_pitch_joint_motor ]
     search_velocity: 5.2
     threshold: 0.001
+    initial_gpio_state: true
     pid: { p: 500, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
   right_pitch_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
+    type: rm_calibration_controllers/GpioCalibrationController
     joint: right_pitch_joint
     actuators: [ right_pitch_joint_motor ]
     search_velocity: 5.2
     threshold: 0.001
+    initial_gpio_state: true
     pid: { p: 500.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
+  gpio_controller:
+    type: gpio_controller/Controller
+    gpios: [ "calibration_left","calibration_right","photoelectric_gate_2","photoelectric_gate_3","photoelectric_gate_4" ]
+
   yaw_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: yaw_joint
