@@ -4,6 +4,7 @@ rm_manual:
     topic: "/controllers/left_pitch_controller/command"
     position_outpost: 0.
     position_base: 0.
+    scale_micro: 0.0001
     joint: "left_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
@@ -17,6 +18,10 @@ rm_manual:
     qd_2: 100
     qd_3: 90
     qd_4: 80
+    qd_base_1: 620
+    qd_base_2: 600
+    qd_base_3: 580
+    qd_base_4: 560
   friction_right:
     topic: "/controllers/right_friction_controller/command"
     joint: "right_friction_wheel_joint"
