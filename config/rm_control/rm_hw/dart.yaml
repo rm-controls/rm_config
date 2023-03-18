@@ -45,6 +45,12 @@ rm_hw:
     calibration_right:
       pin: 657
       direction: in
+    down_left:
+      pin: 658
+      direction: in
+    down_right:
+      pin: 659
+      direction: in
     photoelectric_gate_2:
       pin: 660
       direction: in
