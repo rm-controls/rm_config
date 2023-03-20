@@ -36,7 +36,7 @@ controllers:
     publish_odom_tf: false
     power:
       effort_coeff: 10.0
-      vel_coeff: 0.0060
+      vel_coeff: 0.0080
       power_offset: -8.41
     twist_angular: 0.5233
     timeout: 0.1
@@ -91,8 +91,8 @@ controllers:
       mass_origin: [ 0.0, 0.0, 0.0 ]
     bullet_solver:
       resistance_coff_qd_10: 0.45
-      resistance_coff_qd_15: 1.0
-      resistance_coff_qd_16: 1.5
+      resistance_coff_qd_15: 2.0
+      resistance_coff_qd_16: 1.8
       resistance_coff_qd_18: 0.55
       resistance_coff_qd_30: 5.0
       g: 9.81
@@ -123,6 +123,6 @@ controllers:
     anti_block_threshold: 0.1
     forward_push_threshold: 0.22
     exit_push_threshold: 0.25
-    qd_15: 460.0
-    qd_18: 500.0
+    qd_15: 480.0
+    qd_18: 520.0
     qd_30: 730.0
