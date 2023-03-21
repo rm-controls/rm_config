@@ -26,7 +26,7 @@ controllers:
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 6.0, i: 0, d: 0.5, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 4.0, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
@@ -76,13 +76,13 @@ controllers:
       enable_gravity_compensation: false
       mass_origin: [ 0.0,0.0,0.0 ]
     bullet_solver:
-      resistance_coff_qd_10: 0.8
+      resistance_coff_qd_10: 0.3
       resistance_coff_qd_15: 1.0
       resistance_coff_qd_16: 0.7
       resistance_coff_qd_18: 0.55
       resistance_coff_qd_30: 3.0
       g: 9.81
-      delay: 0.2571
+      delay: 0.239
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
@@ -110,7 +110,7 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.43
     anti_block_threshold: 0.1
-    forward_push_threshold: 0.1
-    exit_push_threshold: 0.2
+    forward_push_threshold: 0.2
+    exit_push_threshold: 0.23
     qd_10: 400.0
-    qd_16: 600.0
+    qd_16: 580.0
