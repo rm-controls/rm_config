@@ -44,6 +44,7 @@ controllers:
     search_velocity: 5.2
     threshold: 0.001
     initial_gpio_state: true
+    gpio_name: [ "calibration_left" ]
     pid: { p: 500, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   right_pitch_calibration_controller:
@@ -53,16 +54,19 @@ controllers:
     search_velocity: 5.2
     threshold: 0.001
     initial_gpio_state: true
+    gpio_name: [ "calibration_right" ]
     pid: { p: 500.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   gpio_controller:
     type: gpio_controller/Controller
-    gpios: [ "calibration_left","calibration_right","down_left","down_right","photoelectric_gate_2","photoelectric_gate_3","photoelectric_gate_4" ]
+    gpios: [ "calibration_left","calibration_right","down_left","down_right","photoelectric_gate_2","photoelectric_gate_3","photoelectric_gate_4","calibration_yaw" ]
 
   yaw_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
+    type: rm_calibration_controllers/GpioCalibrationController
     joint: yaw_joint
     actuators: [ yaw_joint_motor ]
     search_velocity: -6.8
     threshold: 0.001
+    initial_gpio_state: true
+    gpio_name: [ "calibration_yaw" ]
     pid: { p: 85.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }

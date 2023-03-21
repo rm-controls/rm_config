@@ -60,3 +60,6 @@ rm_hw:
     photoelectric_gate_4:
       pin: 662
       direction: in
+    calibration_yaw:
+      pin: 663
+      direction: in
