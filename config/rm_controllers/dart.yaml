@@ -65,7 +65,7 @@ controllers:
     type: rm_calibration_controllers/GpioCalibrationController
     joint: yaw_joint
     actuators: [ yaw_joint_motor ]
-    search_velocity: -6.8
+    search_velocity: -8.0
     threshold: 0.001
     initial_gpio_state: true
     gpio_name: [ "calibration_yaw" ]
