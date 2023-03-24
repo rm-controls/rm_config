@@ -6,6 +6,13 @@ controllers:
     type: robot_state_controller/RobotStateController
     publish_rate: 100
 
+  gimbal_calibration_controller:
+    type: rm_calibration_controllers/JointCalibrationController
+    joint: pitch_joint
+    actuator: [ pitch_joint_motor ]
+    search_velocity: 6.14
+    threshold: 1e-2
+    pid: { p: 0.1, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   left_momentum_block_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: left_momentum_block_joint
@@ -42,9 +49,9 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: true
     power:
-      effort_coeff: 12.0
-      vel_coeff: 0.0048
-      power_offset: 0
+      effort_coeff: 1
+      vel_coeff: 0.00955
+      power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
     pid_follow: { p: 8, i: 0, d: 4.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
@@ -72,8 +79,19 @@ controllers:
       wheel_joint: "right_wheel_joint"
       block_joint: "right_momentum_block_joint"
 
-    q: [ 0.5, 0.5, 40, 51, 51, 10, 0.2, 0.1, 1, 1 ]
+    block_duration: 0.8
+    block_angle: 0.28
+    block_effort: 2.0
+    block_velocity: 0.08
+    anti_block_effort: 1.5
+    block_overtime: 0.2
+    brake_vel_threshold: 0.2
+    anti_brake_acc: 6.0
+    brake_overtime: 0.4
+    q: [ 0.002, 0.6, 80, 20, 20, 40, 2.0, 1.0, 0.5, 0.5 ]
+    #q: [ 0.5, 0.5, 100, 51, 51, 10, 0.2, 0.1, 1., 1. ]
     r: [ 0.5, 0.5, 0.002, 0.002 ]
+    #r: [ 1., 1., 0.002, 0.002 ]
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -86,11 +104,11 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 23, i: 0, d: 1.0, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
-      k_chassis_vel: 0
+      pid: { p: 13, i: 0, d: 0.4, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      k_chassis_vel: 0.03
     pitch:
       joint: "pitch_joint"
-      pid: { p: 25.0, i: 0, d: 0.8, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 7.5, i: 0, d: 0.4, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     chassis_vel:
       num_data: 20
       debug: true
@@ -101,10 +119,10 @@ controllers:
       mass_origin: [ 0.0, 0.0, 0.0 ]
     bullet_solver:
       resistance_coff_qd_10: 0.45
-      resistance_coff_qd_15: 1.0
+      resistance_coff_qd_15: 0.0
       resistance_coff_qd_16: 1.5
       resistance_coff_qd_18: 0.55
-      resistance_coff_qd_30: 5.0
+      resistance_coff_qd_30: 0.0
       g: 9.81
       delay: 0.15
       dt: 0.001
@@ -133,6 +151,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
-    qd_15: 460.0
+    qd_15: 730.0
     qd_18: 500.0
     qd_30: 730.0
