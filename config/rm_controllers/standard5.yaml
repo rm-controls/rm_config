@@ -127,6 +127,6 @@ controllers:
     anti_block_threshold: 0.1
     forward_push_threshold: 0.22
     exit_push_threshold: 0.25
-    qd_15: 465.0
-    qd_18: 545.0
+    qd_15: 450.0
+    qd_18: 500.0
     qd_30: 730.0
