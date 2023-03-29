@@ -85,13 +85,8 @@ controllers:
     block_velocity: 0.08
     anti_block_effort: 1.5
     block_overtime: 0.2
-    brake_vel_threshold: 0.2
-    anti_brake_acc: 6.0
-    brake_overtime: 0.4
     q: [ 0.5, 0.6, 80, 20, 20, 40, 2.0, 1.0, 0.5, 0.5 ]
-    #q: [ 0.5, 0.5, 100, 51, 51, 10, 0.2, 0.1, 1., 1. ]
     r: [ 0.5, 0.5, 0.002, 0.002 ]
-    #r: [ 1., 1., 0.002, 0.002 ]
 
   orientation_controller:
     type: rm_orientation_controller/Controller
