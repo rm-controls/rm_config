@@ -49,8 +49,8 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: true
     power:
-      effort_coeff: 1
-      vel_coeff: 0.00955
+      effort_coeff: 2.35
+      vel_coeff: 0.00905
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
@@ -88,7 +88,7 @@ controllers:
     brake_vel_threshold: 0.2
     anti_brake_acc: 6.0
     brake_overtime: 0.4
-    q: [ 0.002, 0.6, 80, 20, 20, 40, 2.0, 1.0, 0.5, 0.5 ]
+    q: [ 0.5, 0.6, 80, 20, 20, 40, 2.0, 1.0, 0.5, 0.5 ]
     #q: [ 0.5, 0.5, 100, 51, 51, 10, 0.2, 0.1, 1., 1. ]
     r: [ 0.5, 0.5, 0.002, 0.002 ]
     #r: [ 1., 1., 0.002, 0.002 ]
@@ -151,6 +151,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
-    qd_15: 730.0
-    qd_18: 500.0
+    qd_15: 475.0
+    qd_18: 525.0
     qd_30: 730.0

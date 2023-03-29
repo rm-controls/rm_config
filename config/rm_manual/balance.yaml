@@ -4,6 +4,7 @@ rm_manual:
   gimbal_calibrate_motor: [ "pitch_joint_motor" ]
   shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
   flank_frame: "flank_frame"
+  supply_frame_: "yaw"
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
@@ -23,17 +24,17 @@ rm_manual:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
     max_linear_x:
-      - [ 50.0,1.50 ]
-      - [ 80.0,2.80 ]
-      - [ 240.0, 3.00 ]
+      - [ 50.0,1.00 ]
+      - [ 90.0,2.80 ]
+      - [ 240.0, 3.50 ]
     max_linear_y:
       - [ 50.0,3.14 ]
       - [ 80.0,4.37 ]
       - [ 240.0,4.76 ]
     max_angular_z:
-      - [ 50.0,10.1 ]
-      - [ 80.0,14.9 ]
-      - [ 240.0,16.2 ]
+      - [ 50.0,12.1 ]
+      - [ 80.0,18.0 ]
+      - [ 240.0,18.4 ]
     gyro_move_reduction: 0.3
     gyro_rotate_reduction: 0.7
   gimbal:
@@ -65,8 +66,8 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 2.0
-    off_pos: 0.05
+    on_pos: -1.56
+    off_pos: 0.004
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -95,8 +96,8 @@ rm_manual:
       stop_controllers:
         - controllers/chassis_controller
       services_name:
-        - controllers/left_momentum_block_calibration_controller/is_calibrated
-        - controllers/right_momentum_block_calibration_controller/is_calibrated
+        - /controllers/left_momentum_block_calibration_controller/is_calibrated
+        - /controllers/right_momentum_block_calibration_controller/is_calibrated
   gimbal_calibration:
     - start_controllers:
         - controllers/gimbal_calibration_controller
