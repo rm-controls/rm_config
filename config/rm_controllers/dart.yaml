@@ -59,7 +59,7 @@ controllers:
 
   gpio_controller:
     type: gpio_controller/Controller
-    gpios: [ "calibration_left","calibration_right","down_left","down_right","photoelectric_gate_2","photoelectric_gate_3","photoelectric_gate_4","calibration_yaw" ]
+    gpios: [ "calibration_left","calibration_right","down_left","down_right","calibration_yaw" ]
 
   yaw_calibration_controller:
     type: rm_calibration_controllers/GpioCalibrationController
