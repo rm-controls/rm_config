@@ -100,7 +100,7 @@ controllers:
       resistance_coff_qd_18: 0.55
       resistance_coff_qd_30: 5.0
       g: 9.81
-      delay: 0.15
+      delay: 0.0
       dt: 0.001
       timeout: 0.001
       publish_rate: 50

@@ -45,8 +45,8 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.15
-    target_acceleration_tolerance: 0.9
+    gimbal_error_tolerance: 0.08
+    target_acceleration_tolerance: 1.4
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 13.5
     speed_16m_per_speed: 16.0
