@@ -38,6 +38,7 @@ rm_manual:
     launch_position_2: 0.003251
     launch_position_3: 0.008298
     launch_position_4: 0.014457
+      
   controllers_list:
     state_controllers:
       - controllers/robot_state_controller
