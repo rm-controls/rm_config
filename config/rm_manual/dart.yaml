@@ -2,26 +2,31 @@ rm_manual:
   robot_type: "dart"
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
-    position_outpost: -0.0084
+    position_outpost: -0.019072
+    #    -0.085617
     position_base: 0.
     scale_micro: 0.0001
     joint: "left_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
-    position_outpost: 0.
+    position_outpost: 0.018169
     position_base: 0.
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_friction_controller/command"
     joint: "left_friction_wheel_joint"
-    qd_1: 110
-    qd_2: 100
-    qd_3: 90
-    qd_4: 80
-    qd_base_1: 620
-    qd_base_2: 600
-    qd_base_3: 580
-    qd_base_4: 560
+    qd_1: 50
+    #423.5
+    qd_2: 150
+    #419
+    qd_3: 250
+    #418.5
+    qd_4: 350
+    #419.5
+    qd_base_1: 410
+    qd_base_2: 405.5
+    qd_base_3: 405
+    qd_base_4: 406
   friction_right:
     topic: "/controllers/right_friction_controller/command"
     joint: "right_friction_wheel_joint"
@@ -29,7 +34,11 @@ rm_manual:
   trigger:
     topic: "/controllers/trigger_controller/command"
     joint: "trigger_joint"
-    upward_vel: -0.004
+    upward_vel: -0.003
+    launch_position_2: 0.003251
+    launch_position_3: 0.008298
+    launch_position_4: 0.014457
+      
   controllers_list:
     state_controllers:
       - controllers/robot_state_controller
