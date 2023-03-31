@@ -2,31 +2,44 @@ rm_manual:
   robot_type: "dart"
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
-    position_outpost: -0.019072
-    #    -0.085617
+    position_outpost: -0.209566
+    #    -0.209569
+    #    -0.093959
+    #    -0.022957
+    #    -0.022963
+    #    -0.022970
     position_base: 0.
+    scale: 0.04
     scale_micro: 0.0001
     joint: "left_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
-    position_outpost: 0.018169
+    position_outpost: 0.144705
+    #    0.145755
+    #    0.030326
+    #    0.034625
     position_base: 0.
+    yaw_offset_1: 0.
+    yaw_offset_2: 0.003
+    yaw_offset_3: -0.005
+    yaw_offset_4: 0.02
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_friction_controller/command"
     joint: "left_friction_wheel_joint"
-    qd_1: 50
-    #423.5
-    qd_2: 150
-    #419
-    qd_3: 250
-    #418.5
-    qd_4: 350
-    #419.5
-    qd_base_1: 410
-    qd_base_2: 405.5
-    qd_base_3: 405
-    qd_base_4: 406
+    qd_1: 540
+    #410
+    qd_2: 530
+    #405
+    qd_3: 530.5
+    #404.5
+    qd_4: 130
+    #529.5
+    #405.5
+    qd_base_1: 423.5
+    qd_base_2: 419
+    qd_base_3: 418.5
+    qd_base_4: 419.5
   friction_right:
     topic: "/controllers/right_friction_controller/command"
     joint: "right_friction_wheel_joint"
@@ -50,7 +63,6 @@ rm_manual:
       - controllers/right_friction_controller
       - controllers/trigger_controller
       - controllers/mimic_joint1_controller
-      - controllers/gpio_controller
     calibration_controllers:
       - controllers/left_pitch_calibration_controller
       - controllers/right_pitch_calibration_controller
