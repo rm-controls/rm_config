@@ -19,27 +19,13 @@ rm_manual:
     #    0.030326
     #    0.034625
     position_base: 0.
-    yaw_offset_1: 0.
-    yaw_offset_2: 0.003
-    yaw_offset_3: -0.005
-    yaw_offset_4: 0.02
+    yaw_offset: [ 0., 0.003, -0.005, 0.02 ]
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_friction_controller/command"
     joint: "left_friction_wheel_joint"
-    qd_1: 540
-    #410
-    qd_2: 530
-    #405
-    qd_3: 530.5
-    #404.5
-    qd_4: 130
-    #529.5
-    #405.5
-    qd_base_1: 423.5
-    qd_base_2: 419
-    qd_base_3: 418.5
-    qd_base_4: 419.5
+    qd_outpost: [ 540.0, 530.0, 530.5, 130.0 ]
+    qd_base: [ 423.5, 419.0, 418.5, 419.5 ]
   friction_right:
     topic: "/controllers/right_friction_controller/command"
     joint: "right_friction_wheel_joint"
