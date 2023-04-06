@@ -76,11 +76,14 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 7.5, i: 0, d: 0.3, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
-      k_chassis_vel: 0.02
+      pid: { p: 10.0, i: 0, d: 0.3, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      k_chassis_vel: 0.045
     pitch:
       joint: "pitch_joint"
-      pid: { p: 22.0, i: 0, d: 0.75, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 22.0, i: 0, d: 0.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    chassis_vel:
+      num_data: 20
+      debug: true
     imu_name: "gimbal_imu"
     feedforward:
       gravity: 0.0
@@ -116,10 +119,10 @@ controllers:
     block_speed: 0.1
     block_duration: 0.05
     block_overtime: 0.5
-    anti_block_angle: 0.2
+    anti_block_angle: 0.46
     anti_block_threshold: 0.1
     forward_push_threshold: 0.22
     exit_push_threshold: 0.25
-    qd_15: 460.0
+    qd_15: 470.0
     qd_18: 500.0
     qd_30: 730.0

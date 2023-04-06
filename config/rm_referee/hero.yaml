@@ -3,14 +3,22 @@ rm_referee:
   ui:
     trigger_change:
       - name: "chassis"
-        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "chassis: " }
+        config: { start_position: [ 400, 850 ], size: 15, width: 2, title: "chassis: " }
+      - name: "gimbal"
+        config: { start_position: [ 400, 800 ], size: 15, width: 2, title: "gimbal:  " }
+      - name: "shooter"
+        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter: " }
       - name: "target"
-        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target:  " }
-      - name: "exposure"
-        config: { start_position: [ 400, 650 ], size: 15, width: 2, title: "exposure:" }
+        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target: " }
     time_change:
       - name: "capacitor"
-        config: { start_position: [ 900, 100 ], size: 15, width: 2, delay: 0.5 }
+        config: { type: "line", width: 5, delay: 0.5,
+                  start_position: [ 610, 100 ], end_position: [ 1210, 100 ] }
+      - name: "lane_line"
+        config: { type: "line", width: 4, color: "cyan", delay: 0.2,
+                  start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
+        data: { radius: 0.48, height: 0.5, camera_range: 1.0, surface_coefficient: 1.0 }
+        reference_joint: "pitch_joint"
     fixed:
       - name: "2m"
         config: { type: "line", width: 2, color: "yellow",

@@ -1,5 +1,7 @@
 <launch>
     <arg name="enable_imu_trigger" default="false"/>
+    <arg name="camera_type" default="$(env CAMERA_TYPE)" doc="Camera type"/>
+    <arg name="camera_class" default="$(env CAMERA_CLASS)"/>
     <arg name="camera_name" default="camera"/>
     <arg name="camera_frame" default="camera_optical_frame"/>
 
@@ -10,27 +12,28 @@
         <param name="num_worker_threads" value="8"/>
     </node>
 
-    <node pkg="nodelet" type="nodelet" name="camera"
-          args="load galaxy_camera/GalaxyCameraNodelet vision_nodelet"
+    <node pkg="nodelet" type="nodelet" name="$(arg camera_name)"
+          args="load $(arg camera_type)/$(arg camera_class) vision_nodelet"
           output="screen">
         <param name="camera_frame_id" value="$(arg camera_frame)"/>
         <param name="enable_imu_trigger" value="$(arg enable_imu_trigger)"/>
         <remap from="trigger_time" to="rm_hw/gimbal_imu/trigger_time"/>
+        <remap from="$(arg camera_name)/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>
     </node>
 
     <node pkg="nodelet" type="nodelet" name="debayer"
           args="load image_proc/debayer vision_nodelet"
           output="screen">
-        <remap from="image_raw" to="/galaxy_camera/$(arg camera_name)/image_raw"/>
-        <remap from="image_mono" to="/galaxy_camera/$(arg camera_name)/image_mono"/>
-        <remap from="image_color" to="/galaxy_camera/$(arg camera_name)/image_color"/>
+        <remap from="image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>
+        <remap from="image_mono" to="/$(arg camera_type)/$(arg camera_name)/image_mono"/>
+        <remap from="image_color" to="/$(arg camera_type)/$(arg camera_name)/image_color"/>
     </node>
 
     <node pkg="nodelet" type="nodelet" name="rectify"
           args="load image_proc/rectify vision_nodelet"
           output="screen">
-        <remap from="image_mono" to="/galaxy_camera/$(arg camera_name)/image_mono"/>
-        <remap from="camera_info" to="/galaxy_camera/$(arg camera_name)/camera_info"/>
-        <remap from="image_rect" to="/galaxy_camera/$(arg camera_name)/image_rect"/>
+        <remap from="image_mono" to="/$(arg camera_type)/$(arg camera_name)/image_mono"/>
+        <remap from="camera_info" to="/$(arg camera_type)/$(arg camera_name)/camera_info"/>
+        <remap from="image_rect" to="/$(arg camera_type)/$(arg camera_name)/image_rect"/>
     </node>
 </launch>
