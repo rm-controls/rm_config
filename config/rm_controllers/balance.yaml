@@ -60,8 +60,8 @@ controllers:
     # BalanceController
     imu_name: "base_imu"
     m_w: 0.72
-    m: 11.48
-    m_b: 1.13
+    m: 11.00
+    m_b: 0.91
     i_w: 0.01683
     l: 0.0587
     y_b: 0.16
@@ -79,14 +79,15 @@ controllers:
       wheel_joint: "right_wheel_joint"
       block_joint: "right_momentum_block_joint"
 
-    block_duration: 0.8
+    block_duration: 1.0
     block_angle: 0.28
     block_effort: 2.0
-    block_velocity: 0.08
+    block_velocity: 0.04
     anti_block_effort: 1.5
     block_overtime: 0.2
-    q: [ 0.5, 0.6, 80, 20, 20, 40, 2.0, 1.0, 0.5, 0.5 ]
-    r: [ 0.5, 0.5, 0.002, 0.002 ]
+    q: [ 0.5, 5, 10, 10, 10, 10, 10.0, 1.0, 0.5, 0.5 ]
+    r_brake: [ 0.7, 0.7, 0.01, 0.01 ]
+    r: [ 0.8, 0.8, 0.05, 0.05 ]
 
   orientation_controller:
     type: rm_orientation_controller/Controller

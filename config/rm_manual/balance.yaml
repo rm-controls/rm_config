@@ -12,14 +12,16 @@ rm_manual:
     accel_y:
       - [ 50.0,99.0 ]
     accel_z:
-      - [ 50.0,10.0 ]
-    safety_power: 50
+      - [ 50.0,8.0 ]
+    safety_power: 100
     capacitor_threshold: 0.1
     charge_power: 20
-    extra_power: 30
+    extra_power: 150
     burst_power: 240
     buffer_threshold: 10
-    power_gain: 0.85
+    power_gain: 0.9
+  balance:
+    topic: "/controllers/chassis_controller/mode"
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
@@ -96,8 +98,8 @@ rm_manual:
       stop_controllers:
         - controllers/chassis_controller
       services_name:
-        - /controllers/left_momentum_block_calibration_controller/is_calibrated
-        - /controllers/right_momentum_block_calibration_controller/is_calibrated
+        - controllers/left_momentum_block_calibration_controller/is_calibrated
+        - controllers/right_momentum_block_calibration_controller/is_calibrated
   gimbal_calibration:
     - start_controllers:
         - controllers/gimbal_calibration_controller
