@@ -12,7 +12,7 @@ controllers:
     actuator: [ pitch_joint_motor ]
     search_velocity: 6.14
     threshold: 1e-2
-    pid: { p: 0.1, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    pid: { p: 0.25, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   left_momentum_block_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: left_momentum_block_joint
@@ -38,7 +38,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: cover_joint
     actuator: [ cover_joint_motor ]
-    search_velocity: 2
+    search_velocity: -2
     threshold: 1e-2
     pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
@@ -79,15 +79,18 @@ controllers:
       wheel_joint: "right_wheel_joint"
       block_joint: "right_momentum_block_joint"
 
-    block_duration: 1.0
+    block_duration: 1.5
     block_angle: 0.28
     block_effort: 2.0
     block_velocity: 0.04
     anti_block_effort: 1.5
     block_overtime: 0.2
-    q: [ 0.5, 5, 10, 10, 10, 10, 10.0, 1.0, 0.5, 0.5 ]
-    r_brake: [ 0.7, 0.7, 0.01, 0.01 ]
-    r: [ 0.8, 0.8, 0.05, 0.05 ]
+    q_mid: [ 20, 5, 90, 10, 10, 30, 10, 1.0, 0.5, 0.5 ]
+    r_mid: [ 0.7, 0.7, 0.01, 0.01 ]
+    q_low: [ 20, 5, 90, 10, 10, 30, 10, 1.0, 0.5, 0.5 ]
+    r_low: [ 0.7, 0.7, 0.01, 0.01 ]
+    q_high: [ 20, 5, 90, 10, 10, 30, 10, 1.0, 0.5, 0.5 ]
+    r_high: [ 0.7, 0.7, 0.01, 0.01 ]
 
   orientation_controller:
     type: rm_orientation_controller/Controller
