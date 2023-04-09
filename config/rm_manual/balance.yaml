@@ -3,8 +3,8 @@ rm_manual:
   gimbal_calibrate_motor: [ "pitch_joint_motor" ,"left_momentum_block_joint_motor", "right_momentum_block_joint_motor" ]
   shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
   flank_frame: "flank_frame"
-  dis_frame: "yaw_dis_frame"
-  supply_frame: "yaw_dis_frame"
+  reverse_frame: "yaw_reverse_frame"
+  supply_frame: "yaw_reverse_frame"
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
@@ -32,7 +32,7 @@ rm_manual:
       - [ 90.0,2.80 ]
       - [ 240.0, 3.50 ]
     max_linear_y:
-      - [ 50.0,1.0 ]
+      - [ 50.0,1.5 ]
     max_angular_z:
       - [ 50.0,12.1 ]
       - [ 80.0,18.0 ]
