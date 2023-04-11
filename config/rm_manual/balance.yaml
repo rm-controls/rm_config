@@ -1,20 +1,24 @@
 rm_manual:
   robot_type: "balance"
+  chassis_calibrate_motor: [ ]
   gimbal_calibrate_motor: [ "pitch_joint_motor" ,"left_momentum_block_joint_motor", "right_momentum_block_joint_motor" ]
   shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
   flank_frame: "flank_frame"
-  reverse_frame: "yaw_reverse_frame"
-  supply_frame: "yaw_reverse_frame"
+  dis_frame: "yaw_dis_frame"
+  supply_frame: "yaw"
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 50.0, 4.0 ]
-      - [ 150.0, 6.0 ]
+      - [ 60.0, 1.0 ]
+      - [ 80.0, 2.0 ]
+      - [ 100.0, 4.0 ]
     accel_y:
-      - [ 50.0,4.0 ]
+      - [ 60.0,4.0 ]
     accel_z:
-      - [ 50.0,8.0 ]
-    safety_power: 100
+      - [ 60.0,3.0 ]
+      - [ 80.0,5.0 ]
+      - [ 100.0,8.0 ]
+    safety_power: 80
     capacitor_threshold: 0.1
     charge_power: 20
     extra_power: 120
@@ -28,14 +32,15 @@ rm_manual:
     power_limit_topic: "/rm_referee/game_robot_status"
     chassis_power_limit_topic: "/controllers/chassis_controller/command"
     max_linear_x:
-      - [ 50.0,2.00 ]
-      - [ 90.0,2.80 ]
+      - [ 60.0,1.30 ]
+      - [ 80.0,2.00 ]
+      - [ 100.0,3.00 ]
       - [ 240.0, 3.50 ]
     max_linear_y:
-      - [ 50.0,1.5 ]
+      - [ 60.0,1.0 ]
     max_angular_z:
-      - [ 50.0,12.1 ]
-      - [ 80.0,18.0 ]
+      - [ 60.0,10.1 ]
+      - [ 80.0,13.0 ]
       - [ 240.0,18.4 ]
     gyro_move_reduction: 0.3
     gyro_rotate_reduction: 0.7
