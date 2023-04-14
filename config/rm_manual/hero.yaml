@@ -14,7 +14,7 @@ rm_manual:
     extra_power: 30
     burst_power: 180
     buffer_threshold: 10
-    power_gain: 0.0
+    power_gain: 0.85
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
@@ -50,7 +50,7 @@ rm_manual:
     gimbal_error_tolerance: 0.12
     target_acceleration_tolerance: 1.0
     accleration_moving_average_num: 10
-    speed_10m_per_speed: 15.4
+    speed_10m_per_speed: 9.3
     speed_15m_per_speed: 14.0
     speed_16m_per_speed: 15.4
     speed_18m_per_speed: 18.0
@@ -70,9 +70,6 @@ rm_manual:
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
-  armor_target_switch:
-    fail_limit: 10
-    service_name: "/forecast/status_switch"
 
   controllers_list:
     state_controllers:
