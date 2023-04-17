@@ -10,19 +10,7 @@ rm_referee:
         config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter: " }
       - name: "target"
         config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target: " }
-      - name: "polygon_1"
-        config:
-          - graph_config: { width: 2, delay: 0.5 ,color: "yellow" }
-            points:
-              - [ 50,50 ]
-              - [ 200,200 ]
-              - [ 300,400 ]
-              - [ 700,800 ]
-      - name: "balance_pitch"
-        config:
-          - graph_config: { bottom_angle: 1.047, centre_point: [ 100,400 ]
-                                                   length: 100, width: 2, delay: 0.5 ,color: "yellow" }
-    
+
     time_change:
       - name: "capacitor"
         config: { type: "line", width: 5, delay: 0.5,
@@ -32,6 +20,10 @@ rm_referee:
                   start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
         data: { radius: 0.38, height: 0.5, camera_range: 1.0, surface_coefficient: 1.0 }
         reference_joint: "pitch_joint"
+      - name: "balance_pitch"
+        graph_config: { bottom_angle: 1.047, centre_point: [ 100,400 ],
+                        length: 100, width: 2, delay: 0.5 ,color: "yellow" }
+
     fixed:
       - name: "capacity_boundary_l"
         config: { type: "line", width: 2, color: "green",
