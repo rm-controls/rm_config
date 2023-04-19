@@ -43,12 +43,6 @@ rm_hw:
       id: 0x203
       type: rm_2006
       lp_cutoff_frequency: 100
-    cover_joint_motor:
-      bus: can0
-      id: 0x207
-      type: rm_2006
-      lp_cutoff_frequency: 100
-      need_calibration: true
     pitch_joint_motor:
       bus: can1
       id: 0x206
