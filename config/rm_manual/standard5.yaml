@@ -31,11 +31,11 @@ rm_manual:
       - [ 80.0,14.9 ]
       - [ 240.0,18.2 ]
     gyro_move_reduction: 0.3
-    gyro_rotate_reduction: 0.7
+    gyro_rotate_reduction: 0.4
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 12.56
-    max_pitch_vel: 8.37
+    max_yaw_vel: 25.12
+    max_pitch_vel: 16.74
     track_timeout: 0.5
     target_cost_function:
       k_pos: 1.0
@@ -45,13 +45,13 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.15
-    target_acceleration_tolerance: 0.9
+    gimbal_error_tolerance: 0.08
+    target_acceleration_tolerance: 99.
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 13.5
     speed_16m_per_speed: 16.0
     speed_18m_per_speed: 15.72
-    speed_30m_per_speed: 24.2
+    speed_30m_per_speed: 27.2
     heat_limit:
       low_shoot_frequency: 10
       high_shoot_frequency: 20
@@ -59,6 +59,10 @@ rm_manual:
       safe_shoot_frequency: 3
       heat_coeff: 12.0
       type: "ID1_17MM"
+  camera:
+    topic: "/camera_name"
+    camera1_name: "hk_camera"
+    camera2_name: "galaxy_camera"
   cover:
     topic: "/controllers/cover_controller/command"
     on_pos: 2.0
