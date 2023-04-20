@@ -29,9 +29,9 @@ rm_manual:
     max_angular_z:
       - [ 50.0,4.0 ]
       - [ 80.0,6.0 ]
-      - [ 300.0,12.0 ]
+      - [ 300.0,8.0 ]
     gyro_move_reduction: 0.20
-    gyro_rotate_reduction: 0.35
+    gyro_rotate_reduction: 0.70
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 50.24
