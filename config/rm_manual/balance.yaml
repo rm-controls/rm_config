@@ -9,20 +9,23 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 60.0, 1.0 ]
-      - [ 80.0, 2.0 ]
-      - [ 100.0, 4.0 ]
+      - [ 50.0,0.8 ]
+      - [ 60.0,1.0 ]
+      - [ 80.0,1.5 ]
+      - [ 100.0,2.0 ]
+      - [ 150.0,4.5 ]
     accel_y:
       - [ 60.0,4.0 ]
     accel_z:
-      - [ 60.0,3.0 ]
-      - [ 80.0,5.0 ]
+      - [ 40.0,4.8 ]
+      - [ 60.0,5.0 ]
+      - [ 80.0,7.0 ]
       - [ 100.0,8.0 ]
-    safety_power: 80
+    safety_power: 60
     capacitor_threshold: 0.1
     charge_power: 20
     extra_power: 120
-    burst_power: 200
+    burst_power: 180
     buffer_threshold: 10
     power_gain: 0.9
   balance:
@@ -32,16 +35,18 @@ rm_manual:
     power_limit_topic: "/rm_referee/game_robot_status"
     chassis_power_limit_topic: "/controllers/chassis_controller/command"
     max_linear_x:
-      - [ 60.0,1.30 ]
-      - [ 80.0,2.00 ]
-      - [ 100.0,3.00 ]
-      - [ 240.0, 3.50 ]
+      - [ 40.0,1.20 ]
+      - [ 60.0,1.45 ]
+      - [ 80.0,1.70 ]
+      - [ 100.0,2.00 ]
     max_linear_y:
       - [ 60.0,1.0 ]
     max_angular_z:
-      - [ 60.0,10.1 ]
+      #- [ 60.0,9.5 ]
+      #- [ 80.0,10.5 ]
+      - [ 60.0,9.5 ]
       - [ 80.0,13.0 ]
-      - [ 240.0,18.4 ]
+      - [ 180.0,18.4 ]
     gyro_move_reduction: 0.3
     gyro_rotate_reduction: 0.7
   gimbal:
@@ -60,10 +65,10 @@ rm_manual:
     gimbal_error_tolerance: 0.15
     target_acceleration_tolerance: 0.9
     speed_10m_per_speed: 10.0
-    speed_15m_per_speed: 28.0
+    speed_15m_per_speed: 30.0
     speed_16m_per_speed: 16.0
-    speed_18m_per_speed: 15.72
-    speed_30m_per_speed: 28.0
+    speed_18m_per_speed: 30.0
+    speed_30m_per_speed: 30.0
     heat_limit:
       low_shoot_frequency: 20
       high_shoot_frequency: 20
@@ -109,8 +114,8 @@ rm_manual:
       services_name:
         - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/cover_calibration_controller/is_calibrated
-        - controllers/left_momentum_block_calibration_controller/is_calibrated
-        - controllers/right_momentum_block_calibration_controller/is_calibrated
+        - /controllers/left_momentum_block_calibration_controller/is_calibrated
+        - /controllers/right_momentum_block_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:
         - controllers/trigger_calibration_controller

@@ -38,7 +38,7 @@ controllers:
     type: rm_calibration_controllers/JointCalibrationController
     joint: cover_joint
     actuator: [ cover_joint_motor ]
-    search_velocity: -2
+    search_velocity: -3
     threshold: 1e-2
     pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
@@ -54,16 +54,20 @@ controllers:
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 7.0, i: 0, d: 4.5, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 5.0, i: 0, d: 1.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_left_wheel: { p: 0.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_right_wheel: { p: 0.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # BalanceController
     imu_name: "base_imu"
     m_w: 0.72
+    #m: 12.69
     m: 12.60
     m_b: 0.91
     i_w: 0.0142
     l: 0.0915
+    #l: 0.0587
     y_b: 0.16
     z_b: 0.0468
     g: 9.8
@@ -84,14 +88,14 @@ controllers:
     block_effort: 2.0
     block_velocity: 0.04
     anti_block_effort: 1.5
-    block_overtime: 0.35
-    #       x  phi theta x_l x_r dx dphi dthe dx_l d_r
-    q_low: [ 20, 7, 40, 10, 10, 10, 20, 1.0, 0.5, 0.5 ]
+    block_overtime: 0.4
+    #       x  phi theta x_l x_r dx dphi dthe dx_l dx_r
+    q_low: [ 10, 40, 80, 10, 10, 10, 20, 0.01, 0.5, 0.5 ]
     r_low: [ 0.7, 0.7, 0.01, 0.01 ]
-    q_mid: [ 20, 7, 40, 10, 10, 20, 20, 1.0, 0.5, 0.5 ]
-    r_mid: [ 0.7, 0.7, 0.01, 0.01 ]
-    q_high: [ 20, 7, 90, 10, 10, 30, 20, 1.0, 0.5, 0.5 ]
-    r_high: [ 0.7, 0.7, 0.01, 0.01 ]
+    q_mid: [ 5, 40, 100, 10, 10, 1, 1, 0.01, 0.5, 0.5 ]
+    r_mid: [ 0.7, 0.7, 0.2, 0.2 ]
+    q_high: [ 8, 40, 100, 10, 10, 1, 1, 0.01, 0.5, 0.5 ]
+    r_high: [ 0.7, 0.7, 0.2, 0.2 ]
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -124,7 +128,7 @@ controllers:
       resistance_coff_qd_18: 0.55
       resistance_coff_qd_30: 0.0
       g: 9.81
-      delay: 0.15
+      delay: 0.06
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
@@ -151,6 +155,6 @@ controllers:
     block_overtime: 0.5
     anti_block_angle: 0.2
     anti_block_threshold: 0.1
-    qd_15: 475.0
-    qd_18: 525.0
-    qd_30: 730.0
+    qd_15: 725.0
+    qd_18: 725.0
+    qd_30: 725.0

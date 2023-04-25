@@ -15,14 +15,14 @@ rm_referee:
       - name: "capacitor"
         config: { type: "line", width: 5, delay: 0.5,
                   start_position: [ 610, 100 ], end_position: [ 1210, 100 ] }
-      - name: "lane_line"
-        config: { type: "line", width: 4, color: "cyan", delay: 0.2,
-                  start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
-        data: { radius: 0.38, height: 0.5, camera_range: 1.0, surface_coefficient: 1.0 }
-        reference_joint: "pitch_joint"
-      - name: "balance_pitch"
-        graph_config: { bottom_angle: 1.047, centre_point: [ 100,400 ],
-                        length: 100, width: 2, delay: 0.5 ,color: "yellow" }
+      #- name: "lane_line"
+      # config: { type: "line", width: 4, color: "cyan", delay: 0.15,
+      #            start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
+      # data: { radius: 0.36, height: 0.5, camera_range: 1.0, surface_coefficient: 1.15 }
+      #  reference_joint: "pitch_joint"
+      - name: "balance_pitch"   # 0.8527
+        graph_config: { bottom_angle: 2.0527, centre_point: [ 1550,700 ],
+                        length: 100, width: 2, delay: 0.1 ,color: "yellow" }
 
     fixed:
       - name: "capacity_boundary_l"
