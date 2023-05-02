@@ -9,23 +9,23 @@ rm_hw:
   actuators:
     left_wheel_joint_motor:
       bus: can0
-      id: 0x202
+      id: 0x201
       type: rm_3508
       lp_cutoff_frequency: 60
     right_wheel_joint_motor:
       bus: can0
-      id: 0x201
+      id: 0x202
       type: rm_3508
       lp_cutoff_frequency: 60
     left_momentum_block_joint_motor:
       bus: can0
-      id: 0x205
+      id: 0x206
       type: rm_6020
       lp_cutoff_frequency: 60
       need_calibration: true
     right_momentum_block_joint_motor:
       bus: can0
-      id: 0x206
+      id: 0x205
       type: rm_6020
       lp_cutoff_frequency: 60
       need_calibration: true
