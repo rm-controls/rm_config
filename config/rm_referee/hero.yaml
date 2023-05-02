@@ -10,6 +10,9 @@ rm_referee:
         config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter: " }
       - name: "target"
         config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target: " }
+      - name: "camera"
+        config: { start_position: [ 400, 650 ], size: 15, width: 2, title: "camera: " }
+        camera_name: { camera1_name: "hk_camera", camera2_name: "galaxy_camera" }
     time_change:
       - name: "capacitor"
         config: { type: "line", width: 5, delay: 0.5,
