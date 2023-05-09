@@ -2,30 +2,23 @@ rm_manual:
   robot_type: "dart"
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
-    position_outpost: -0.209566
-    #    -0.209569
-    #    -0.093959
-    #    -0.022957
-    #    -0.022963
-    #    -0.022970
-    position_base: 0.
+    position_outpost: -0.1488
+    position_base: -0.14879
     scale: 0.04
     scale_micro: 0.0001
     joint: "left_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
-    position_outpost: 0.144705
-    #    0.145755
-    #    0.030326
-    #    0.034625
-    position_base: 0.
-    yaw_offset: [ 0., 0.003, -0.005, 0.02 ]
+    position_outpost: 0.0155
+    position_base: 0.23854
+    yaw_offset: [ 0.001, 0.004, 0.0045, 0.006 ]
+    yaw_offset_base: [ 0.0, 0.0, 0.0, 0.0 ]
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_friction_controller/command"
     joint: "left_friction_wheel_joint"
-    qd_outpost: [ 540.0, 530.0, 530.5, 130.0 ]
-    qd_base: [ 423.5, 419.0, 418.5, 419.5 ]
+    qd_outpost: [ 437.0, 439.75, 445.0, 438.75, ]
+    qd_base: [ 532.5, 532.5, 540.0, 536.0 ]
   friction_right:
     topic: "/controllers/right_friction_controller/command"
     joint: "right_friction_wheel_joint"
@@ -34,10 +27,10 @@ rm_manual:
     topic: "/controllers/trigger_controller/command"
     joint: "trigger_joint"
     upward_vel: -0.003
-    launch_position_2: 0.003251
-    launch_position_3: 0.008298
-    launch_position_4: 0.014457
-      
+    launch_position_1: 0.003251 #0.003587
+    launch_position_2: 0.008298 #0.008679
+    launch_position_3: 0.014457 #0.014873
+
   controllers_list:
     state_controllers:
       - controllers/robot_state_controller

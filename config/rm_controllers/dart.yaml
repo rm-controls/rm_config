@@ -29,8 +29,8 @@ controllers:
   trigger_calibration_controller:
     type: rm_calibration_controllers/JointCalibrationController
     joint: "trigger_joint"
-    actuators: [ trigger_joint_motor ]
-    search_velocity: 0.01
+    actuator: [ trigger_joint_motor ]
+    search_velocity: 0.005
     threshold: 0.001
     pid: { p: 1000000, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   trigger_controller:
@@ -40,7 +40,7 @@ controllers:
   left_pitch_calibration_controller:
     type: rm_calibration_controllers/GpioCalibrationController
     joint: left_pitch_joint
-    actuators: [ left_pitch_joint_motor ]
+    actuator: [ left_pitch_joint_motor ]
     search_velocity: 5.2
     threshold: 0.001
     initial_gpio_state: true
@@ -50,7 +50,7 @@ controllers:
   right_pitch_calibration_controller:
     type: rm_calibration_controllers/GpioCalibrationController
     joint: right_pitch_joint
-    actuators: [ right_pitch_joint_motor ]
+    actuator: [ right_pitch_joint_motor ]
     search_velocity: 5.2
     threshold: 0.001
     initial_gpio_state: true
@@ -60,7 +60,7 @@ controllers:
   yaw_calibration_controller:
     type: rm_calibration_controllers/GpioCalibrationController
     joint: yaw_joint
-    actuators: [ yaw_joint_motor ]
+    actuator: [ yaw_joint_motor ]
     search_velocity: -8.0
     threshold: 0.001
     initial_gpio_state: true
