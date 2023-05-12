@@ -55,8 +55,8 @@ controllers:
     twist_angular: 0.5233
     timeout: 0.1
     pid_follow: { p: 5.0, i: 0, d: 1.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    pid_left_wheel: { p: 0.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    pid_right_wheel: { p: 0.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_left_wheel: { p: 1.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_right_wheel: { p: 1.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # BalanceController
@@ -91,7 +91,7 @@ controllers:
     block_overtime: 0.4
     #       x  phi theta x_l x_r dx dphi dthe dx_l dx_r
     q_low: [ 10, 40, 80, 10, 10, 10, 20, 0.01, 0.5, 0.5 ]
-    r_low: [ 0.7, 0.7, 0.01, 0.01 ]
+    r_low: [ 0.7, 0.7, 0.1, 0.1 ]
     q_mid: [ 5, 40, 100, 10, 10, 1, 1, 0.01, 0.5, 0.5 ]
     r_mid: [ 0.7, 0.7, 0.2, 0.2 ]
     q_high: [ 8, 40, 100, 10, 10, 1, 1, 0.01, 0.5, 0.5 ]
