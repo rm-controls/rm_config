@@ -2,15 +2,15 @@ rm_manual:
   robot_type: "dart"
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
-    position_outpost: -0.1488
-    position_base: -0.14879
+    pitch_position_outpost: -0.1488
+    pitch_position_base: -0.14879
     scale: 0.04
     scale_micro: 0.0001
     joint: "left_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
-    position_outpost: 0.0155
-    position_base: 0.23854
+    yaw_position_outpost: 0.0155
+    yaw_position_base: 0.23854
     yaw_offset: [ 0.001, 0.004, 0.0045, 0.006 ]
     yaw_offset_base: [ 0.0, 0.0, 0.0, 0.0 ]
     joint: "yaw_joint"
