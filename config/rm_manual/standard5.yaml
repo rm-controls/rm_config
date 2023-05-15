@@ -34,9 +34,10 @@ rm_manual:
     gyro_rotate_reduction: 0.4
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 25.12
-    max_pitch_vel: 16.74
+    max_yaw_vel: 12.56
+    max_pitch_vel: 8.37
     track_timeout: 0.5
+    finish_turning_threshold: 2.9
     target_cost_function:
       k_pos: 1.0
       k_vel: 1.0
@@ -57,7 +58,7 @@ rm_manual:
       high_shoot_frequency: 20
       burst_shoot_frequency: 20
       safe_shoot_frequency: 3
-      heat_coeff: 12.0
+      heat_coeff: 20.0
       type: "ID1_17MM"
   camera:
     topic: "/camera_name"
