@@ -30,13 +30,14 @@ rm_manual:
       - [ 50.0,10.1 ]
       - [ 80.0,14.9 ]
       - [ 240.0,16.2 ]
-    gyro_move_reduction: 0.3
-    gyro_rotate_reduction: 0.4
+    gyro_move_reduction: 0.2
+    gyro_rotate_reduction: 0.7
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
     max_pitch_vel: 8.37
     track_timeout: 0.5
+    finish_turning_threshold: 2.9
     target_cost_function:
       k_pos: 1.0
       k_vel: 1.0
