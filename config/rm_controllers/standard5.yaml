@@ -80,8 +80,8 @@ controllers:
       k_chassis_vel: 0.038
       resistance_compensation:
         resistance: 0.16
-        velocity_dead_zone: 0.3
-        effort_dead_zone: 0.06
+        velocity_dead_zone: 0.4
+        effort_dead_zone: 0.5
     pitch:
       joint: "pitch_joint"
       pid: { p: 25.0, i: 0, d: 0.6, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
