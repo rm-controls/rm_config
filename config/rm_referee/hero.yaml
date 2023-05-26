@@ -3,32 +3,44 @@ rm_referee:
   ui:
     trigger_change:
       - name: "chassis"
-        config: { start_position: [ 400, 850 ], size: 15, width: 2, title: "chassis: " }
-      - name: "gimbal"
-        config: { start_position: [ 400, 800 ], size: 15, width: 2, title: "gimbal:  " }
+        config: { start_position: [ 200, 850 ], size: 15, width: 2, title: "chassis: " }
       - name: "shooter"
-        config: { start_position: [ 400, 750 ], size: 15, width: 2, title: "shooter: " }
+        config: { start_position: [ 200, 800 ], size: 15, width: 2, title: "shooter: " }
       - name: "target"
-        config: { start_position: [ 400, 700 ], size: 15, width: 2, title: "target: " }
+        config: { start_position: [ 200, 750 ], size: 15, width: 2, title: "target: " }
       - name: "camera"
-        config: { start_position: [ 400, 650 ], size: 15, width: 2, title: "camera: " }
+        config: { start_position: [ 200, 700 ], size: 15, width: 2, title: "camera: " }
         camera_name: { camera1_name: "hk_camera", camera2_name: "galaxy_camera" }
+      - name: "target_scale"
+        config: { type: "rectangle", start_position: [ 747, 398 ], end_position: [ 1100,671 ], width: 3 }
     time_change:
       - name: "capacitor"
-        config: { type: "line", width: 5, delay: 0.5,
+        config: { type: "line", width: 5, delay: 0.3,
                   start_position: [ 610, 100 ], end_position: [ 1210, 100 ] }
+      - name: "pitch"
+        config: { start_position: [ 775, 220 ], size: 25, width: 4, delay: 0.1, title: "pitch: " }
       - name: "lane_line"
-        config: { type: "line", width: 4, color: "cyan", delay: 0.2,
+        config: { type: "line", width: 4, color: "cyan", delay: 0.15,
                   start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
         data: { radius: 0.48, height: 0.5, camera_range: 1.0, surface_coefficient: 1.0 }
         reference_joint: "pitch_joint"
+      - name: "rotation"
+        config: { type: "arc", width: 4, delay: 0.15, color: "yellow",
+                  start_position: [ 960, 520 ], end_position: [ 320, 320 ] , start_angle: 60, end_angle: 120 }
+        data: { scale: 50, gimbal_reference_frame: "yaw", chassis_reference_frame: "base_link" }
     fixed:
+      - name: "capacity_boundary_l"
+        config: { type: "line", width: 2, color: "green",
+                  start_position: [ 610, 110 ], end_position: [ 610, 90 ] }
+      - name: "capacity_boundary_r"
+        config: { type: "line", width: 2, color: "green",
+                  start_position: [ 1210, 110 ], end_position: [ 1210, 90 ] }
       - name: "2m"
         config: { type: "line", width: 2, color: "yellow",
-                  start_position: [ 925, 435 ], end_position: [ 995, 435 ] }
+                  start_position: [ 925, 426 ], end_position: [ 995, 426 ] }
       - name: "3m"
         config: { type: "line", width: 2, color: "yellow",
-                  start_position: [ 935, 420 ], end_position: [ 985, 420 ] }
+                  start_position: [ 935, 416 ], end_position: [ 985, 416 ] }
       - name: "5m"
         config: { type: "line", width: 2, color: "yellow",
                   start_position: [ 948, 400 ], end_position: [ 972, 400 ] }

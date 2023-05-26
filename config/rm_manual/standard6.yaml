@@ -14,7 +14,7 @@ rm_manual:
     extra_power: 30
     burst_power: 200
     buffer_threshold: 10
-    power_gain: 0.0
+    power_gain: 0.85
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/controllers/chassis_controller/command"
@@ -31,7 +31,7 @@ rm_manual:
       - [ 80.0,14.9 ]
       - [ 240.0,18.2 ]
     gyro_move_reduction: 0.3
-    gyro_rotate_reduction: 0.4
+    gyro_rotate_reduction: 0.3
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
@@ -58,7 +58,7 @@ rm_manual:
       high_shoot_frequency: 20
       burst_shoot_frequency: 20
       safe_shoot_frequency: 3
-      heat_coeff: 12.0
+      heat_coeff: 20.0
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
