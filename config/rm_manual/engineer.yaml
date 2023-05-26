@@ -15,7 +15,7 @@ rm_manual:
     burst_power: 999
     buffer_threshold: 10
     power_gain: 0.85
-    speed_change_scale_: 0.01
+    speed_change_scale: 0.1
   vel:
     topic: "/cmd_vel"
     max_linear_x:
@@ -30,8 +30,8 @@ rm_manual:
       - [ 50.0,10.1 ]
       - [ 80.0,14.9 ]
       - [ 200.0,16.2 ]
-    gyro_move_reduction: 0.20
-    gyro_rotate_reduction: 0.7
+    gyro_move_reduction: 1
+    gyro_rotate_reduction: 1
   servo:
     topic: "/servo_server/delta_twist_cmds"
     max_linear_x: 0.4
@@ -53,21 +53,10 @@ rm_manual:
       timeout: 0.0
   drag:
     topic: "/controllers/drag_controller/command"
-    first_pos: 0.
-    second_pos: -0.7
-    third_pos: -1.67
+    on_pos: 0.
+    off_pos: -2.0184
   reversal:
-    translate: [ 1,-1,1,-1 ]
-    roll: [ -0.7,0.7,1.2,1.2 ]
-    pitch: [ 1,1,-0.5,0.5 ]
-    translate_max_speed: 4
-    reversal_max_speed: 3
-    pid_roll:
-      pid: { p: 1., i: 0., d: 0., i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-    pid_pitch:
-      pid: { p: 1, i: 0., d: 0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
-    pid_translation:
-      pid: { p: 1, i: 0., d: 0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+    topic: "/controllers/multi_dof_controller/command"
 
   controllers_list:
     state_controllers:
@@ -80,10 +69,7 @@ rm_manual:
       - controllers/gpio_controller
       - controllers/gimbal_controller
       - controllers/drag_controller
-      - controllers/pitch_front_controller
-      - controllers/pitch_behind_controller
-      - controllers/roll_left_controller
-      - controllers/roll_right_controller
+      - controllers/multi_dof_controller
 
     calibration_controllers:
       - controllers/mimic_joint1_calibration_controller
@@ -97,7 +83,7 @@ rm_manual:
       - controllers/pitch_calibration_controller
       - controllers/drag_calibration_controller
 
-  arm_calibration:
+  calibration_gather:
     - start_controllers:
         - controllers/joint1_calibration_controller
         - controllers/mimic_joint1_calibration_controller
