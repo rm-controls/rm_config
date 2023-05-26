@@ -46,7 +46,7 @@ rm_manual:
       timeout: 0.1
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.08
+    gimbal_error_tolerance: 0.3
     target_acceleration_tolerance: 99.0
     accleration_moving_average_num: 50
     speed_10m_per_speed: 10.0
@@ -58,6 +58,7 @@ rm_manual:
       low_shoot_frequency: 10
       high_shoot_frequency: 20
       burst_shoot_frequency: 20
+      minimal_shoot_frequency: 1.75
       safe_shoot_frequency: 3
       heat_coeff: 20.0
       type: "ID1_17MM"
@@ -65,6 +66,12 @@ rm_manual:
     topic: "/controllers/cover_controller/command"
     on_pos: 2.0
     off_pos: 0.05
+  buff_switch:
+    fail_limit: 10
+    service_name: "/buff_status_switch"
+  buff_type_switch:
+    fail_limit: 10
+    service_name: "/forecast/status_switch"
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
