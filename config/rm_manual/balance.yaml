@@ -109,7 +109,6 @@ rm_manual:
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/cover_controller
-        - controllers/chassis_controller
       services_name:
         - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/cover_calibration_controller/is_calibrated
