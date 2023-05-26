@@ -13,7 +13,7 @@ rm_referee:
         config: { start_position: [ 100, 750 ], size: 15, width: 2, title: "shooter: " }
       - name: "target"
         config: { start_position: [ 100, 700 ], size: 15, width: 2, title: "target: " }
-      - name: "target_scale"
+      - name: "target_view_angle"
         config: { type: "rectangle", start_position: [ 500, 240 ], end_position: [ 1420,840 ], width: 3 }
     time_change:
       - name: "capacitor"
