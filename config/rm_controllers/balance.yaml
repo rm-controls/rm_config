@@ -43,8 +43,7 @@ controllers:
     pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
-    type: rm/BalanceController
-    #type: rm_chassis_controllers/BalanceController
+    type: rm_chassis_controllers/BalanceController
     # ChassisBase
     publish_rate: 100
     enable_odom_tf: true
@@ -92,11 +91,11 @@ controllers:
     block_overtime: 0.4
     #       x  phi theta x_l x_r dx dphi dthe dx_l dx_r
     q_low: [ 60, 30, 1000, 40, 40, 1, 100, 1., 0.3, 0.3 ]
-    r_low: [ 0.5, 0.5, 0.001, 0.001 ] #0.001
+    r_low: [ 0.5, 0.5, 0.001, 0.001 ]
     q_mid: [ 60, 30, 1000, 40, 40, 1, 100, 1., 0.3, 0.3 ]
     r_mid: [ 0.5, 0.5, 0.001, 0.001 ]
     q_high: [ 60, 30, 1000, 40, 40, 1, 100, 1., 0.3, 0.3 ]
-    r_high: [ 0.5, 0.5, 0.1, 0.1 ]
+    r_high: [ 0.5, 0.5, 0.001, 0.001 ]
 
   orientation_controller:
     type: rm_orientation_controller/Controller

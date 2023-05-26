@@ -12,7 +12,7 @@ rm_manual:
     accel_z:
       - [ 50.0,99.0 ]
     safety_power: 50
-    capacitor_threshold: 0.1
+    capacitor_threshold: 0.2
     charge_power: 20
     extra_power: 30
     burst_power: 180
