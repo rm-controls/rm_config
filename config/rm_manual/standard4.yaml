@@ -64,14 +64,16 @@ rm_manual:
       safe_shoot_frequency: 3
       heat_coeff: 20.0
       type: "ID1_17MM"
-  camera:
-    topic: "/camera_name"
-    camera1_name: "hk_camera"
-    camera2_name: "galaxy_camera"
   cover:
     topic: "/controllers/cover_controller/command"
     on_pos: 1.58
     off_pos: 0.015
+  buff_switch:
+    fail_limit: 10
+    service_name: "/buff_status_switch"
+  buff_type_switch:
+    fail_limit: 10
+    service_name: "/forecast/status_switch"
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
