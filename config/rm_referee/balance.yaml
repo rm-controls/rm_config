@@ -1,5 +1,8 @@
 rm_referee:
   robot_type: standard
+  send_ui_queue_delay: 0.15
+  add_ui_frequency: 5
+  add_ui_max_times: 10
   ui:
     trigger_change:
       - name: "chassis"
@@ -10,12 +13,12 @@ rm_referee:
         config: { start_position: [ 100, 750 ], size: 15, width: 2, title: "shooter: " }
       - name: "target"
         config: { start_position: [ 100, 700 ], size: 15, width: 2, title: "target: " }
-      - name: "target_scale"
+      - name: "target_view_angle"
         config: { type: "rectangle", start_position: [ 500, 240 ], end_position: [ 1420,840 ], width: 3 }
 
     time_change:
       - name: "capacitor"
-        config: { type: "line", width: 5, delay: 0.5,
+        config: { type: "line", width: 5, delay: 0.2,
                   start_position: [ 610, 100 ], end_position: [ 1210, 100 ] }
       - name: "lane_line"
         config: { type: "line", width: 4, color: "cyan", delay: 0.15,
@@ -27,8 +30,8 @@ rm_referee:
                   start_position: [ 960, 520 ], end_position: [ 320, 320 ] , start_angle: 60, end_angle: 120 }
         data: { scale: 50, gimbal_reference_frame: "yaw", chassis_reference_frame: "base_link" }
       - name: "balance_pitch"   # 0.8527
-        config: { width: 2, delay: 0.1 ,color: "yellow" }
-        data: { bottom_angle: 2.0527, centre_point: [ 1550,700 ], length: 100 }
+        config: { width: 2, delay: 0.15 ,color: "yellow" }
+        data: { bottom_angle: 2.2527, centre_point: [ 1550,700 ], length: 100 }
 
     fixed:
       - name: "capacity_boundary_l"
