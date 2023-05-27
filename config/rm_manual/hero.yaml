@@ -14,8 +14,8 @@ rm_manual:
     safety_power: 60
     capacitor_threshold: 0.2
     charge_power: 20
-    extra_power: 30
-    burst_power: 180
+    extra_power: 50
+    burst_power: 220
     buffer_threshold: 10
     power_gain: 0.85
   vel:
