@@ -15,7 +15,7 @@ rm_referee:
         config: { type: "rectangle", start_position: [ 747, 398 ], end_position: [ 1100,671 ], width: 3 }
     time_change:
       - name: "capacitor"
-        config: { type: "line", width: 5, delay: 0.3,
+        config: { type: "line", width: 5, delay: 0.15,
                   start_position: [ 610, 100 ], end_position: [ 1210, 100 ] }
       - name: "pitch"
         config: { start_position: [ 775, 220 ], size: 25, width: 4, delay: 0.1, title: "pitch: " }
