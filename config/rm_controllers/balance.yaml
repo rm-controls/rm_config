@@ -42,6 +42,9 @@ controllers:
     threshold: 1e-2
     pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
+  balance_controller:
+    type: rm/BalanceController
+
   chassis_controller:
     type: rm_chassis_controllers/BalanceController
     # ChassisBase
