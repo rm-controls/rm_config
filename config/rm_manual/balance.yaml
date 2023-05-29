@@ -24,7 +24,7 @@ rm_manual:
     capacitor_threshold: 0.2
     charge_power: 20
     extra_power: 120
-    burst_power: 200
+    burst_power: 180
     buffer_threshold: 10
     power_gain: 0.9
   balance:
@@ -71,6 +71,7 @@ rm_manual:
       low_shoot_frequency: 2.0
       high_shoot_frequency: 20
       burst_shoot_frequency: 20
+      minimal_shoot_frequency: 1.75
       safe_shoot_frequency: 2.0
       heat_coeff: 15.0
       type: "ID1_17MM"
