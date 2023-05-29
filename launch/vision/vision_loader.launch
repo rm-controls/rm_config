@@ -23,4 +23,15 @@
     </node>
 
     <node name="rm_track" pkg="rm_track" type="rm_track" respawn="false"/>
+
+    <node pkg="nodelet" type="nodelet" name="forecast"
+        args="load rm_forecast/Forecast_Node vision_nodelet" >
+        <rosparam file="$(find rm_forecast)/config/forecast.yaml" command="load" />
+        <rosparam file="$(find rm_forecast)/config/camera.yaml" command="load" />
+       <remap from="/hk_camera/image_raw" to="/$(arg camera_type)/$(arg camera_name)/image_raw"/>
+    </node>
+
+<!--     <include file="$(find buff_vision)/launch/buff_nodelet.launch"/> -->
+
+    <include file="$(find windmill)/launch/windmill.launch"/>
 </launch>
