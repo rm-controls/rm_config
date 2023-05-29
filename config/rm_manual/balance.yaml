@@ -13,7 +13,7 @@ rm_manual:
     topic: "/controllers/right_momentum_block_position_controller/command"
     joint: right_momentum_block_joint
   chassis:
-    topic: "/controllers/chassis_controller/command"
+    topic: "/cmd_chassis"
     accel_x:
       - [ 60.0,1.0 ]
       - [ 80.0,1.3 ]
@@ -37,7 +37,7 @@ rm_manual:
     topic: "/controllers/chassis_controller/mode"
   vel:
     topic: "/cmd_vel"
-    power_limit_topic: "/controllers/chassis_controller/command"
+    power_limit_topic: "/cmd_chassis"
     max_linear_x:
       - [ 60.0,1.20 ]
       - [ 80.0,1.45 ]
@@ -50,7 +50,7 @@ rm_manual:
       - [ 80.0,9.5 ]
       - [ 100.0,13.0 ]
       - [ 180.0,14.5 ]
-    gyro_move_reduction: 0.3
+    gyro_move_reduction: 3.0
     gyro_rotate_reduction: 0.7
   gimbal:
     topic: "/controllers/gimbal_controller/command"
