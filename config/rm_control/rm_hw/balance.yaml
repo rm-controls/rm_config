@@ -19,15 +19,15 @@ rm_hw:
       lp_cutoff_frequency: 60
     left_momentum_block_joint_motor:
       bus: can0
-      id: 0x206
+      id: 0x205
       type: rm_6020
-      lp_cutoff_frequency: 60
+      lp_cutoff_frequency: 20
       need_calibration: true
     right_momentum_block_joint_motor:
       bus: can0
-      id: 0x205
+      id: 0x206
       type: rm_6020
-      lp_cutoff_frequency: 60
+      lp_cutoff_frequency: 20
       need_calibration: true
     yaw_joint_motor:
       bus: can0
@@ -56,12 +56,12 @@ rm_hw:
       bus: can1
       id: 0x201
       type: rm_3508
-      lp_cutoff_frequency: 60
+      lp_cutoff_frequency: 30
     right_friction_wheel_joint_motor:
       bus: can1
       id: 0x202
       type: rm_3508
-      lp_cutoff_frequency: 60
+      lp_cutoff_frequency: 30
   imus:
     base_imu:
       frame_id: base_imu

@@ -9,8 +9,8 @@ rm_manual:
   chassis:
     topic: "/controllers/chassis_controller/command"
     accel_x:
-      - [ 60.0,0.8 ]
-      - [ 80.0,1.0 ]
+      - [ 60.0,1.0 ]
+      - [ 80.0,1.3 ]
       - [ 100.0,1.5 ]
       - [ 180.0,4.5 ]
     accel_y:
@@ -21,23 +21,22 @@ rm_manual:
       - [ 100.0,7.0 ]
       - [ 150.0,8.0 ]
     safety_power: 60
-    capacitor_threshold: 0.1
+    capacitor_threshold: 0.2
     charge_power: 20
     extra_power: 120
-    burst_power: 200
+    burst_power: 180
     buffer_threshold: 10
     power_gain: 0.9
   balance:
     topic: "/controllers/chassis_controller/mode"
   vel:
     topic: "/cmd_vel"
-    power_limit_topic: "/rm_referee/game_robot_status"
-    chassis_power_limit_topic: "/controllers/chassis_controller/command"
+    power_limit_topic: "/controllers/chassis_controller/command"
     max_linear_x:
       - [ 60.0,1.20 ]
       - [ 80.0,1.45 ]
       - [ 100.0,1.70 ]
-      - [ 180.0,2.30 ]
+      - [ 180.0,2.40 ]
     max_linear_y:
       - [ 60.0,1.0 ]
     max_angular_z:
@@ -61,18 +60,19 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.15
-    target_acceleration_tolerance: 0.9
+    gimbal_error_tolerance: 0.08
+    target_acceleration_tolerance: 10
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 28.0
     speed_16m_per_speed: 16.0
     speed_18m_per_speed: 15.72
-    speed_30m_per_speed: 28.0
+    speed_30m_per_speed: 29.0
     heat_limit:
-      low_shoot_frequency: 20
+      low_shoot_frequency: 2.0
       high_shoot_frequency: 20
       burst_shoot_frequency: 20
-      safe_shoot_frequency: 3
+      minimal_shoot_frequency: 1.75
+      safe_shoot_frequency: 2.0
       heat_coeff: 15.0
       type: "ID1_17MM"
   cover:
@@ -109,7 +109,6 @@ rm_manual:
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/cover_controller
-        - controllers/chassis_controller
       services_name:
         - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/cover_calibration_controller/is_calibrated
