@@ -42,6 +42,18 @@ controllers:
     threshold: 1e-2
     pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
+  left_momentum_block_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: left_momentum_block_joint
+    pid: { p: 6000, i: 0, d: 10 }
+  right_momentum_block_position_controller:
+    type: effort_controllers/JointPositionController
+    joint: right_momentum_block_joint
+    pid: { p: 6000, i: 0, d: 10 }
+
+  balance_controller:
+    type: rm/BalanceController
+
   chassis_controller:
     type: rm_chassis_controllers/BalanceController
     # ChassisBase

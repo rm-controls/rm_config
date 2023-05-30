@@ -6,8 +6,14 @@ rm_manual:
   flank_frame: "flank_frame"
   reverse_frame: "yaw_reverse_frame"
   supply_frame: "yaw"
+  left_momentum_block:
+    topic: "/controllers/left_momentum_block_position_controller/command"
+    joint: left_momentum_block_joint
+  right_momentum_block:
+    topic: "/controllers/right_momentum_block_position_controller/command"
+    joint: right_momentum_block_joint
   chassis:
-    topic: "/controllers/chassis_controller/command"
+    topic: "/cmd_chassis"
     accel_x:
       - [ 60.0,1.0 ]
       - [ 80.0,1.3 ]
@@ -31,7 +37,7 @@ rm_manual:
     topic: "/controllers/chassis_controller/mode"
   vel:
     topic: "/cmd_vel"
-    power_limit_topic: "/controllers/chassis_controller/command"
+    power_limit_topic: "/cmd_chassis"
     max_linear_x:
       - [ 60.0,1.20 ]
       - [ 80.0,1.45 ]
@@ -44,8 +50,8 @@ rm_manual:
       - [ 80.0,9.5 ]
       - [ 100.0,13.0 ]
       - [ 180.0,14.5 ]
-    gyro_move_reduction: 0.3
-    gyro_rotate_reduction: 0.7
+    gyro_move_reduction: 1.0
+    gyro_rotate_reduction: 0.5
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
@@ -88,7 +94,6 @@ rm_manual:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
     main_controllers:
-      - controllers/chassis_controller
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
@@ -121,6 +126,13 @@ rm_manual:
         - controllers/shooter_controller
       services_name:
         - /controllers/trigger_calibration_controller/is_calibrated
+
+  lqr_controllers:
+    - controllers/chassis_controller
+  mpc_controllers:
+    - controllers/balance_controller
+    - controllers/left_momentum_block_position_controller
+    - controllers/right_momentum_block_position_controller
 
 controllers:
   cover_controller:
