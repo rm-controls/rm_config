@@ -23,7 +23,7 @@ controllers:
     publish_odom_tf: false
     power:
       effort_coeff: 2.0
-      vel_coeff: 0.00855
+      vel_coeff: 0.009
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
@@ -33,24 +33,24 @@ controllers:
     # OmniController
     wheels:
       left_front:
-        pose: [ 0.215, 0.215, 0. ]
+        pose: [ 0.219, 0.215, 0. ]
         roller_angle: -0.785
         joint: left_front_wheel_joint
         <<: &wheel_setting
           radius: 0.07625
           pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
       right_front:
-        pose: [ 0.215, -0.215, 0. ]
+        pose: [ 0.219, -0.215, 0. ]
         roller_angle: 0.785
         joint: right_front_wheel_joint
         <<: *wheel_setting
       left_back:
-        pose: [ -0.215, 0.215, 0. ]
+        pose: [ -0.219, 0.215, 0. ]
         roller_angle: 0.785
         joint: left_back_wheel_joint
         <<: *wheel_setting
       right_back:
-        pose: [ -0.215, -0.215, 0. ]
+        pose: [ -0.219, -0.215, 0. ]
         roller_angle: -0.785
         joint: right_back_wheel_joint
         <<: *wheel_setting

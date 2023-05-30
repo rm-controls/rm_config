@@ -1,6 +1,6 @@
 rm_referee:
   robot_type: hero
-  send_ui_queue_delay: 0.15
+  send_ui_queue_delay: 0.2
   add_ui_frequency: 5
   add_ui_max_times: 10
   ui:
@@ -14,16 +14,16 @@ rm_referee:
       - name: "camera"
         config: { start_position: [ 200, 700 ], size: 15, width: 2, title: "camera: " }
         camera_name: { camera1_name: "hk_camera", camera2_name: "galaxy_camera" }
-      - name: "target_scale"
-        config: { type: "rectangle", start_position: [ 747, 398 ], end_position: [ 1100,671 ], width: 3 }
+      - name: "target_view_angle"
+        config: { type: "rectangle", start_position: [ 500, 240 ], end_position: [ 1420,840 ], width: 3 }
     time_change:
       - name: "capacitor"
-        config: { type: "line", width: 5, delay: 0.15,
+        config: { type: "line", width: 5, delay: 0.2,
                   start_position: [ 610, 100 ], end_position: [ 1210, 100 ] }
       - name: "pitch"
-        config: { start_position: [ 775, 220 ], size: 25, width: 4, delay: 0.1, title: "pitch: " }
+        config: { start_position: [ 775, 220 ], size: 25, width: 4, delay: 0.15, title: "pitch: " }
       - name: "lane_line"
-        config: { type: "line", width: 4, color: "cyan", delay: 0.15,
+        config: { type: "line", width: 4, color: "cyan", delay: 0.2,
                   start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
         data: { radius: 0.48, height: 0.5, camera_range: 1.0, surface_coefficient: 1.0 }
         reference_joint: "pitch_joint"
