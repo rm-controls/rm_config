@@ -4,7 +4,7 @@ rm_manual:
   gimbal_calibrate_motor: [ ]
   shooter_calibrate_motor: [ ]
   chassis:
-    topic: "/controllers/chassis_controller/command"
+    topic: "/cmd_chassis"
     accel_x:
       - [ 200.0,6.0 ]
     accel_y:
