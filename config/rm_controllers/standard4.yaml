@@ -80,7 +80,7 @@ controllers:
     yaw:
       joint: "yaw_joint"
       pid: { p: 5, i: 0, d: 0.4, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
-      k_chassis_vel: 0.0
+      k_chassis_vel: 0.038
       resistance_compensation:
         resistance: 0.09
         velocity_dead_zone: 0.3
@@ -103,7 +103,7 @@ controllers:
       resistance_coff_qd_18: 0.55
       resistance_coff_qd_30: 0.01
       g: 9.81
-      delay: 0.06
+      delay: 0.15
       dt: 0.001
       timeout: 0.001
       publish_rate: 50

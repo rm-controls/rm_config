@@ -66,7 +66,7 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 1.58
+    on_pos: 2.07
     off_pos: 0.015
   buff_switch:
     fail_limit: 10
