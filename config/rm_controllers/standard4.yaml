@@ -132,4 +132,4 @@ controllers:
     exit_push_threshold: 0.03
     qd_15: 450.0
     qd_18: 500.0
-    qd_30: 690.0
+    qd_30: 740.0
