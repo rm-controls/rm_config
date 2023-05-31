@@ -4,7 +4,7 @@ rm_manual:
   gimbal_calibrate_motor: [ "pitch_joint_motor" ]
   shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
   chassis:
-    topic: "/controllers/chassis_controller/command"
+    topic: "/cmd_chassis"
     accel_x:
       - [ 50.0,99.0 ]
     accel_y:
@@ -20,7 +20,7 @@ rm_manual:
     power_gain: 0.85
   vel:
     topic: "/cmd_vel"
-    power_limit_topic: "/controllers/chassis_controller/command"
+    power_limit_topic: "/cmd_chassis"
     max_linear_x:
       - [ 50.0,7.0 ]
       - [ 80.0,7.0 ]

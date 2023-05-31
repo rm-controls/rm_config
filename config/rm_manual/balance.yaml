@@ -30,7 +30,7 @@ rm_manual:
     capacitor_threshold: 0.2
     charge_power: 20
     extra_power: 120
-    burst_power: 180
+    burst_power: 220
     buffer_threshold: 10
     power_gain: 0.9
   balance:
