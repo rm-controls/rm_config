@@ -94,14 +94,13 @@ rm_manual:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
     main_controllers:
+      - controllers/balance_controller
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
       - controllers/cover_controller
     calibration_controllers:
       - controllers/gimbal_calibration_controller
-      - controllers/left_momentum_block_calibration_controller
-      - controllers/right_momentum_block_calibration_controller
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
 
@@ -109,16 +108,12 @@ rm_manual:
     - start_controllers:
         - controllers/gimbal_calibration_controller
         - controllers/cover_calibration_controller
-        - controllers/left_momentum_block_calibration_controller
-        - controllers/right_momentum_block_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
         - controllers/cover_controller
       services_name:
         - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/cover_calibration_controller/is_calibrated
-        - /controllers/left_momentum_block_calibration_controller/is_calibrated
-        - /controllers/right_momentum_block_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:
         - controllers/trigger_calibration_controller
@@ -126,13 +121,6 @@ rm_manual:
         - controllers/shooter_controller
       services_name:
         - /controllers/trigger_calibration_controller/is_calibrated
-
-  lqr_controllers:
-    - controllers/chassis_controller
-  mpc_controllers:
-    - controllers/balance_controller
-    - controllers/left_momentum_block_position_controller
-    - controllers/right_momentum_block_position_controller
 
 controllers:
   cover_controller:
