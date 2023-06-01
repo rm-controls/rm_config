@@ -87,7 +87,7 @@ controllers:
         effort_dead_zone: 0.06
     pitch:
       joint: "pitch_joint"
-      pid: { p: 25.0, i: 0, d: 0.75, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 20.0, i: 0, d: 0.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     chassis_vel:
       num_data: 30
       debug: true
@@ -132,4 +132,4 @@ controllers:
     exit_push_threshold: 0.03
     qd_15: 450.0
     qd_18: 500.0
-    qd_30: 690.0
+    qd_30: 760.0
