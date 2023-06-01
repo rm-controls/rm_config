@@ -1,57 +1,40 @@
 rm_manual:
-  robot_type: "balance"
+  robot_type: "standard"
   chassis_calibrate_motor: [ ]
-  gimbal_calibrate_motor: [ "pitch_joint_motor" ,"left_momentum_block_joint_motor", "right_momentum_block_joint_motor" ]
+  gimbal_calibrate_motor: [ "pitch_joint_motor" ]
   shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
-  flank_frame: "flank_frame"
-  reverse_frame: "yaw_reverse_frame"
-  supply_frame: "yaw"
-  left_momentum_block:
-    topic: "/controllers/left_momentum_block_position_controller/command"
-    joint: left_momentum_block_joint
-  right_momentum_block:
-    topic: "/controllers/right_momentum_block_position_controller/command"
-    joint: right_momentum_block_joint
   chassis:
     topic: "/cmd_chassis"
     accel_x:
-      - [ 60.0,1.0 ]
-      - [ 80.0,1.3 ]
-      - [ 100.0,1.5 ]
-      - [ 180.0,4.5 ]
+      - [ 50.0,99.0 ]
     accel_y:
-      - [ 60.0,4.0 ]
+      - [ 50.0,99.0 ]
     accel_z:
-      - [ 60.0,4.8 ]
-      - [ 80.0,5.0 ]
-      - [ 100.0,7.0 ]
-      - [ 150.0,8.0 ]
-    safety_power: 60
-    capacitor_threshold: 0.2
+      - [ 50.0,99.0 ]
+    safety_power: 50
+    capacitor_threshold: 0.1
     charge_power: 20
-    extra_power: 120
-    burst_power: 220
+    extra_power: 30
+    burst_power: 200
     buffer_threshold: 10
-    power_gain: 0.9
-  balance:
-    topic: "/controllers/chassis_controller/mode"
+    power_gain: 0.85
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
     max_linear_x:
-      - [ 60.0,1.20 ]
-      - [ 80.0,1.45 ]
-      - [ 100.0,1.70 ]
-      - [ 180.0,2.40 ]
+      - [ 50.0,3.14 ]
+      - [ 80.0,4.37 ]
+      - [ 240.0, 4.76 ]
     max_linear_y:
-      - [ 60.0,1.0 ]
+      - [ 50.0,3.14 ]
+      - [ 80.0,4.37 ]
+      - [ 240.0,4.76 ]
     max_angular_z:
-      - [ 60.0,6.5 ]
-      - [ 80.0,9.5 ]
-      - [ 100.0,13.0 ]
-      - [ 180.0,14.5 ]
-    gyro_move_reduction: 1.0
-    gyro_rotate_reduction: 0.5
+      - [ 50.0,10.1 ]
+      - [ 80.0,14.9 ]
+      - [ 240.0,18.2 ]
+    gyro_move_reduction: 0.3
+    gyro_rotate_reduction: 0.3
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 12.56
@@ -67,24 +50,30 @@ rm_manual:
   shooter:
     topic: "/controllers/shooter_controller/command"
     gimbal_error_tolerance: 0.08
-    target_acceleration_tolerance: 10
+    target_acceleration_tolerance: 20
     speed_10m_per_speed: 10.0
-    speed_15m_per_speed: 28.0
+    speed_15m_per_speed: 13.5
     speed_16m_per_speed: 16.0
     speed_18m_per_speed: 15.72
-    speed_30m_per_speed: 27.5
+    speed_30m_per_speed: 28.2
     heat_limit:
       low_shoot_frequency: 10
       high_shoot_frequency: 20
       burst_shoot_frequency: 20
-      minimal_shoot_frequency: 1.75
-      safe_shoot_frequency: 2.0
-      heat_coeff: 15.0
+      minimal_shoot_frequency: 2.0
+      safe_shoot_frequency: 3
+      heat_coeff: 20.0
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 1.618
-    off_pos: 0.04
+    on_pos: 1.6
+    off_pos: 0.05
+  buff_switch:
+    fail_limit: 10
+    service_name: "/buff_status_switch"
+  buff_type_switch:
+    fail_limit: 10
+    service_name: "/forecast/status_switch"
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -94,25 +83,21 @@ rm_manual:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
     main_controllers:
-      - controllers/balance_controller
+      - controllers/chassis_controller
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
       - controllers/cover_controller
     calibration_controllers:
-      - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
 
   gimbal_calibration:
     - start_controllers:
-        - controllers/gimbal_calibration_controller
         - controllers/cover_calibration_controller
       stop_controllers:
-        - controllers/gimbal_controller
         - controllers/cover_controller
       services_name:
-        - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/cover_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:

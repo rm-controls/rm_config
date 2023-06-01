@@ -23,7 +23,7 @@ controllers:
     publish_odom_tf: false
     power:
       effort_coeff: 2.0
-      vel_coeff: 0.00855
+      vel_coeff: 0.009
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
@@ -33,24 +33,24 @@ controllers:
     # OmniController
     wheels:
       left_front:
-        pose: [ 0.430, 0.430, 0. ]
+        pose: [ 0.219, 0.215, 0. ]
         roller_angle: -0.785
         joint: left_front_wheel_joint
         <<: &wheel_setting
           radius: 0.07625
           pid: { p: 0.6, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
       right_front:
-        pose: [ 0.430, -0.430, 0. ]
+        pose: [ 0.219, -0.215, 0. ]
         roller_angle: 0.785
         joint: right_front_wheel_joint
         <<: *wheel_setting
       left_back:
-        pose: [ -0.430, 0.430, 0. ]
+        pose: [ -0.219, 0.215, 0. ]
         roller_angle: 0.785
         joint: left_back_wheel_joint
         <<: *wheel_setting
       right_back:
-        pose: [ -0.430, -0.430, 0. ]
+        pose: [ -0.219, -0.215, 0. ]
         roller_angle: -0.785
         joint: right_back_wheel_joint
         <<: *wheel_setting
@@ -66,14 +66,14 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 13.0, i: 0, d: 1.3, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      pid: { p: 13.0, i: 0.05, d: 1.3, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.05
       resistance_compensation:
-        resistance: 0.1
-        error_tolerance: 0.02
+        resistance: 0.0
+        error_tolerance: 0.0
     pitch:
       joint: "pitch_joint"
-      pid: { p: 13.0, i: 0, d: 0.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 11.0, i: 0, d: 0.4, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     imu_name: "gimbal_imu"
     feedforward:
       gravity: 0.0
@@ -86,7 +86,7 @@ controllers:
       resistance_coff_qd_18: 0.55
       resistance_coff_qd_30: 3.0
       g: 9.81
-      delay: 0.0
+      delay: 0.1
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
@@ -116,5 +116,5 @@ controllers:
     anti_block_threshold: 0.1
     forward_push_threshold: 0.2
     exit_push_threshold: 0.23
-    qd_10: 400.0
-    qd_16: 570.0
+    qd_10: 555.0
+    qd_16: 555.0
