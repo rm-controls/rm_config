@@ -97,7 +97,7 @@ controllers:
       resistance_coff_qd_15: 0.0
       resistance_coff_qd_16: 0.0
       resistance_coff_qd_18: 0.0
-      resistance_coff_qd_30: 0.0
+      resistance_coff_qd_30: 0.1
       g: 9.81
       delay: 0.1
       dt: 0.001
