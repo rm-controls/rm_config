@@ -15,7 +15,9 @@ rm_referee:
         config: { start_position: [ 200, 700 ], size: 15, width: 2, title: "camera: " }
         camera_name: { camera1_name: "hk_camera", camera2_name: "galaxy_camera" }
       - name: "target_view_angle"
-        config: { type: "rectangle", start_position: [ 500, 240 ], end_position: [ 1420,840 ], width: 3 }
+        config: { type: "rectangle", start_position: [ 780, 719 ], end_position: [ 1123,447 ], width: 3 }
+      - name: "hero_target_view_angle"
+        config: { type: "rectangle", start_position: [ 904, 381 ], end_position: [ 1024,464 ], width: 3 }
     time_change:
       - name: "capacitor"
         config: { type: "line", width: 5, delay: 0.2,
