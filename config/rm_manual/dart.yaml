@@ -1,5 +1,8 @@
 rm_manual:
   robot_type: "dart"
+  chassis_calibrate_motor: [ ]
+  gimbal_calibrate_motor: [ ]
+  shooter_calibrate_motor: [ ]
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
     pitch_position_outpost: -0.1624 #-0.1316
@@ -33,7 +36,7 @@ rm_manual:
     launch_position_1: 0.003251 #0.003587
     launch_position_2: 0.008298 #0.008679
     launch_position_3: 0.014457 #0.014873
-
+      
   controllers_list:
     state_controllers:
       - controllers/robot_state_controller

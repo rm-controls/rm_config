@@ -38,12 +38,11 @@ rm_hw:
       type: rm_2006
       lp_cutoff_frequency: 100
       need_calibration: true
-    cover_joint_motor:
-      bus: can0
-      id: 0x207
+    barrel_joint_motor:
+      bus: can1
+      id: 0x209
       type: rm_2006
       lp_cutoff_frequency: 100
-      need_calibration: true
     pitch_joint_motor:
       bus: can1
       id: 0x206
@@ -68,7 +67,7 @@ rm_hw:
       orientation_covariance_diagonal: [ 0.0012, 0.0012, 0.0012 ]
       angular_velocity_covariance: [ 0.0004, 0.0004, 0.0004 ]
       linear_acceleration_covariance: [ 0.01, 0.01, 0.01 ]
-      angular_vel_offset: [ -0.002, 0.006, -0.002 ]
+      angular_vel_offset: [ -0.008, 0., 0.003 ]
       angular_vel_coeff: 0.0010652644
       accel_coeff: 0.0017944335
       temp_coeff: 0.125
@@ -77,3 +76,5 @@ rm_hw:
       do_bias_estimation: false
       do_adaptive_gain: true
       gain_acc: 0.0003
+
+
