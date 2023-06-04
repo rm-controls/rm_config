@@ -159,8 +159,8 @@ controllers:
       pid: { p: 50.0, i: 0.0, d: 1.3, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
     push_per_rotation: 8
     push_qd_threshold: 0.90
-    forward_push_threshold: 0.02
-    exit_push_threshold: 0.03
+    forward_push_threshold: 0.22
+    exit_push_threshold: 0.25
     block_effort: 0.88
     block_speed: 0.1
     block_duration: 0.05
