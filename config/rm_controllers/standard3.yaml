@@ -81,6 +81,7 @@ controllers:
       joint: "yaw_joint"
       pid: { p: 7.5, i: 0, d: 0.3, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.045
+      k_v: 0.038
       resistance_compensation:
         resistance: 0.15
         velocity_dead_zone: 0.3
@@ -88,6 +89,7 @@ controllers:
     pitch:
       joint: "pitch_joint"
       pid: { p: 18.0, i: 0, d: 0.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      k_v: 0.3
     chassis_vel:
       num_data: 20
       debug: true
@@ -103,7 +105,7 @@ controllers:
       resistance_coff_qd_18: 0.01
       resistance_coff_qd_30: 0.01
       g: 9.81
-      delay: 0.06
+      delay: 0.0
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
