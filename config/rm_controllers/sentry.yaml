@@ -38,8 +38,8 @@ controllers:
     publish_odom_tf: true
     command_source_frame: "base_link"
     power:
-      effort_coeff: 15.0
-      vel_coeff: 0.008
+      effort_coeff: 2.3
+      vel_coeff: 0.0060
       power_offset: -8.41
     twist_angular: 0.5233
     timeout: 0.1
