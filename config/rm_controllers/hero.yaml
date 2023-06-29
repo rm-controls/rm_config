@@ -97,11 +97,17 @@ controllers:
   shooter_controller:
     type: rm_shooter_controllers/Controller
     publish_rate: 50
-    friction_left:
+    friction_left_front:
       joint: "left_friction_wheel_joint"
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
-    friction_right:
+    friction_right_front:
       joint: "right_friction_wheel_joint"
+      pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+    friction_left_back:
+      joint: "left_back_wheel_joint"
+      pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
+    friction_right_back:
+      joint: "right_back_wheel_joint"
       pid: { p: 0.001, i: 0.01, d: 0.0, i_clamp_max: 0.01, i_clamp_min: -0.01, antiwindup: true, publish_state: true }
     trigger:
       joint: "trigger_joint"
