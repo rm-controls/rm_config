@@ -30,13 +30,15 @@ rm_hw:
     yaw_joint_motor:
       bus: can0
       id: 0x205
-      type: rm_6020
+      type: rm_3508
       lp_cutoff_frequency: 100
+      need_calibration: true
     pitch_joint_motor:
       bus: can1
-      id: 0x206
-      type: rm_6020
+      id: 0x203
+      type: rm_3508
       lp_cutoff_frequency: 100
+      need_calibration: true
     left_friction_wheel_joint_motor:
       bus: can1
       id: 0x201
@@ -52,18 +54,6 @@ rm_hw:
       id: 0x206
       type: rm_3508
       lp_cutoff_frequency: 150
-      need_calibration: true
-    scope_joint_motor:
-      bus: can1
-      id: 0x203
-      type: rm_2006
-      lp_cutoff_frequency: 50
-      need_calibration: true
-    image_transmission_joint_motor:
-      bus: can1
-      id: 0x204
-      type: rm_3508
-      lp_cutoff_frequency: 50
       need_calibration: true
   imus:
     gimbal_imu:

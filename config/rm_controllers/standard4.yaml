@@ -81,6 +81,7 @@ controllers:
       joint: "yaw_joint"
       pid: { p: 5, i: 0, d: 0.4, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.038
+      k_v: 0.0225
       resistance_compensation:
         resistance: 0.09
         velocity_dead_zone: 0.3
@@ -132,4 +133,4 @@ controllers:
     exit_push_threshold: 0.25
     qd_15: 450.0
     qd_18: 500.0
-    qd_30: 760.0
+    qd_30: 700.0
