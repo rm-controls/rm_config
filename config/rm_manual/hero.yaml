@@ -70,7 +70,14 @@ rm_manual:
     topic: "/camera_name"
     camera1_name: "hk_camera"
     camera2_name: "galaxy_camera"
-
+  scope:
+    topic: "/controllers/scope_controller/command"
+    on_pos: 2.13
+    off_pos: 0.05
+  image_transmission:
+    topic: "/controllers/image_transmission_controller/command"
+    on_pos: 0.05
+    off_pos: 0.68
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -90,13 +97,34 @@ rm_manual:
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
+      - controllers/scope_controller
+      - controllers/image_transmission_controller
     calibration_controllers:
       - controllers/trigger_calibration_controller
+      - controllers/scope_calibration_controller
+      - controllers/image_transmission_calibration_controller
 
   shooter_calibration:
     - start_controllers:
         - controllers/trigger_calibration_controller
+        - controllers/scope_calibration_controller
+        - controllers/image_transmission_calibration_controller
       stop_controllers:
         - controllers/shooter_controller
+        - controllers/scope_controller
+        - controllers/image_transmission_controller
       services_name:
         - /controllers/trigger_calibration_controller/is_calibrated
+        - /controllers/scope_calibration_controller/is_calibrated
+        - /controllers/image_transmission_calibration_controller/is_calibrated
+
+controllers:
+  scope_controller:
+    type: effort_controllers/JointPositionController
+    joint: "scope_joint"
+    pid: { p: 8.0, i: 0.0, d: 0.5, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+
+  image_transmission_controller:
+    type: effort_controllers/JointPositionController
+    joint: "image_transmission_joint"
+    pid: { p: 0.7, i: 0.0, d: 0.011, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }

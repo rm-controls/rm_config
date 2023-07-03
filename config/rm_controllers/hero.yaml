@@ -15,6 +15,24 @@ controllers:
       joint: trigger_joint
       pid: { p: 1.5, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
+  scope_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ scope_joint_motor ]
+    velocity:
+      search_velocity: -1.57
+      vel_threshold: 0.001
+      joint: scope_joint
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
+  image_transmission_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ image_transmission_joint_motor ]
+    velocity:
+      search_velocity: -4.0
+      vel_threshold: 0.001
+      joint: image_transmission_joint
+      pid: { p: 0.04, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
   chassis_controller:
     type: rm_chassis_controllers/OmniController
     # ChassisBase
