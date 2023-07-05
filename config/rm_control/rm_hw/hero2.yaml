@@ -72,3 +72,7 @@ rm_hw:
       do_bias_estimation: false
       do_adaptive_gain: true
       gain_acc: 0.0003
+  gpios:
+    yaw:
+      pin: 657
+      direction: in
