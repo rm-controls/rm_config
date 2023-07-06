@@ -9,22 +9,22 @@ rm_hw:
   actuators:
     right_front_wheel_motor:
       bus: can0
-      id: 0x201
+      id: 0x203
       type: rm_3508
       lp_cutoff_frequency: 150
     left_front_wheel_motor:
       bus: can0
-      id: 0x202
+      id: 0x204
       type: rm_3508
       lp_cutoff_frequency: 150
     left_back_wheel_motor:
       bus: can0
-      id: 0x203
+      id: 0x201
       type: rm_3508
       lp_cutoff_frequency: 150
     right_back_wheel_motor:
       bus: can0
-      id: 0x204
+      id: 0x202
       type: rm_3508
       lp_cutoff_frequency: 150
     yaw_joint_motor:
@@ -76,5 +76,3 @@ rm_hw:
       do_bias_estimation: false
       do_adaptive_gain: true
       gain_acc: 0.0003
-
-
