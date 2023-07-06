@@ -39,26 +39,26 @@ rm_hw:
       lp_cutoff_frequency: 100
     left_front_friction_wheel_joint_motor:
       bus: can1
-      id: 0x201
+      id: 0x202
       type: rm_3508
       lp_cutoff_frequency: 60
     right_front_friction_wheel_joint_motor:
       bus: can1
-      id: 0x202
+      id: 0x201
       type: rm_3508
       lp_cutoff_frequency: 60
     left_back_friction_wheel_joint_motor:
       bus: can1
-      id: 0x203
+      id: 0x204
       type: rm_3508
       lp_cutoff_frequency: 60
     right_back_friction_wheel_joint_motor:
       bus: can1
-      id: 0x204
+      id: 0x207
       type: rm_3508
       lp_cutoff_frequency: 60
     trigger_joint_motor:
-      bus: can0
+      bus: can1
       id: 0x205
       type: rm_3508
       lp_cutoff_frequency: 150
