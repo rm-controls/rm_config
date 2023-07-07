@@ -17,7 +17,7 @@ rm_manual:
     extra_power: 50
     burst_power: 220
     buffer_threshold: 10
-    power_gain: 0.0
+    power_gain: 0.85
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
