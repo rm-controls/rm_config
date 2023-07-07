@@ -1,7 +1,7 @@
 rm_manual:
   robot_type: "hero"
-  chassis_calibrate_motor: [ "pitch_joint_motor","yaw_joint_motor" ]
-  gimbal_calibrate_motor: [ ]
+  chassis_calibrate_motor: [ ]
+  gimbal_calibrate_motor: [ "pitch_joint_motor","yaw_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   chassis:
     topic: "/cmd_chassis"
@@ -97,10 +97,14 @@ rm_manual:
 
   gimbal_calibration:
     - start_controllers:
-        - controllers/yaw_calibration_controller
         - controllers/pitch_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
       services_name:
-        - controllers/yaw_calibration_controller/is_calibrated
-        - controllers/pitch_calibration_controller/is_calibrated
+        - /controllers/pitch_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/yaw_calibration_controller
+      stop_controllers:
+        - controllers/gimbal_controller
+      services_name:
+        - /controllers/yaw_calibration_controller/is_calibrated
