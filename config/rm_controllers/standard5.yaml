@@ -7,26 +7,30 @@ controllers:
     publish_rate: 100
 
   gimbal_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: pitch_joint
+    type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ pitch_joint_motor ]
-    search_velocity: 6.28
-    threshold: 1e-2
-    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    velocity:
+      joint: pitch_joint
+      search_velocity: 6.28
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   trigger_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: trigger_joint
+    type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ trigger_joint_motor ]
-    search_velocity: 3.1415
-    threshold: 0.2
-    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    velocity:
+      joint: trigger_joint
+      search_velocity: 3.1415
+      vel_threshold: 0.2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   cover_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: cover_joint
+    type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ cover_joint_motor ]
-    search_velocity: -2
-    threshold: 1e-2
-    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    velocity:
+      joint: cover_joint
+      search_velocity: -2
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
