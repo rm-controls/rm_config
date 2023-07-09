@@ -31,7 +31,7 @@ controllers:
       search_velocity: -3.1415
       vel_threshold: 0.001
       joint: image_transmission_joint
-      pid: { p: 0.04, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController

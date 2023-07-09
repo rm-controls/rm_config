@@ -57,13 +57,13 @@ rm_hw:
       bus: can1
       id: 0x203
       type: rm_2006
-      lp_cutoff_frequency: 50
+      lp_cutoff_frequency: 25
       need_calibration: true
     image_transmission_joint_motor:
       bus: can1
       id: 0x204
       type: rm_3508
-      lp_cutoff_frequency: 50
+      lp_cutoff_frequency: 25
       need_calibration: true
   imus:
     gimbal_imu:

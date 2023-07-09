@@ -72,12 +72,12 @@ rm_manual:
     camera2_name: "galaxy_camera"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 2.13
+    on_pos: 2.12
     off_pos: 0.05
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
     on_pos: 0.05
-    off_pos: 0.68
+    off_pos: 0.7
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -127,4 +127,4 @@ controllers:
   image_transmission_controller:
     type: effort_controllers/JointPositionController
     joint: "image_transmission_joint"
-    pid: { p: 0.5, i: 0.0, d: 0.01, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 1.0, i: 0.0, d: 0.0055, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
