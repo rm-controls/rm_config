@@ -23,12 +23,13 @@ controllers:
       vel_threshold: 0.2
       pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   barrel_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: barrel_joint
+    type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ barrel_joint_motor ]
-    search_velocity: -4
-    threshold: 1e-2
-    pid: { p: 2.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    velocity:
+      joint: barrel_joint
+      search_velocity: -4
+      vel_threshold: 1e-2
+      pid: { p: 2.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
@@ -38,8 +39,8 @@ controllers:
     publish_odom_tf: true
     command_source_frame: "base_link"
     power:
-      effort_coeff: 2.3
-      vel_coeff: 0.0060
+      effort_coeff: 1.9
+      vel_coeff: 0.0040
       power_offset: -8.41
     twist_angular: 0.5233
     timeout: 0.1
