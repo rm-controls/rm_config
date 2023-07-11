@@ -1,7 +1,7 @@
 rm_manual:
   robot_type: "hero"
   chassis_calibrate_motor: [ ]
-  gimbal_calibrate_motor: [ ]
+  gimbal_calibrate_motor: [ "pitch_joint_motor","yaw_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   chassis:
     topic: "/cmd_chassis"
@@ -30,15 +30,15 @@ rm_manual:
       - [ 80.0,3.5 ]
       - [ 300.0,4.0 ]
     max_angular_z:
-      - [ 50.0,4.0 ]
-      - [ 80.0,6.0 ]
-      - [ 300.0,8.0 ]
+      - [ 50.0,6.28 ]
+      - [ 80.0,12.56 ]
+      - [ 300.0,12.56 ]
     gyro_move_reduction: 0.20
     gyro_rotate_reduction: 0.70
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 50.24
-    max_pitch_vel: 25.12
+    max_yaw_vel: 12.56
+    max_pitch_vel: 8.37
     track_timeout: 0.5
     eject_sensitivity: 0.38
     finish_turning_threshold: 2.9
@@ -84,6 +84,8 @@ rm_manual:
       - controllers/shooter_controller
     calibration_controllers:
       - controllers/trigger_calibration_controller
+      - controllers/yaw_calibration_controller
+      - controllers/pitch_calibration_controller
 
   shooter_calibration:
     - start_controllers:
@@ -92,3 +94,17 @@ rm_manual:
         - controllers/shooter_controller
       services_name:
         - /controllers/trigger_calibration_controller/is_calibrated
+
+  gimbal_calibration:
+    - start_controllers:
+        - controllers/pitch_calibration_controller
+      stop_controllers:
+        - controllers/gimbal_controller
+      services_name:
+        - /controllers/pitch_calibration_controller/is_calibrated
+    - start_controllers:
+        - controllers/yaw_calibration_controller
+      stop_controllers:
+        - controllers/gimbal_controller
+      services_name:
+        - /controllers/yaw_calibration_controller/is_calibrated
