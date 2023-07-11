@@ -28,7 +28,7 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ image_transmission_joint_motor ]
     velocity:
-      search_velocity: -3.1415
+      search_velocity: 1.57
       vel_threshold: 0.001
       joint: image_transmission_joint
       pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
