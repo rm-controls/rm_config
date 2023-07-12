@@ -3,6 +3,25 @@ rm_manual:
   chassis_calibrate_motor: [ ]
   gimbal_calibrate_motor: [ ]
   shooter_calibrate_motor: [ ]
+  auto:
+    aim_list: [
+      #outpost yaw offset
+      [ -0.001, -0.005, -0.003, -0.002, 0.0 ],
+      #outpost qd
+      [ 447.0, 455.0, 446.5, 447.0, 480.0 ],
+      #base yaw offset
+      [ 0.0, 0.0, 0.0, 0.0, 0.0 ],
+      #base qd
+      [ 535.0, 536.0, 535.5, 535.5, 480.0 ],
+      #launch position
+      [ 0.0, 0.003251, 0.008298, 0.014457, 0.018 ]
+    ]
+    position: [
+      #outpost:yaw,pitch
+      [ 0.03652, -0.1624 ],
+      #base:yaw,pitch
+      [ 0.2584, -0.1488 ]
+    ]
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
     pitch_position_outpost: -0.1624 #-0.1316
@@ -34,10 +53,10 @@ rm_manual:
     topic: "/controllers/trigger_controller/command"
     joint: "trigger_joint"
     upward_vel: -0.003
-    launch_position_1: 0.003251 #0.003587
-    launch_position_2: 0.008298 #0.008679
-    launch_position_3: 0.014457 #0.014873
-    launch_position_4: 0.018 #0.014873
+  #    launch_position_1: 0.003251 #0.003587
+  #    launch_position_2: 0.008298 #0.008679
+  #    launch_position_3: 0.014457 #0.014873
+  #    launch_position_4: 0.018 #0.014873
 
   controllers_list:
     state_controllers:
