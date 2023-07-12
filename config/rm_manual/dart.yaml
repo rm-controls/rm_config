@@ -24,39 +24,22 @@ rm_manual:
     ]
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
-    pitch_position_outpost: -0.1624 #-0.1316
-    pitch_position_base: -0.1488
     scale: 0.04
     scale_micro: 0.0001
     joint: "left_pitch_joint"
   yaw:
     topic: "/controllers/yaw_controller/command"
-    yaw_position_outpost: 0.03652 #红方0.04466
-    yaw_position_base: 0.2584
-    yaw_offset: [ -0.001, -0.005, -0.003, -0.002, 0.0 ]
-    #-0.005, -0.001, -0.001, -0.002
-    yaw_offset_base: [ 0.0, 0.0, 0.0, 0.0, 0.0 ]
     joint: "yaw_joint"
   friction_left:
     topic: "/controllers/left_friction_controller/command"
     joint: "left_friction_wheel_joint"
-    qd_outpost: [ 447.0, 455.0, 446.5, 447.0, 480.0 ]
-    #445.0, 447.0, 446.5, 446.5
-    qd_base: [ 535.0, 536.0, 535.5, 535.5, 480.0 ]
-    #        539.5+3，540.5，537.5，546-3
-    #534.5     +5,+6,+3,+11.5
   friction_right:
     topic: "/controllers/right_friction_controller/command"
     joint: "right_friction_wheel_joint"
-    qd_: 430
   trigger:
     topic: "/controllers/trigger_controller/command"
     joint: "trigger_joint"
     upward_vel: -0.003
-  #    launch_position_1: 0.003251 #0.003587
-  #    launch_position_2: 0.008298 #0.008679
-  #    launch_position_3: 0.014457 #0.014873
-  #    launch_position_4: 0.018 #0.014873
 
   controllers_list:
     state_controllers:
