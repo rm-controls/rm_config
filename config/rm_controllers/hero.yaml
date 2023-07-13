@@ -22,7 +22,7 @@ controllers:
       search_velocity: -1.57
       vel_threshold: 0.001
       joint: scope_joint
-      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.4, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   image_transmission_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
@@ -45,7 +45,7 @@ controllers:
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 4.0, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 6.5, i: 0, d: 0.08, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
