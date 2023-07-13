@@ -30,13 +30,13 @@ controllers:
     gpio: "yaw"
     initial_gpio_state: false
     velocity:
-      search_velocity: -4.0
-      slow_forward_velocity: -2.0
+      search_velocity: 4.0
+      slow_forward_velocity: 2.0
       joint: yaw_joint
-      pid: { p: 0.19, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.23, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
     position:
       pos_threshold: 0.01
-      backward_angle: -0.15
+      backward_angle: 0.15
       joint: yaw_joint
       pid: { p: 7.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
