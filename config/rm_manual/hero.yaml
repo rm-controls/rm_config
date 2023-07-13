@@ -114,17 +114,14 @@ rm_manual:
 
   gimbal_calibration:
     - start_controllers:
+        - controllers/image_transmission_calibration_controller
         - controllers/scope_calibration_controller
       stop_controllers:
+        - controllers/image_transmission_controller
         - controllers/scope_controller
       services_name:
-        - /controllers/scope_calibration_controller/is_calibrated
-    - start_controllers:
-        - controllers/image_transmission_calibration_controller
-      stop_controllers:
-        - controllers/image_transmission_controller
-      services_name:
         - /controllers/image_transmission_calibration_controller/is_calibrated
+        - /controllers/scope_calibration_controller/is_calibrated
 
 controllers:
   scope_controller:
