@@ -74,5 +74,5 @@ rm_hw:
       gain_acc: 0.0003
   gpios:
     yaw:
-      pin: 657
+      pin: 659
       direction: in
