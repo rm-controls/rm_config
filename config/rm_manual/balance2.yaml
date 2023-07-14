@@ -1,8 +1,8 @@
 rm_manual:
   robot_type: "balance"
   chassis_calibrate_motor: [ ]
-  gimbal_calibrate_motor: [ "pitch_joint_motor" ]
-  shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
+  gimbal_calibrate_motor: [ "cover_joint_motor" ]
+  shooter_calibrate_motor: [ "trigger_joint_motor" ]
   flank_frame: "flank_frame"
   reverse_frame: "yaw_reverse_frame"
   supply_frame: "yaw"
@@ -81,8 +81,8 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 1.55
-    off_pos: 0.1
+    on_pos: 1.4
+    off_pos: 0.05
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -98,19 +98,15 @@ rm_manual:
       - controllers/shooter_controller
       - controllers/cover_controller
     calibration_controllers:
-      - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
 
   gimbal_calibration:
     - start_controllers:
-        - controllers/gimbal_calibration_controller
         - controllers/cover_calibration_controller
       stop_controllers:
-        - controllers/gimbal_controller
         - controllers/cover_controller
       services_name:
-        - /controllers/gimbal_calibration_controller/is_calibrated
         - /controllers/cover_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:
@@ -124,4 +120,4 @@ controllers:
   cover_controller:
     type: effort_controllers/JointPositionController
     joint: "cover_joint"
-    pid: { p: 15.0, i: 0.0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 10.0, i: 0.0, d: 1.4, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }

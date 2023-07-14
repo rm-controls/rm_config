@@ -6,14 +6,6 @@ controllers:
     type: robot_state_controller/RobotStateController
     publish_rate: 100
 
-  gimbal_calibration_controller:
-    type: rm_calibration_controllers/MechanicalCalibrationController
-    actuator: [ pitch_joint_motor ]
-    velocity:
-      joint: pitch_joint
-      search_velocity: 6.14
-      vel_threshold: 1e-2
-      pid: { p: 0.25, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   trigger_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ trigger_joint_motor ]
