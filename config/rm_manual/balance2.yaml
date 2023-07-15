@@ -1,7 +1,7 @@
 rm_manual:
   robot_type: "balance"
   chassis_calibrate_motor: [ ]
-  gimbal_calibrate_motor: [ "cover_joint_motor" ]
+  gimbal_calibrate_motor: [ "cover_joint_motor" , "pitch_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   flank_frame: "flank_frame"
   reverse_frame: "yaw_reverse_frame"
