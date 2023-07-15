@@ -19,19 +19,19 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ scope_joint_motor ]
     velocity:
-      search_velocity: -1.57
+      search_velocity: -3.1415
       vel_threshold: 0.001
       joint: scope_joint
-      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.35, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   image_transmission_calibration_controller:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ image_transmission_joint_motor ]
     velocity:
-      search_velocity: -3.1415
+      search_velocity: 1.57
       vel_threshold: 0.001
       joint: image_transmission_joint
-      pid: { p: 0.04, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.08, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
@@ -45,7 +45,7 @@ controllers:
       power_offset: -9.8
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 4.0, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 6.5, i: 0, d: 0.08, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
@@ -91,7 +91,7 @@ controllers:
         error_tolerance: 0.0
     pitch:
       joint: "pitch_joint"
-      pid: { p: 11.0, i: 0, d: 0.4, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 12.0, i: 0, d: 1.1, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     imu_name: "gimbal_imu"
     feedforward:
       gravity: 0.0
