@@ -64,7 +64,7 @@ rm_manual:
       burst_shoot_frequency: 6
       minimal_shoot_frequency: 1
       safe_shoot_frequency: 1
-      heat_coeff: 3.8
+      heat_coeff: 3.0
       type: "ID1_42MM"
   camera:
     topic: "/camera_name"
