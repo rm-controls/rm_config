@@ -38,7 +38,7 @@ controllers:
       pos_threshold: 0.01
       backward_angle: 0.15
       joint: yaw_joint
-      pid: { p: 7.0, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 30.0, i: 0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
@@ -58,24 +58,24 @@ controllers:
     # OmniController
     wheels:
       left_front:
-        pose: [ 0.1475, 0.1425, 0. ]
+        pose: [ 0.145877, 0.1425, 0. ]
         roller_angle: -0.785
         joint: left_front_wheel_joint
         <<: &wheel_setting
           radius: 0.07625
-          pid: { p: 0.2, i: 0, d: 0.0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+          pid: { p: 0.6, i: 0.01, d: 0.0, i_max: 0.1, i_min: 0.1, antiwindup: true, publish_state: true }
       right_front:
-        pose: [ 0.1475, -0.1425, 0. ]
+        pose: [ 0.145877, -0.1425, 0. ]
         roller_angle: 0.785
         joint: right_front_wheel_joint
         <<: *wheel_setting
       left_back:
-        pose: [ -0.1475, 0.1425, 0. ]
+        pose: [ -0.149123, 0.1425, 0. ]
         roller_angle: 0.785
         joint: left_back_wheel_joint
         <<: *wheel_setting
       right_back:
-        pose: [ -0.1475, -0.1425, 0. ]
+        pose: [ -0.149123, -0.1425, 0. ]
         roller_angle: -0.785
         joint: right_back_wheel_joint
         <<: *wheel_setting
