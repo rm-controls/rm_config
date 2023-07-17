@@ -22,6 +22,12 @@ rm_hw:
       id: 0x205
       type: rm_6020
       lp_cutoff_frequency: 60
+    anti_tip_bar_joint_motor:
+      bus: can0
+      id: 0x204
+      type: rm_2006
+      lp_cutoff_frequency: 60
+      need_calibration: true
     trigger_joint_motor:
       bus: can1
       id: 0x205
