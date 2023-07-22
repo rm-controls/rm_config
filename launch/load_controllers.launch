@@ -15,6 +15,7 @@
           controllers/gimbal_calibration_controller
           controllers/left_momentum_block_calibration_controller
           controllers/right_momentum_block_calibration_controller
+          controllers/yaw_calibration_controller
           controllers/chassis_controller
           controllers/orientation_controller
           controllers/gimbal_controller
