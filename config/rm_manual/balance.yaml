@@ -1,17 +1,11 @@
 rm_manual:
   robot_type: "balance"
-  chassis_calibrate_motor: [ ]
-  gimbal_calibrate_motor: [ "pitch_joint_motor" ,"left_momentum_block_joint_motor", "right_momentum_block_joint_motor" ]
-  shooter_calibrate_motor: [ "cover_joint_motor", "trigger_joint_motor" ]
+  chassis_calibrate_motor: [ "anti_tip_bar_joint_motor" ]
+  gimbal_calibrate_motor: [ "cover_joint_motor" , "pitch_joint_motor" ]
+  shooter_calibrate_motor: [ "trigger_joint_motor" ]
   flank_frame: "flank_frame"
   reverse_frame: "yaw_reverse_frame"
   supply_frame: "yaw"
-  left_momentum_block:
-    topic: "/controllers/left_momentum_block_position_controller/command"
-    joint: left_momentum_block_joint
-  right_momentum_block:
-    topic: "/controllers/right_momentum_block_position_controller/command"
-    joint: right_momentum_block_joint
   chassis:
     topic: "/cmd_chassis"
     accel_x:
@@ -32,6 +26,7 @@ rm_manual:
     extra_power: 120
     burst_power: 220
     buffer_threshold: 10
+    minimum_power: 40
     power_gain: 0.9
   balance:
     topic: "/controllers/chassis_controller/mode"
@@ -42,7 +37,7 @@ rm_manual:
       - [ 60.0,1.20 ]
       - [ 80.0,1.45 ]
       - [ 100.0,1.70 ]
-      - [ 220.0,3.00 ]
+      - [ 220.0,2.80 ]
     max_linear_y:
       - [ 60.0,1.0 ]
       - [ 80.0,1.3 ]
@@ -86,8 +81,8 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 1.618
-    off_pos: 0.04
+    on_pos: 1.4
+    off_pos: 0.05
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
@@ -102,11 +97,20 @@ rm_manual:
       - controllers/gimbal_controller
       - controllers/shooter_controller
       - controllers/cover_controller
+      - controllers/anti_tip_bar_controller
     calibration_controllers:
       - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
+      - controllers/anti_tip_bar_calibration_controller
 
+  chassis_calibration:
+    - start_controllers:
+        - controllers/anti_tip_bar_calibration_controller
+      stop_controllers:
+        - controllers/anti_tip_bar_controller
+      services_name:
+        - /controllers/anti_tip_bar_calibration_controller/is_calibrated
   gimbal_calibration:
     - start_controllers:
         - controllers/gimbal_calibration_controller
@@ -129,4 +133,4 @@ controllers:
   cover_controller:
     type: effort_controllers/JointPositionController
     joint: "cover_joint"
-    pid: { p: 15.0, i: 0.0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
+    pid: { p: 10.0, i: 0.0, d: 1.4, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true, publish_state: true }
