@@ -17,6 +17,7 @@
           controllers/anti_tip_bar_calibration_controller
           controllers/anti_tip_bar_controller
           controllers/balance_controller
+          controllers/yaw_calibration_controller
           controllers/chassis_controller
           controllers/orientation_controller
           controllers/gimbal_controller
