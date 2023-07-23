@@ -93,11 +93,11 @@ rm_manual:
       - controllers/robot_state_controller
     main_controllers:
       - controllers/balance_controller
-      - controllers/anti_tip_bar_controller
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
       - controllers/cover_controller
+      - controllers/anti_tip_bar_controller
     calibration_controllers:
       - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
