@@ -2,7 +2,7 @@
     <arg name="robot_type" default="$(env ROBOT_TYPE)" doc="Robot type [standard, hero, engineer]"/>
     <arg name="camera_type" default="$(env CAMERA_TYPE)" doc="Camera type"/>
     <arg name="camera_name" default="camera"/>
-    <rosparam file="$(find rm_config)/config/rm_track/default.yaml" command="load"/>
+    <rosparam file="$(find armor_processor)/config/processor_config.yaml" command="load"/>
 
     <node pkg="nodelet" type="nodelet" name="Processor"
           args="load rm_digtialimg_proc/Processor vision_nodelet">
@@ -22,7 +22,7 @@
         <remap from="/detection" to="/detection"/>
     </node>
 
-    <node name="rm_track" pkg="rm_track" type="rm_track" respawn="false"/>
+    <node name="armor_processor" pkg="armor_processor" type="armor_processor" respawn="false"/>
 
     <node pkg="nodelet" type="nodelet" name="forecast"
         args="load rm_forecast/Forecast_Node vision_nodelet" >
