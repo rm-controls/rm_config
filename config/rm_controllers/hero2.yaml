@@ -91,14 +91,14 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 30.0, i: 0.0, d: 1.2, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
+      pid: { p: 30.0, i: 0.0, d: 1.8, i_clamp_max: 0.1, i_clamp_min: -0.1, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.05
       resistance_compensation:
         resistance: 0.0
         error_tolerance: 0.0
     pitch:
       joint: "pitch_joint"
-      pid: { p: 20.0, i: 0, d: 1.0, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 60.0, i: 0, d: 2.5, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
     imu_name: "gimbal_imu"
     feedforward:
       gravity: 0.0
