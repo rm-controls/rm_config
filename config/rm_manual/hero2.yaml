@@ -24,20 +24,20 @@ rm_manual:
     max_linear_x:
       - [ 50.0,2.14 ]
       - [ 80.0,3.5 ]
-      - [ 300.0,4.0 ]
+      - [ 220.0,3.8 ]
     max_linear_y:
       - [ 50.0,2.14 ]
       - [ 80.0,3.5 ]
-      - [ 300.0,4.0 ]
+      - [ 220.0,3.8 ]
     max_angular_z:
       - [ 50.0,6.28 ]
-      - [ 80.0,12.56 ]
-      - [ 300.0,12.56 ]
+      - [ 80.0,9.42 ]
+      - [ 220.0,9.42 ]
     gyro_move_reduction: 0.20
     gyro_rotate_reduction: 0.70
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 12.56
+    max_yaw_vel: 31.4
     max_pitch_vel: 8.37
     track_timeout: 0.5
     eject_sensitivity: 0.38
@@ -106,5 +106,6 @@ rm_manual:
         - controllers/yaw_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
+        - controllers/chassis_controller
       services_name:
         - /controllers/yaw_calibration_controller/is_calibrated
