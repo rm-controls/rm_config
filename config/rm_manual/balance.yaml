@@ -81,8 +81,8 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 1.4
-    off_pos: 0.05
+    on_pos: 1.406
+    off_pos: 0.022
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"

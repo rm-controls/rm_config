@@ -1,6 +1,6 @@
 rm_manual:
   robot_type: "balance"
-  chassis_calibrate_motor: [ ]
+  chassis_calibrate_motor: [ "anti_tip_bar_joint_motor" ]
   gimbal_calibrate_motor: [ "cover_joint_motor" , "pitch_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   flank_frame: "flank_frame"
@@ -93,6 +93,7 @@ rm_manual:
       - controllers/robot_state_controller
     main_controllers:
       - controllers/balance_controller
+      - controllers/anti_tip_bar_controller
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
@@ -100,7 +101,15 @@ rm_manual:
     calibration_controllers:
       - controllers/trigger_calibration_controller
       - controllers/cover_calibration_controller
+      - controllers/anti_tip_bar_calibration_controller
 
+  chassis_calibration:
+    - start_controllers:
+        - controllers/anti_tip_bar_calibration_controller
+      stop_controllers:
+        - controllers/anti_tip_bar_controller
+      services_name:
+        - /controllers/anti_tip_bar_calibration_controller/is_calibrated
   gimbal_calibration:
     - start_controllers:
         - controllers/cover_calibration_controller
