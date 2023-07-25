@@ -37,7 +37,7 @@ rm_manual:
     gyro_rotate_reduction: 0.70
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 12.56
+    max_yaw_vel: 30
     max_pitch_vel: 8.37
     track_timeout: 0.5
     eject_sensitivity: 0.38
@@ -106,5 +106,6 @@ rm_manual:
         - controllers/yaw_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
+        - controllers/chassis_controller
       services_name:
         - /controllers/yaw_calibration_controller/is_calibrated

@@ -37,8 +37,8 @@ rm_manual:
     gyro_rotate_reduction: 0.4
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 12.56
-    max_pitch_vel: 8.37
+    max_yaw_vel: 37.68
+    max_pitch_vel: 31.4
     track_timeout: 0.5
     finish_turning_threshold: 2.9
     target_cost_function:
