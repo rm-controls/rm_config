@@ -38,7 +38,7 @@ rm_manual:
   gimbal:
     topic: "/controllers/gimbal_controller/command"
     max_yaw_vel: 37.68
-    max_pitch_vel: 31.4
+    max_pitch_vel: 25.12
     track_timeout: 0.5
     finish_turning_threshold: 2.9
     target_cost_function:
@@ -49,7 +49,7 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.08
+    gimbal_error_tolerance: 0.05
     target_acceleration_tolerance: 99.
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 13.5
@@ -66,7 +66,7 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 1.388
+    on_pos: 1.94
     off_pos: 0.013
   buff_switch:
     fail_limit: 10
