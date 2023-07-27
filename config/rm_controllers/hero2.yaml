@@ -33,7 +33,7 @@ controllers:
       search_velocity: 4.0
       slow_forward_velocity: 2.0
       joint: yaw_joint
-      pid: { p: 0.23, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.28, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
     position:
       pos_threshold: 0.01
       backward_angle: 0.15
@@ -50,9 +50,11 @@ controllers:
       effort_coeff: 2.0
       vel_coeff: 0.008
       power_offset: -9.8
+    yaw_vel:
+      k_yaw_vel: 0.0
     twist_angular: 0.5233
     timeout: 0.1
-    pid_follow: { p: 4.0, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
+    pid_follow: { p: 8.0, i: 0, d: 0.02, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
     twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
 
     # OmniController
@@ -141,5 +143,5 @@ controllers:
     anti_block_threshold: 0.1
     forward_push_threshold: 0.2
     exit_push_threshold: 0.23
-    qd_10: 600.0
-    qd_16: 600.0
+    qd_10: 555.0
+    qd_16: 555.0
