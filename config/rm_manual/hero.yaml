@@ -66,18 +66,14 @@ rm_manual:
       safe_shoot_frequency: 1
       heat_coeff: 3.0
       type: "ID1_42MM"
-  camera:
-    topic: "/camera_name"
-    camera1_name: "hk_camera"
-    camera2_name: "galaxy_camera"
   scope:
     topic: "/controllers/scope_controller/command"
-    on_pos: 2.18
+    on_pos: 2.29
     off_pos: 0.1
   image_transmission:
     topic: "/controllers/image_transmission_controller/command"
     on_pos: -0.69
-    off_pos: -0.02
+    off_pos: -0.27
   detection_switch:
     fail_limit: 10
     service_name: "/Processor/status_switch"
