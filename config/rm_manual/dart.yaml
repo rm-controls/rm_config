@@ -4,16 +4,20 @@ rm_manual:
   gimbal_calibrate_motor: [ "left_pitch_joint_motor","right_pitch_joint_motor","yaw_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   dart_list:
-    1:
+    first_dart:
+      id: 1
       param: [ 0.0, 404.0, 0.0, 535.0, 0.003251 ]
-      #outpost:offset,qd//base:offset,qd//trigger position//num
-    2:
+      #outpost:offset,qd//base:offset,qd//trigger position
+    second_dart:
+      id: 2
       param: [ 0.003, 405.0, 0.0, 536.0, 0.008298 ]
       #outpost:offset,qd//base:offset,qd//trigger position
-    3:
+    third_dart:
+      id: 3
       param: [ 0.0, 407.0, 0.0, 535.5, 0.014457 ]
       #outpost:offset,qd//base:offset,qd//trigger position
-    4:
+    fourth_dart:
+      id: 4
       param: [ 0.002, 398.0, 0.0, 535.5, 0.018 ]
       #outpost:offset,qd//base:offset,qd//trigger position
 
