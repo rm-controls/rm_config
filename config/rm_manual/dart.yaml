@@ -1,27 +1,28 @@
 rm_manual:
   robot_type: "dart"
   chassis_calibrate_motor: [ ]
-  gimbal_calibrate_motor: [ ]
-  shooter_calibrate_motor: [ ]
-  auto:
-    aim_list: [
-      #outpost yaw offset
-      [ -0.001, -0.005, -0.003, -0.002, 0.0 ],
-      #outpost qd
-      [ 447.0, 455.0, 446.5, 447.0, 480.0 ],
-      #base yaw offset
-      [ 0.0, 0.0, 0.0, 0.0, 0.0 ],
-      #base qd
-      [ 535.0, 536.0, 535.5, 535.5, 480.0 ],
-      #launch position
-      [ 0.0, 0.003251, 0.008298, 0.014457, 0.018 ]
-    ]
-    position: [
-      #outpost:yaw,pitch
-      [ 0.03652, -0.1624 ],
-      #base:yaw,pitch
-      [ 0.2584, -0.1488 ]
-    ]
+  gimbal_calibrate_motor: [ "left_pitch_joint_motor","right_pitch_joint_motor","yaw_joint_motor" ]
+  shooter_calibrate_motor: [ "trigger_joint_motor" ]
+  dart_list:
+    first_dart:
+      param: [ 0.0, 404.0, 0.0, 535.0, 0.003251 ]
+      #outpost:offset,qd//base:offset,qd//trigger position//num
+    second_dart:
+      param: [ 0.003, 405.0, 0.0, 536.0, 0.008298 ]
+      #outpost:offset,qd//base:offset,qd//trigger position
+    third_dart:
+      param: [ 0.0, 407.0, 0.0, 535.5, 0.014457 ]
+      #outpost:offset,qd//base:offset,qd//trigger position
+    fourth_dart:
+      param: [ 0.002, 398.0, 0.0, 535.5, 0.018 ]
+      #outpost:offset,qd//base:offset,qd//trigger position
+
+  targets:
+    outpost:
+      position: [ -0.15895, 0.038539 ] #pitch yaw
+    base:
+      position: [ -0.1488, 0.2584 ] #pitch yaw
+
   left_pitch:
     topic: "/controllers/left_pitch_controller/command"
     scale: 0.04
