@@ -27,9 +27,9 @@ controllers:
     actuator: [ barrel_joint_motor ]
     velocity:
       joint: barrel_joint
-      search_velocity: -6.2
+      search_velocity: -6.28
       vel_threshold: 0.001
-      pid: { p: 3.0, i: 15, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 3.0, i: 15.0, d: 0.0, i_clamp_max: 0.2, i_clamp_min: -0.2, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
