@@ -7,107 +7,48 @@ controllers:
     publish_rate: 100
 
   gimbal_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: pitch_joint
+    type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ pitch_joint_motor ]
-    search_velocity: 6.14
-    threshold: 1e-2
-    pid: { p: 0.25, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
-  left_momentum_block_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: left_momentum_block_joint
-    actuator: [ left_momentum_block_joint_motor ]
-    search_velocity: 0.5
-    threshold: 0.001
-    pid: { p: 50, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
-  right_momentum_block_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: right_momentum_block_joint
-    actuator: [ right_momentum_block_joint_motor ]
-    search_velocity: 0.5
-    threshold: 0.001
-    pid: { p: 50, i: 0, d: 0, i_clamp_max: 0.5, i_clamp_min: 0, antiwindup: true }
+    velocity:
+      joint: pitch_joint
+      search_velocity: 6.14
+      vel_threshold: 1e-2
+      threshold: 1e-2
+      pid: { p: 0.25, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   trigger_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: trigger_joint
+    type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ trigger_joint_motor ]
-    search_velocity: 3.1415
-    threshold: 0.2
-    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+    velocity:
+      joint: trigger_joint
+      search_velocity: 3.1415
+      vel_threshold: 0.2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
   cover_calibration_controller:
-    type: rm_calibration_controllers/JointCalibrationController
-    joint: cover_joint
+    type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ cover_joint_motor ]
-    search_velocity: -3
-    threshold: 1e-2
-    pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
-
-  left_momentum_block_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: left_momentum_block_joint
-    pid: { p: 6000, i: 0, d: 10 }
-  right_momentum_block_position_controller:
-    type: effort_controllers/JointPositionController
-    joint: right_momentum_block_joint
-    pid: { p: 6000, i: 0, d: 10 }
+    velocity:
+      joint: cover_joint
+      search_velocity: -3
+      vel_threshold: 1e-2
+      pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+  anti_tip_bar_calibration_controller:
+    type: rm_calibration_controllers/MechanicalCalibrationController
+    actuator: [ anti_tip_bar_joint_motor ]
+    velocity:
+      joint: anti_tip_bar_joint
+      search_velocity: -0.5
+      vel_threshold: 0.001
+      pid: { p: 200, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   balance_controller:
     type: rm/BalanceController
 
-  chassis_controller:
-    type: rm_chassis_controllers/BalanceController
-    # ChassisBase
-    publish_rate: 100
-    enable_odom_tf: true
-    publish_odom_tf: true
-    power:
-      effort_coeff: 1.339
-      vel_coeff: 0.01608
-      power_offset: -9.8
-    twist_angular: 0.5233
-    timeout: 0.1
-    pid_follow: { p: 3, i: 0, d: 0.3, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    pid_left_wheel: { p: 1.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    pid_right_wheel: { p: 1.6, i: 0, d: 0, i_max: 0.0, i_min: 0.0, antiwindup: true, publish_state: true }
-    twist_covariance_diagonal: [ 0.001, 0.001, 0.001, 0.001, 0.001, 0.001 ]
-
-    # BalanceController
-    imu_name: "base_imu"
-    m_w: 0.72
-    #m: 12.69
-    m: 12.60
-    m_b: 0.91
-    i_w: 0.0142
-    l: 0.0915
-    #l: 0.0587
-    y_b: 0.16
-    z_b: 0.0468
-    g: 9.8
-    i_m: 0.1982
-    wheel_radius: 0.125
-    wheel_base: 0.42
-    position_offset: 0.
-    position_clear_threshold: 1.
-    left:
-      wheel_joint: "left_wheel_joint"
-      block_joint: "left_momentum_block_joint"
-    right:
-      wheel_joint: "right_wheel_joint"
-      block_joint: "right_momentum_block_joint"
-
-    block_duration: 1.5
-    block_angle: 0.28
-    block_effort: 2.0
-    block_velocity: 0.04
-    anti_block_effort: 1.5
-    block_overtime: 0.4
-    #       x  phi theta x_l x_r dx dphi dthe dx_l dx_r
-    q_low: [ 10, 30, 1000, 40, 40, 1, 100, 1., 0.3, 0.3 ]
-    r_low: [ 0.5, 0.5, 0.001, 0.001 ]
-    q_mid: [ 10, 30, 1000, 40, 40, 1, 100, 1., 0.3, 0.3 ]
-    r_mid: [ 0.5, 0.5, 0.001, 0.001 ]
-    q_high: [ 10, 30, 1000, 20, 20, 1, 100, 1., 0.1, 0.1 ]
-    r_high: [ 0.5, 0.5, 0.001, 0.001 ]
+  anti_tip_bar_controller:
+    type: rm/AntiTipBarController
+    tilt_angle_threshold: 0.7
+    extend_position: 0.168
+    recover_position: 0.002
+    pid_bar: { p: 500, i: 0, d: 0.5, i_max: 2.5, i_min: 0.0, antiwindup: true, publish_state: true }
 
   orientation_controller:
     type: rm_orientation_controller/Controller
@@ -125,14 +66,15 @@ controllers:
     pitch:
       joint: "pitch_joint"
       pid: { p: 7.5, i: 0, d: 0.4, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      k_v: 0.0
     chassis_vel:
       num_data: 20
       debug: true
     imu_name: "gimbal_imu"
     feedforward:
-      gravity: 0.0
+      gravity: 14.1316
       enable_gravity_compensation: false
-      mass_origin: [ 0.0, 0.0, 0.0 ]
+      mass_origin: [ 0.000,0.005158,0.02601 ]
     bullet_solver:
       resistance_coff_qd_10: 0.45
       resistance_coff_qd_15: 0.01
@@ -169,4 +111,4 @@ controllers:
     anti_block_threshold: 0.1
     qd_15: 700.0
     qd_18: 700.0
-    qd_30: 740.0
+    qd_30: 690.0

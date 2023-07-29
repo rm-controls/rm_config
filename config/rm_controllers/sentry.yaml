@@ -80,11 +80,11 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 20, i: 0, d: 0.82, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
+      pid: { p: 20, i: 34.85, d: 0.82, i_clamp_max: 0.3, i_clamp_min: -0.3, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.045
     pitch:
       joint: "pitch_joint"
-      pid: { p: 22.0, i: 0, d: 0.75, i_clamp_max: 0, i_clamp_min: 0, antiwindup: true, publish_state: true }
+      pid: { p: 22.0, i: 80, d: 0.75, i_clamp_max: 0.6, i_clamp_min: -0.6, antiwindup: true, publish_state: true }
     chassis_vel:
       num_data: 100
       debug: true
@@ -100,7 +100,7 @@ controllers:
       resistance_coff_qd_18: 0.0
       resistance_coff_qd_30: 0.0
       g: 9.81
-      delay: 0.1
+      delay: 0.06
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
