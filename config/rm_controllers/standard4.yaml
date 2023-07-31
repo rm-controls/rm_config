@@ -38,7 +38,7 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: false
     power:
-      effort_coeff: 4.0
+      effort_coeff: 5.0
       vel_coeff: 0.006
       power_offset: -8.41
     twist_angular: 0.5233
@@ -79,7 +79,7 @@ controllers:
     type: rm_gimbal_controllers/Controller
     yaw:
       joint: "yaw_joint"
-      pid: { p: 7.5, i: 34.85, d: 0.8, i_clamp_max: 0.21, i_clamp_min: -0.21, antiwindup: true, publish_state: true }
+      pid: { p: 7.5, i: 34.85, d: 0.4, i_clamp_max: 0.21, i_clamp_min: -0.21, antiwindup: true, publish_state: true }
       k_chassis_vel: 0.032
       k_v: 0.05
       resistance_compensation:
