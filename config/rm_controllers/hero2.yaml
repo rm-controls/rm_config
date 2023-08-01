@@ -19,7 +19,7 @@ controllers:
     type: rm_calibration_controllers/MechanicalCalibrationController
     actuator: [ pitch_joint_motor ]
     velocity:
-      search_velocity: 3.1415
+      search_velocity: 4.5
       vel_threshold: 0.001
       joint: pitch_joint
       pid: { p: 0.3, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
@@ -30,15 +30,15 @@ controllers:
     gpio: "yaw"
     initial_gpio_state: false
     velocity:
-      search_velocity: 4.0
+      search_velocity: 4.5
       slow_forward_velocity: 2.0
       joint: yaw_joint
-      pid: { p: 0.28, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 0.32, i: 0, d: 0.0, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
     position:
-      pos_threshold: 0.01
-      backward_angle: 0.15
+      pos_threshold: 0.05
+      backward_angle: 0.2
       joint: yaw_joint
-      pid: { p: 30.0, i: 0, d: 1.2, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
+      pid: { p: 20.0, i: 0, d: 0.8, i_clamp_max: 0.0, i_clamp_min: 0.0, antiwindup: true }
 
   chassis_controller:
     type: rm_chassis_controllers/OmniController
@@ -47,8 +47,8 @@ controllers:
     enable_odom_tf: true
     publish_odom_tf: false
     power:
-      effort_coeff: 2.0
-      vel_coeff: 0.008
+      effort_coeff: 2.3
+      vel_coeff: 0.012
       power_offset: -9.8
     yaw_vel:
       k_yaw_vel: 0.0
