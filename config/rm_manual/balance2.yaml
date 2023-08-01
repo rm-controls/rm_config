@@ -1,7 +1,7 @@
 rm_manual:
   robot_type: "balance"
   chassis_calibrate_motor: [ "anti_tip_bar_joint_motor" ]
-  gimbal_calibrate_motor: [ "cover_joint_motor" , "pitch_joint_motor" ]
+  gimbal_calibrate_motor: [ "cover_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   flank_frame: "flank_frame"
   reverse_frame: "yaw_reverse_frame"
@@ -12,7 +12,7 @@ rm_manual:
       - [ 60.0,1.0 ]
       - [ 80.0,1.3 ]
       - [ 100.0,1.5 ]
-      - [ 180.0,4.5 ]
+      - [ 180.0,4.0 ]
     accel_y:
       - [ 60.0,4.0 ]
     accel_z:
@@ -46,13 +46,12 @@ rm_manual:
     max_angular_z:
       - [ 60.0,6.5 ]
       - [ 80.0,9.5 ]
-      - [ 100.0,13.0 ]
-      - [ 180.0,14.5 ]
-    gyro_move_reduction: 1.0
+      - [ 200.0,12.0 ]
+    gyro_move_reduction: 0.5
     gyro_rotate_reduction: 0.5
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 12.56
+    max_yaw_vel: 24.56
     max_pitch_vel: 8.37
     track_timeout: 0.5
     finish_turning_threshold: 2.9

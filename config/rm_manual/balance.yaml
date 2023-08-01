@@ -1,6 +1,6 @@
 rm_manual:
   robot_type: "balance"
-  chassis_calibrate_motor: [ "anti_tip_bar_joint_motor" ]
+  chassis_calibrate_motor: [ "left_wheel_joint_motor", "right_wheel_joint_motor" ]
   gimbal_calibrate_motor: [ "cover_joint_motor" , "pitch_joint_motor" ]
   shooter_calibrate_motor: [ "trigger_joint_motor" ]
   flank_frame: "flank_frame"
@@ -12,7 +12,7 @@ rm_manual:
       - [ 60.0,1.0 ]
       - [ 80.0,1.3 ]
       - [ 100.0,1.5 ]
-      - [ 180.0,4.5 ]
+      - [ 180.0,4.0 ]
     accel_y:
       - [ 60.0,4.0 ]
     accel_z:
@@ -37,7 +37,7 @@ rm_manual:
       - [ 60.0,1.20 ]
       - [ 80.0,1.45 ]
       - [ 100.0,1.70 ]
-      - [ 220.0,2.80 ]
+      - [ 220.0,3.00 ]
     max_linear_y:
       - [ 60.0,1.0 ]
       - [ 80.0,1.3 ]
@@ -46,9 +46,8 @@ rm_manual:
     max_angular_z:
       - [ 60.0,6.5 ]
       - [ 80.0,9.5 ]
-      - [ 100.0,13.0 ]
-      - [ 180.0,14.5 ]
-    gyro_move_reduction: 1.0
+      - [ 220.0,14.0 ]
+    gyro_move_reduction: 0.4
     gyro_rotate_reduction: 0.5
   gimbal:
     topic: "/controllers/gimbal_controller/command"
@@ -92,35 +91,35 @@ rm_manual:
       - controllers/joint_state_controller
       - controllers/robot_state_controller
     main_controllers:
-      - controllers/balance_controller
       - controllers/orientation_controller
       - controllers/gimbal_controller
       - controllers/shooter_controller
-      - controllers/cover_controller
-      - controllers/anti_tip_bar_controller
+      - controllers/balance_controller
+      #- controllers/cover_controller
+      #- controllers/anti_tip_bar_controller
     calibration_controllers:
       - controllers/gimbal_calibration_controller
       - controllers/trigger_calibration_controller
-      - controllers/cover_calibration_controller
-      - controllers/anti_tip_bar_calibration_controller
+      #- controllers/cover_calibration_controller
+      #- controllers/anti_tip_bar_calibration_controller
 
-  chassis_calibration:
-    - start_controllers:
-        - controllers/anti_tip_bar_calibration_controller
-      stop_controllers:
-        - controllers/anti_tip_bar_controller
-      services_name:
-        - /controllers/anti_tip_bar_calibration_controller/is_calibrated
+  #  chassis_calibration:
+  #    - start_controllers:
+  #        - controllers/anti_tip_bar_calibration_controller
+  #      stop_controllers:
+  #        - controllers/anti_tip_bar_controller
+  #      services_name:
+  #        - /controllers/anti_tip_bar_calibration_controller/is_calibrated
   gimbal_calibration:
     - start_controllers:
         - controllers/gimbal_calibration_controller
-        - controllers/cover_calibration_controller
+        #- controllers/cover_calibration_controller
       stop_controllers:
         - controllers/gimbal_controller
-        - controllers/cover_controller
+        #- controllers/cover_controller
       services_name:
         - /controllers/gimbal_calibration_controller/is_calibrated
-        - /controllers/cover_calibration_controller/is_calibrated
+        #- /controllers/cover_calibration_controller/is_calibrated
   shooter_calibration:
     - start_controllers:
         - controllers/trigger_calibration_controller
