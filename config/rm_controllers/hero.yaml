@@ -111,6 +111,7 @@ controllers:
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
+      max_track_target_vel: 2.0
     chassis_vel:
       num_data: 20
       debug: true
