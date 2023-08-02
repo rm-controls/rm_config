@@ -1,0 +1,13 @@
+<?xml version="1.0" ?>
+
+<launch>
+    <arg name="robot_type" default="$(env ROBOT_TYPE)"/>
+
+    <param name="robot_description" command="$(find xacro)/xacro $(find rm_description)/urdf/$(arg robot_type)/$(arg robot_type).urdf.xacro
+      load_gimbal:=true load_shooter:=true use_simulation:=false roller_type:=none
+"/>
+
+    <node name="rm_ecat_hw" pkg="rm_ecat_ros" type="rm_ecat_hw" output="screen">
+        <param name="setupFile" value="$(find rm_config)/config/rm_ecat_hw/$(arg robot_type).yaml"/>
+    </node>
+</launch>
