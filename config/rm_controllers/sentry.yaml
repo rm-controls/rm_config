@@ -127,4 +127,4 @@ controllers:
     anti_block_threshold: 0.1
     forward_push_threshold: 0.28
     exit_push_threshold: 0.3
-    qd_30: 733.0
+    extra_wheel_speed: 733.0
