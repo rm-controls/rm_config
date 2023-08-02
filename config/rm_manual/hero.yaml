@@ -58,6 +58,9 @@ rm_manual:
     speed_16m_per_speed: 15.4
     speed_18m_per_speed: 18.0
     speed_30m_per_speed: 30.0
+    wheel_speed_10: 560.0
+    wheel_speed_16: 560.0
+    extra_wheel_speed_once: 5.0
     heat_limit:
       low_shoot_frequency: 1
       high_shoot_frequency: 3
@@ -80,10 +83,6 @@ rm_manual:
   armor_target_switch:
     fail_limit: 10
     service_name: "/outpost_status_switch"
-  extra_friction_wheel_speed:
-    fail_limit: 10
-    extra_speed: 5.0
-    service_name: "/controllers/shooter_controller/extra_friction_wheel_speed"
 
   controllers_list:
     state_controllers:
