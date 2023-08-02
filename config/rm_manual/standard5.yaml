@@ -56,6 +56,9 @@ rm_manual:
     speed_16m_per_speed: 16.0
     speed_18m_per_speed: 15.72
     speed_30m_per_speed: 27.2
+    wheel_speed_15: 450.0
+    wheel_speed_18: 500.0
+    wheel_speed_30: 690.0
     heat_limit:
       low_shoot_frequency: 10
       high_shoot_frequency: 20

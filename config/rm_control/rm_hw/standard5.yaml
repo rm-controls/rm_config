@@ -46,13 +46,13 @@ rm_hw:
       need_calibration: true
     pitch_joint_motor:
       bus: can1
-      id: 0x206
+      id: 0x201
       type: rm_3508
       lp_cutoff_frequency: 100
       need_calibration: true
     left_friction_wheel_joint_motor:
       bus: can1
-      id: 0x201
+      id: 0x203
       type: rm_3508
       lp_cutoff_frequency: 60
     right_friction_wheel_joint_motor:

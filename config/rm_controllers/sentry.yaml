@@ -100,10 +100,11 @@ controllers:
       resistance_coff_qd_18: 0.0
       resistance_coff_qd_30: 0.0
       g: 9.81
-      delay: 0.06
+      delay: 0.03
       dt: 0.001
       timeout: 0.001
       publish_rate: 50
+      max_track_target_vel: 5.0
 
   shooter_controller:
     type: rm_shooter_controllers/Controller
