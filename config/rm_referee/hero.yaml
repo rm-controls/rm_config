@@ -11,13 +11,8 @@ rm_referee:
         config: { start_position: [ 200, 800 ], size: 15, width: 2, title: "shooter: " }
       - name: "target"
         config: { start_position: [ 200, 750 ], size: 15, width: 2, title: "target: " }
-      - name: "camera"
-        config: { start_position: [ 200, 700 ], size: 15, width: 2, title: "camera: " }
-        camera_name: { camera1_name: "hk_camera", camera2_name: "galaxy_camera" }
       - name: "target_view_angle"
-        config: { type: "rectangle", start_position: [ 780, 719 ], end_position: [ 1123,447 ], width: 3 }
-      - name: "hero_target_view_angle"
-        config: { type: "rectangle", start_position: [ 904, 381 ], end_position: [ 1024,464 ], width: 3 }
+        config: { type: "rectangle", start_position: [ 776, 558 ], end_position: [ 1118,813 ], width: 3 }
     time_change:
       - name: "capacitor"
         config: { type: "line", width: 5, delay: 0.2,
@@ -28,7 +23,7 @@ rm_referee:
         config: { type: "line", width: 4, color: "cyan", delay: 0.2,
                   start_position: [ 800, 1080 ], end_position: [ 800, 600 ] }
         data: { radius: 0.48, height: 0.5, camera_range: 1.0, surface_coefficient: 1.0 }
-        reference_joint: "pitch_joint"
+        reference_frame: "pitch"
       - name: "rotation"
         config: { type: "arc", width: 4, delay: 0.15, color: "yellow",
                   start_position: [ 960, 520 ], end_position: [ 320, 320 ] , start_angle: 60, end_angle: 120 }
@@ -42,13 +37,10 @@ rm_referee:
                   start_position: [ 1210, 110 ], end_position: [ 1210, 90 ] }
       - name: "2m"
         config: { type: "line", width: 2, color: "yellow",
-                  start_position: [ 925, 426 ], end_position: [ 995, 426 ] }
+                  start_position: [ 854, 804 ], end_position: [ 1027, 804 ] }
       - name: "3m"
         config: { type: "line", width: 2, color: "yellow",
-                  start_position: [ 935, 416 ], end_position: [ 985, 416 ] }
-      - name: "5m"
-        config: { type: "line", width: 2, color: "yellow",
-                  start_position: [ 948, 400 ], end_position: [ 972, 400 ] }
+                  start_position: [ 854, 735 ], end_position: [ 1027, 735 ] }
       - name: "mid"
         config: { type: "line", width: 2, color: "yellow",
                   start_position: [ 960, 400 ], end_position: [ 960, 540 ] }

@@ -15,30 +15,33 @@ rm_manual:
     capacitor_threshold: 0.2
     charge_power: 20
     extra_power: 80
-    burst_power: 200
+    burst_power: 220
     buffer_threshold: 10
     power_gain: 0.85
   vel:
     topic: "/cmd_vel"
     power_limit_topic: "/cmd_chassis"
     max_linear_x:
-      - [ 50.0,7.0 ]
-      - [ 80.0,7.0 ]
-      - [ 240.0, 7.0 ]
+      - [ 50.0,2.1 ]
+      - [ 80.0,2.8 ]
+      - [ 100.0,3.2 ]
+      - [ 220.0, 5.0 ]
     max_linear_y:
-      - [ 50.0,7.0 ]
-      - [ 80.0,7.0 ]
-      - [ 240.0,7.0 ]
+      - [ 50.0,2.1 ]
+      - [ 80.0,2.8 ]
+      - [ 100.0,3.2 ]
+      - [ 220.0,5.0 ]
     max_angular_z:
-      - [ 50.0,20.0 ]
-      - [ 80.0,14.9 ]
-      - [ 240.0,18.2 ]
-    gyro_move_reduction: 0.3
+      - [ 50.0,10.5 ]
+      - [ 80.0,15.0 ]
+      - [ 100.0,18.0 ]
+      - [ 220.0,20.0 ]
+    gyro_move_reduction: 0.4
     gyro_rotate_reduction: 0.4
   gimbal:
     topic: "/controllers/gimbal_controller/command"
-    max_yaw_vel: 12.56
-    max_pitch_vel: 8.37
+    max_yaw_vel: 37.68
+    max_pitch_vel: 25.12
     track_timeout: 0.5
     finish_turning_threshold: 2.9
     target_cost_function:
@@ -49,7 +52,7 @@ rm_manual:
       timeout: 0.05
   shooter:
     topic: "/controllers/shooter_controller/command"
-    gimbal_error_tolerance: 0.25
+    gimbal_error_tolerance: 0.05
     target_acceleration_tolerance: 99.
     speed_10m_per_speed: 10.0
     speed_15m_per_speed: 13.5
@@ -66,7 +69,7 @@ rm_manual:
       type: "ID1_17MM"
   cover:
     topic: "/controllers/cover_controller/command"
-    on_pos: 1.388
+    on_pos: 1.94
     off_pos: 0.013
   buff_switch:
     fail_limit: 10
