@@ -37,7 +37,7 @@ rm_hw:
       bus: can1
       id: 0x206
       type: rm_6020
-      lp_cutoff_frequency: 80
+      lp_cutoff_frequency: 50
     left_friction_wheel_joint_motor:
       bus: can1
       id: 0x201
